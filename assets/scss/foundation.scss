@@ -42,6 +42,11 @@ body {
 	// to REM using 1rem = 16px
 
   margin: var(--body-margin);
+  @media (min-width: 108rem) {
+    max-width: 102rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
   padding: 0;
   background: var(--color-page, #f0f);
 }
