@@ -1,4 +1,5 @@
 @use 'scss-variables';
+@use 'typography';
 
 // Styles for the global page header
 
@@ -8,6 +9,7 @@ header {
 
   a {
     &, &:link, &:active, &:visited, &:hover, &:focus {
+      @include typography.headline-style;
       text-decoration: none;
     }
 
@@ -16,7 +18,12 @@ header {
     }
   }
 
-  h1 {
+  .title {
+    @include typography.headline-font;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--text-color-dimmed);
+
     flex-grow: 1;
     margin-bottom: 0;
   }
