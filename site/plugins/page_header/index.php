@@ -6,7 +6,7 @@
 		$has_mobile_header = $site->header_mobile()->exists();
 	
 		$title = "<div class=title>";
-		$title .= "<a href='{$site->url()}' tabindex=1><span itemprop=name>{$site->title()}</span></a>";
+		$title .= "<a href='{$site->url()}' tabindex=1 itemprop=name>{$site->title()}</a>";
 		
 		if($has_default_header || $has_tablet_header || $has_mobile_header) {
 			// At least one of the headers is set
