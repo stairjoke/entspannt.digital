@@ -1,4 +1,4 @@
-<html lang="de-DE">
+<html lang="de-DE" itemscope itemtype='https://schema.org/OnlineBusiness'>
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,11 +10,11 @@
 		<!-- CONTAINS A COLOR THAT CANNOT BE REFERENCED FROM CSS COLOR VARIABLES, NEEDS TO BE MAINTAINED! -->
 		<!--<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfcfb">
 		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1C1D1B">-->
-		<meta name="theme-color" content="#fbfcfb">
+		<meta name="theme-color" content="#ffffff">
 	</head>
 <body>
 	<header>
-		<a href="<?= $site->url() ?>" tabindex="1"><?= get_header_title_as_html($site) ?></a>
+		<?= get_header_title_as_html($site) ?>
 		<nav>
 			<!--
 					The input[type=checkbox]#nav-toggle triggers all .triggered-by-nav-toggle nodes to change the menu icon and show/hide the menu
