@@ -2,20 +2,18 @@
 
 //Palette
 $color-day-body-text: #212121;
-$color-day-dimmed-text: #8C8C8C;
+$color-day-dimmed-text: #8F9AA3;
 $color-day-link-text: #545454;
 $color-day-inverted-text: #FFFFFF;
 $color-day-HC-text: #000000;
 
-$color-day-visual-grouping: #f1f2f1;
-$color-day-page: #fbfcfb;
+$color-day-visual-grouping: #EAEBEB;
+$color-day-page: #FFFFFF;
 $color-day-shadow: rgba(0,0,0,0.15);
 $color-day-specular: rgba(255,255,255,0.28);
 
-$color-day-accent: #5B8D3E;
-$color-day-accent-hover: #659C45;
-$color-day-success: #0AAE49;
-$color-day-error: #AE0A38;
+$color-day-accent: #11446C;
+$gradient-day-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
 
 //CSS Variables
 @mixin day-colors() {
@@ -31,9 +29,8 @@ $color-day-error: #AE0A38;
   --color-specular: #{$color-day-specular};
 
   --color-accent: #{$color-day-accent};
-  --color-accent-hover: #{$color-day-accent-hover};
-  --status-color-success: #{$color-day-success};
-  --status-color-error: #{$color-day-error};
+  --gradient-accent: #{$gradient-day-accent};
+  --color-accent-hover: #f0f;
 }
 
 :root {
