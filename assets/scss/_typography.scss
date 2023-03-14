@@ -52,6 +52,7 @@ em, strong {
 }
 
 @mixin _body-underline {
+  @include body-text();
   text-decoration: underline;
 }
 
@@ -61,6 +62,7 @@ em, strong {
 
 // A literal is a word mark, or untranslated name of an object. Inline text.
 @mixin _body-literal {
+  @include body-text();
   font-style: italic;
 }
 
@@ -69,93 +71,59 @@ em, strong {
 }
 
 // ---Headline Styles---
-//h1
 @mixin headline-font {
   font-family: futura-pt, "Futura PT", sans-serif;
   font-weight: 600;
   font-style: normal;
   text-transform: uppercase;
+  color: var(--color-accent);
 }
 
-@mixin L-headline {
-  @include headline-font();
-
-  font-size: 2rem;
-  line-height: 3rem;
-  color: var(--text-color-high-contrast, #f0f);
-}
-
-@mixin S-headline {
-  @include L-headline();
-
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-h1 {
-  @include S-headline();
-
-  margin: 0 0 1rem 0;
-
-  @media (min-width: #{scss-variables.$break-point-tablet}) {
-    @include L-headline();
+@mixin headline-style {
+  @supports(-webkit-background-clip: text) {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
-//h2
-@mixin L-section-title {
-  @include L-headline();
+//h1
+@mixin section-title() {
+  @include headline-font();
+  @include headline-style();
 
   font-size: 4rem;
   line-height: 6rem;
-
-  color: var(--text-color-dimmed, #f0f);
 }
 
-@mixin S-section-title {
-  @include L-section-title();
+h1 {
+  @include section-title();
+}
 
-  font-size: 2.5rem;
+//h2
+@mixin headline() {
+  @include headline-font();
+  @include headline-style();
+
+  font-size: 2rem;
   line-height: 3rem;
 }
 
 h2 {
-  @include S-section-title();
-  margin: var(--spacer-full, 500px) 0 var(--spacer-line-break, 500px) 0;
-  &:first-child {
-    margin-bottom: var(--spacer-full);
-  }
-
-  @media (min-width: #{scss-variables.$break-point-tablet}) {
-    @include L-section-title();
-  }
+  @include headline();
 }
 
 //h3
-@mixin _L-H3 {
+@mixin h3() {
   @include headline-font();
-  line-height: 2rem;
-  font-size: 1.5rem;
-}
+  @include headline-style();
 
-@mixin _S-H3 {
-  @include headline-font();
-  font-size: 1.25rem;
-  line-height: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 h3 {
-  @include _S-H3();
-
-  margin: var(--spacer-full) 0 var(--spacer-line-break) 0;
-
-  @media (min-width: #{scss-variables.$break-point-tablet}) {
-    @include _L-H3();
-  }
-
-  &:first-child {
-    margin-top: 0;
-  }
+  @include h3();
 }
 
 //h4
