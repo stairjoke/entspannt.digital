@@ -67,12 +67,17 @@ em, strong {
   font-style: italic;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
 h1 {
   font-family: futura-pt, "Futura PT", sans-serif;
   font-weight: 600;
   font-style: normal;
   text-transform: uppercase;
   color: var(--color-accent);
+  font-weight: 700;
   font-size: 4rem;
   line-height: 6rem;
 }
@@ -298,7 +303,7 @@ aside button, aside .button, aside a[role=button] {
 }
 
 @media (min-width: 55.5rem) {
-  main.default section, main.default h2, main.default h3, main.default h4, main.default h5, main.default ul, main.default ol, main.default p {
+  main.default section, main.default h1, main.default h2, main.default h3, main.default h4, main.default h5, main.default ul, main.default ol, main.default p {
     max-width: 49.5rem;
     margin-left: auto;
     margin-right: auto;
