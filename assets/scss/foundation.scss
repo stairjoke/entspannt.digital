@@ -11,16 +11,19 @@
 //Foundational Styles, required by all page types
 
 :root {
+  --spacer-section: 4rem;
   --spacer-full: 2rem;
   --spacer-line-break: 1rem;
   --grid-gap: 1rem;
   @media (min-width: #{scss-variables.$break-point-tablet}){
-    --spacer-full: 3rem;
+    --spacer-section: 6rem;
+    --spacer-element: 3rem;
+    --spacer-full: var(--spacer-element);
     --spacer-line-break: 1.5rem;
     --grid-gap: 3rem;
   }
 
-  --border-radius-default: 0.25rem;
+  --border-radius-default: 0.5rem;
 
   --body-margin: 0.5rem;
   @media (min-width: #{scss-variables.$break-point-XS-phone}) {
@@ -34,6 +37,9 @@
   @media (min-width: #{scss-variables.$break-point-tablet}) {
     --body-margin: 3rem;
   }
+
+  --transition-duration-XL: 400ms;
+  --transition-timing-function: cubic-bezier(.5, .5, .5, 1);
 }
 
 body {

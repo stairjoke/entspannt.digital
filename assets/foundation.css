@@ -13,6 +13,7 @@
   --color-accent: #11446C;
   --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
   --color-accent-hover: #f0f;
+  --color-day-overlay: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -80,6 +81,8 @@ h1 {
   font-weight: 700;
   font-size: 4rem;
   line-height: 6rem;
+  outline: solid 1px var(--color-visual-grouping);
+  position: relative;
 }
 @supports (-webkit-background-clip: text) {
   h1 {
@@ -87,6 +90,17 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+}
+h1:after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  content: " ";
+  border-image: url("border-image-day.png");
+  border-width: 8px;
+  border-style: solid;
+  border-image-slice: 24;
+  border-image-outset: 4px;
 }
 
 h2 {
@@ -603,15 +617,20 @@ header nav a.current {
 }
 
 :root {
+  --spacer-section: 4rem;
   --spacer-full: 2rem;
   --spacer-line-break: 1rem;
   --grid-gap: 1rem;
-  --border-radius-default: 0.25rem;
+  --border-radius-default: 0.5rem;
   --body-margin: 0.5rem;
+  --transition-duration-XL: 400ms;
+  --transition-timing-function: cubic-bezier(.5, .5, .5, 1);
 }
 @media (min-width: 744px) {
   :root {
-    --spacer-full: 3rem;
+    --spacer-section: 6rem;
+    --spacer-element: 3rem;
+    --spacer-full: var(--spacer-element);
     --spacer-line-break: 1.5rem;
     --grid-gap: 3rem;
   }
@@ -636,6 +655,13 @@ body {
   margin: var(--body-margin);
   padding: 0;
   background: var(--color-page, #f0f);
+}
+@media (min-width: 108rem) {
+  body {
+    max-width: 102rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 footer {
@@ -664,6 +690,7 @@ svg.icon use {
   --color-accent: #11446C;
   --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
   --color-accent-hover: #f0f;
+  --color-day-overlay: rgba(0, 0, 0, 0.5);
 }
 *:hover > svg.icon {
   --transition-duration: 120ms;
