@@ -3,10 +3,10 @@
 
 // Layout definitions for <main class=default>
 main.default {
-  // The desktop design was tailored to 1728px wide (16" MacBook Pro), it had
+  // The desktop design is tailored to 1728px wide (16" MacBook Pro), it has
   // 12 columns with a 48px (3rem) gutter (16px/1rem on mobile), the central
-  // six are used to anything that is not an illustration. The central six
-  // columns are 49.5rem wide at 1rem=16px.
+  // six are used to contain everything. The central six columns are 49.5rem
+  // wide at 1rem=16px.
 
   // The mobile layout technically has columns, but it uses only all four at
   // the same time.
