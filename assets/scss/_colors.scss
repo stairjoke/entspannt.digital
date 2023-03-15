@@ -15,6 +15,8 @@ $color-day-specular: rgba(255,255,255,0.28);
 $color-day-accent: #11446C;
 $gradient-day-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
 
+$color-day-overlay: rgba(0, 0, 0, 0.5);
+
 //CSS Variables
 @mixin day-colors() {
   --text-color-body-text: #{$color-day-body-text};
@@ -31,6 +33,8 @@ $gradient-day-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
   --color-accent: #{$color-day-accent};
   --gradient-accent: #{$gradient-day-accent};
   --color-accent-hover: #f0f;
+
+  --color-day-overlay: #{$color-day-overlay};
 }
 
 :root {
