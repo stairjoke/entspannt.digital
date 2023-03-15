@@ -1,4 +1,5 @@
 @use 'scss-variables';
+@use 'global-styles';
 
 // Home page specific CSS
 
@@ -6,7 +7,7 @@ main {
   // a grid of cards
   @media(min-width: #{scss-variables.$break-point-tablet}){
     display: grid;
-    gap: var(--grid-gap);
+    grid-gap: var(--spacer-section) var(--grid-gap); //row column -> Y X, not X Y
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -14,97 +15,87 @@ main {
     // Each article is a card
     margin-bottom: var(--grid-gap);
     @media(min-width: #{scss-variables.$break-point-tablet}){
+      // On tablet and above, the container uses CSS grid to distribute the cards
       margin-bottom: 0;
     }
-    display: flex;
-    flex-direction: column;
+    position: relative;
 
-    a.card {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-direction: column;
-      align-items: center;
-
-      padding: 1.5rem;
-      box-sizing: border-box;
-
-      background-color: var(--color-visual-grouping);
-      border-radius: var(--border-radius-default);
-
-      text-align: center;
-
-      &, &:visited, &:active {
-        text-decoration: none;
-        color: var(--text-color-body-text);
-
-        transition-property: box-shadow, transform, background-color;
-        transition-duration: 240ms;
-        transition-timing-function: ease-out;
-
-        box-shadow:
-        0 0 0 0 var(--color-shadow, #f0f),
-        inset 0 0 0 0 var(--color-shadow, #f0f),
-        inset 0 0 0 0 var(--color-specular, #f0f);
-      }
-      &:hover, &:focus {
-        transition-duration: 120ms;
-        transition-timing-function: cubic-bezier(1, 1.5, .75, .87);
-
-        transform: scale(1.0075);
-        box-shadow:
-        0 .25rem .125rem 0 var(--color-shadow, #f0f),
-        inset 0 0 0 0 var(--color-shadow, #f0f),
-        inset 0 .0625rem .0625rem 0 var(--color-specular, #f0f);
-      }
-
-      &:active {
-        transition-duration: 100ms;
-
-        transform: scale(0.995);
-        box-shadow:
-        0 0 0 0 var(--color-shadow, #f0f),
-        inset 0 .125rem .125rem 0 var(--color-shadow, #f0f),
-        inset 0 0 0 0 var(--color-specular, #f0f);
-      }
-    }
-
-    figure, img {
-      width: 100%;
-      margin-bottom: var(--spacer-line-break);
-    }
-
-    .card-body {
-      margin-top: auto;
-      p {
-        margin-bottom: 0;
-      }
-    }
+    // Limit height based on width
+    aspect-ratio: 16 / 9;
 
     &.CTA {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      // CTA is full width
+      grid-column: 1 / -1;
 
-      padding: 1.5rem;
-
-      grid-column: 1 / 3;
-      background-color: transparent;
+      // Allow for taller content than usual
+      aspect-ratio: unset;
 
       &>div {
         text-align: left;
-        margin: 0 -1.5rem;
 
+        // On tablet and above, use the central 6 of 12 columns = 50%
         @media (min-width: #{scss-variables.$break-point-tablet}){
           margin: 0 auto;
           padding: var(--grid-gap) 0;
-          width: calc(50% + 3rem); // = 4 of 12 columns removing the container's padding
-        }
-        @media (min-width: #{scss-variables.$break-point-desktop-S}){
-          width: calc(33.33% + 3rem); // = 4 of 12 columns removing the container's padding
+          width: 50%;
         }
       }
     }
+
+    .card {
+      // All cards except CTA are links with the class 'card'
+      display: block;
+      @include global-styles.resize-handles;
+      position: absolute;
+      inset: 0;
+
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      padding: var(--grid-gap);
+      background-origin: content-box;
+
+      transition-property: padding;
+      transition-duration: var(--transition-duration-XL);
+      transition-timing-function: var(--transition-timing-function);
+
+      &:hover, &:focus {
+        padding: calc(var(--grid-gap) / 2);
+        .card-body {
+          opacity: 1;
+        }
+      }
+
+      &:focus-visible {
+        outline: solid 2px var(--color-accent);
+        outline-offset: calc((var(--grid-gap) / 2) - 4px);
+      }
+
+      .card-body {
+        opacity: 0;
+
+        transition-property: opacity;
+        transition-duration: var(--transition-duration-XL);
+        transition-timing-function: var(--transition-timing-function);
+
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-day-overlay);
+
+        color: var(--text-color-inverted);
+        text-align: center;
+
+        padding: var(--grid-gap);
+
+        h2 {
+          background: unset;
+          -webkit-background-clip: unset;
+          -webkit-text-fill-color: unset;
+          color: var(--text-color-inverted);
+        }
+      }
+    }
+
   }
 }
 footer {
