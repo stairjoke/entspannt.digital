@@ -25,16 +25,13 @@ body {
   color: var(--text-color-body-text, #f0f);
 }
 
-p {
-  margin: 0;
-}
 h2 + p.byline, h3 + p.byline {
   margin-top: calc(-1 * var(--spacer-line-break));
   margin-bottom: var(--spacer-line-break);
 }
 
 h1 + p, h1 ul, h1 ol, h2 + p, h2 ul, h2 ol, h3 + p, h3 ul, h3 ol, h4 + p, h4 ul, h4 ol, p + p, p ul, p ol, ul + p, ul ul, ul ol, ol + p, ol ul, ol ol, figure + p, figure ul, figure ol {
-  margin: 0.5rem 0 0 0;
+  margin: 1.5rem 0 0 0;
 }
 
 a:link, a:active, a:visited {
@@ -604,7 +601,7 @@ header nav .menu {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--grid-gap-mobile);
+  gap: var(--grid-gap);
 }
 header nav input[type=checkbox]#nav-toggle {
   visibility: hidden;
@@ -637,6 +634,13 @@ header nav ul {
   padding: 0;
 }
 @media (max-width: 1022px) {
+  header nav a {
+    font-family: futura-pt, "Futura PT", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
   header nav a .CTA {
     color: var(--text-color-inverted);
   }

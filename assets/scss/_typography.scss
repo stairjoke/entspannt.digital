@@ -21,8 +21,7 @@ body {
   @include body-text();
 }
 
-p{
-  margin: 0;
+p {
 
   &.byline {
     h2 + &, h3 + & {
@@ -34,7 +33,7 @@ p{
 
 h1, h2, h3, h4, p, ul, ol, figure {
   &+p, ul, ol {
-    margin: .5rem 0 0 0;
+    margin: 1.5rem 0 0 0;
   }
 }
 
