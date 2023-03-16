@@ -3,84 +3,96 @@
 //Buttons
 
 button, .button, a[role=button] {
+  --transition-duration: var(--transition-duration-M);
+  --transition-duration-click: var(--transition-duration-M-click);
+  --color-ambient-occlusion-level-1: rgba(0, 0, 0, 0.02);
+  --color-ambient-occlusion-level-2: rgba(0, 0, 0, 0.04);
+  --color-drop-shadow: rgba(0, 0, 0, 0.12);
+  --color-inset-shadow-when-pressed: var(--color-drop-shadow);
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
   @include typography.body-text();
-  padding: calc(0.75rem - 1px) calc(1rem - 1px);
-  margin: 0 0 0.125rem 0;
+  padding: .875rem .6875rem;
+  margin: 0 0 var(--spacer-line-break) 0;
   border-radius: var(--border-radius-default);
 
-  transition-property: box-shadow, transform, background-color;
-  transition-duration: 240ms;
-  transition-timing-function: ease-out;
+  transition-property: box-shadow, transform;
+  transition-duration: var(--transition-duration, 5s);
+  transition-timing-function: var(--transition-timing-function);
 
-  background-color: var(--color-visual-grouping, #f0f);
-  border: solid 1px var(--text-color-body-text, #f0f);
+  background-color: var(--color-page);
+  border: solid 1px var(--text-color-dimmed);
+
+  // To allow for a smooth fade of the shadow, it must exist—even if invisibly.
   box-shadow:
-    0 0 0 0 var(--color-shadow, #f0f),
-    inset 0 0 0 0 var(--color-shadow, #f0f),
-    inset 0 0 0 0 var(--color-specular, #f0f);
+    0 0 0 0 var(--color-ambient-occlusion-level-1),
+    0 0 0 0 var(--color-ambient-occlusion-level-2),
+    0 0 0 0 var(--color-drop-shadow),
+    inset 0 0 0 0 var(--color-inset-shadow-when-pressed);
 
   text-decoration: none;
   text-align: center;
 
   color: var(--text-color-body-text, #f0f);
+
   &:link, &:active, &:visited {
     text-decoration: none;
     color: var(--text-color-body-text, #f0f);
   }
   &:hover, &:focus {
-    transition-duration: 120ms;
+    transition-duration: var(--transition-duration, 5s);
     transition-timing-function: cubic-bezier(1, 1.5, .75, .87);
 
     transform: scale(1.05);
+
     box-shadow:
-      0 .25rem .125rem 0 var(--color-shadow, #f0f),
-      inset 0 0 0 0 var(--color-shadow, f0f),
-      inset 0 0 0 0 var(--color-specular, #f0f);
+    0 0 .25rem 0 var(--color-ambient-occlusion-level-1),
+    0 0 1.5rem 0 var(--color-ambient-occlusion-level-2),
+    0 .5rem 1px 0 var(--color-drop-shadow),
+    inset 0 0 0 0 var(--color-inset-shadow-when-pressed);
 
     text-decoration: none;
     color: var(--text-color-body-text, #f0f);
   }
   &:active {
-    transition-duration: 50ms;
+    transition-duration: var(--transition-duration-click);
 
-    transform: scale(0.995);
+    transform: scale(1);
+
     box-shadow:
-      0 0 0 0 var(--color-shadow, #f0f),
-      inset 0 .125rem .125rem 0 var(--color-shadow, #f0f),
-      inset 0 0 0 0 var(--color-specular, #f0f);
+    0 0 0 0 var(--color-ambient-occlusion-level-1),
+    0 0 0 0 var(--color-ambient-occlusion-level-2),
+    0 0 0 0 var(--color-drop-shadow),
+    inset 0 .5rem 1px 0 var(--color-inset-shadow-when-pressed);
   }
 
   &.nav-button {
     display: inline-block;
-    background-color: var(--color-page, #f0f);
-    border: none;
+    background-color: var(--color-page);
     padding: 0.25rem 0.5rem;
     margin: 0.75rem 0 0 0;
+    border-color: transparent;
 
     &.current {
-      background-color: var(--color-visual-grouping, #f0f);
+      background-color: var(--color-visual-grouping);
     }
 
     &:hover, &:focus {
-      background-color: var(--color-specular, #f0f);
+      background-color: var(--color-specular);
+      border-color: var(--text-color-dimmed);
     }
 
-    &.CTA {
-      &:hover, &:focus {
-        background-color: var(--color-accent-hover, #f0f);
-      }
-    }
   }
 
   &.CTA {
-    background-color: var(--color-accent, #f0f);
+    background: var(--gradient-accent);
     color: var(--text-color-inverted);
-    border-color: transparent;
     border: none;
+
+    --color-inset-shadow-when-pressed: rgba(0, 0, 0, 0.33);
 
     &:link, &:active, &:visited {
       text-decoration: none;
@@ -91,18 +103,6 @@ button, .button, a[role=button] {
       background-color: var(--color-accent-hover, #f0f);
       color: var(--text-color-inverted, #f0f);
       text-decoration: none;
-
-      box-shadow:
-      0 .5rem .125rem 0 var(--color-shadow, #f0f),
-      inset 0 0 0 0 var(--color-shadow, #f0f),
-      inset 0 .0625rem .0625rem 0 var(--color-specular, #f0f);
-    }
-
-    &:active {
-      box-shadow:
-      0 0 0 0 var(--color-shadow, #f0f),
-      inset 0 .125rem .125rem 0 var(--color-shadow, #f0f),
-      inset 0 0 0 0 var(--color-specular, #f0f);
     }
   }
 
