@@ -23,7 +23,15 @@ body {
 
 p{
   margin: 0;
+
+  &.byline {
+    h2 + &, h3 + & {
+      margin-top: calc(-1 * var(--spacer-line-break));
+      margin-bottom: var(--spacer-line-break);
+    }
+  }
 }
+
 h1, h2, h3, h4, p, ul, ol, figure {
   &+p, ul, ol {
     margin: .5rem 0 0 0;
@@ -48,7 +56,7 @@ a {
   text-decoration: none;
 }
 
-em, strong {
+em, strong, .byline {
   @include _body-emphasis();
 }
 
