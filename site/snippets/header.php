@@ -31,9 +31,29 @@
 	
 			<ul class="menu triggered-by-nav-toggle">
 				<?php
-					echo("<li><a href='". $site->homePage()->url() ."' class='button nav-button'>". $site->homePage()->title() ."</a></li>");
+					// Same as inside the loop: Creates nav item, first for the home page,
+					// then for all children
+					
+					// Make $item string and start the LI-element for the nav item in it
+					$item = "<li><a href='{$site->homePage()->url()}' class='button nav-button";
+					// if the current page is the page linked to in this nav item
+					if($page->is($site->homePage())) {
+						// add CSS class "current"
+						$item .= " current";
+					}
+					// close the LI-HTML item
+					$item .= "'>{$site->homePage()->title()}</a></li>";
+					// return HTML item to page
+					echo($item);
+					
+					// Same as above, but for all pages that are children of "home"
 					foreach($site->children()->listed() as $navItem){
-						echo("<li><a href='". $navItem->url() ."' class='button nav-button'>". $navItem->title() ."</a></li>");
+						$item = "<li><a href='{$navItem->url()}' class='button nav-button";
+						if($page->is($navItem)) {
+							$item .= " current";
+						}
+						$item .= "'>{$navItem->title()}</a></li>";
+						echo($item);
 					}
 				?>
 				<li><a href="<?= $site->contact_link() ?>" role="button" class="nav-button CTA"><svg class="icon inline">
