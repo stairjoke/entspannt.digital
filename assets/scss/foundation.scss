@@ -38,8 +38,9 @@
     --body-margin: 3rem;
   }
 
-  --transition-duration-XL: 400ms;
-  --transition-timing-function: cubic-bezier(.5, .5, .5, 1);
+  --transition-duration-L: 240ms;
+  --transition-duration-XL: 380ms;
+  --transition-timing-function: cubic-bezier(.5, .5, .25, .75);
 }
 
 body {
