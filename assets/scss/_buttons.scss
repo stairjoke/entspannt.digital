@@ -73,7 +73,7 @@ button, .button, a[role=button] {
     display: inline-block;
     background-color: var(--color-page);
     padding: 0.25rem 0.5rem;
-    margin: 0.75rem 0 0 0;
+    margin: 0;
     border-color: transparent;
 
     &.current {
