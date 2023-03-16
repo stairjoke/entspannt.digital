@@ -11,11 +11,16 @@ main .page-opener {
 main article {
   margin-bottom: var(--grid-gap);
   position: relative;
-  aspect-ratio: 16/9;
+  min-height: 247px;
 }
 @media (min-width: 744px) {
   main article {
     margin-bottom: 0;
+  }
+}
+@media (min-width: 1024px) {
+  main article {
+    aspect-ratio: 16/9;
   }
 }
 main article.CTA {
@@ -89,6 +94,11 @@ main article .card .card-body h2 {
   -webkit-background-clip: unset;
   -webkit-text-fill-color: unset;
   color: var(--text-color-inverted);
+}
+@media (max-width: 1024px) {
+  main article .card .card-body h2 {
+    font-size: 1.5rem;
+  }
 }
 
 footer {
