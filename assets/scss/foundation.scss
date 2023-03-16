@@ -12,7 +12,8 @@
 
 :root {
   --spacer-section: 4rem;
-  --spacer-full: 2rem;
+  --spacer-element: 3rem;
+  --spacer-full: var(--spacer-element);
   --spacer-line-break: 1rem;
   --grid-gap: 1rem;
   @media (min-width: #{scss-variables.$break-point-tablet}){
