@@ -56,7 +56,7 @@ a {
   text-decoration: none;
 }
 
-em, strong, .byline {
+em, strong, p.byline {
   @include _body-emphasis();
 }
 

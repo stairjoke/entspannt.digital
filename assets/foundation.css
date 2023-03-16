@@ -46,7 +46,7 @@ a:hover, a:focus {
   color: var(--color-accent, #f0f);
 }
 
-em, strong, .byline {
+em, strong, p.byline {
   font-weight: 700;
   font-style: normal;
   text-decoration: none;
