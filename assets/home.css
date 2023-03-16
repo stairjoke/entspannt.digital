@@ -58,6 +58,7 @@ main article .card:after {
   inset: 0;
   display: block;
   content: " ";
+  pointer-events: none;
   border-image: url("border-image-day.png");
   border-width: 8px;
   border-style: solid;

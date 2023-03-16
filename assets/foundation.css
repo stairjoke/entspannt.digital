@@ -28,6 +28,10 @@ body {
 p {
   margin: 0;
 }
+h2 + p.byline, h3 + p.byline {
+  margin-top: calc(-1 * var(--spacer-line-break));
+  margin-bottom: var(--spacer-line-break);
+}
 
 h1 + p, h1 ul, h1 ol, h2 + p, h2 ul, h2 ol, h3 + p, h3 ul, h3 ol, h4 + p, h4 ul, h4 ol, p + p, p ul, p ol, ul + p, ul ul, ul ol, ol + p, ol ul, ol ol, figure + p, figure ul, figure ol {
   margin: 0.5rem 0 0 0;
@@ -42,7 +46,7 @@ a:hover, a:focus {
   color: var(--color-accent, #f0f);
 }
 
-em, strong {
+em, strong, .byline {
   font-weight: 700;
   font-style: normal;
   text-decoration: none;
@@ -103,6 +107,7 @@ h1:after {
   inset: 0;
   display: block;
   content: " ";
+  pointer-events: none;
   border-image: url("border-image-day.png");
   border-width: 8px;
   border-style: solid;
@@ -275,7 +280,7 @@ button, .button, a[role=button] {
   line-height: 1.5rem;
   color: var(--text-color-body-text, #f0f);
   padding: 0.875rem 0.6875rem;
-  margin: 0 0 var(--spacer-line-break) 0;
+  margin: 0;
   border-radius: var(--border-radius-default);
   transition-property: box-shadow, transform;
   transition-duration: var(--transition-duration, 5s);
@@ -378,6 +383,7 @@ main.default section:has(aside) > div {
 @media (min-width: 744px) {
   main.default section:has(aside) {
     flex-direction: row;
+    align-items: flex-start;
     column-gap: var(--grid-gap, 500px);
   }
   main.default section.two-columns {
@@ -408,7 +414,7 @@ main.default section:has(aside) > div {
   }
 }
 main.default aside {
-  margin: 0 0 var(--spacer-full) 0;
+  margin: 0 0 var(--spacer-element) 0;
   order: 0;
   box-sizing: border-box;
   flex-grow: 0;
@@ -416,7 +422,7 @@ main.default aside {
 }
 @media (min-width: 743px) {
   main.default aside {
-    margin-block-end: 0;
+    margin: 0;
   }
 }
 main.default aside.floor {
@@ -442,7 +448,7 @@ main.default aside.floor {
 @media (min-width: 414px) and (max-width: 743px) {
   main.default aside {
     float: right;
-    margin: 0 0 var(--spacer-full) var(--grid-gap) !important;
+    margin: 0 0 var(--spacer-line-break) var(--grid-gap) !important;
     width: calc(50% - var(--grid-gap) / 2);
   }
 }
@@ -503,9 +509,27 @@ main.default figure.floating-illustration video {
   max-height: calc(50vw - var(--body-margin));
 }
 main.default .visually-grouped-block {
-  background-color: var(--color-visual-grouping, #f0f);
-  border-radius: var(--border-radius-default);
+  outline: solid 1px var(--color-visual-grouping);
+  position: relative;
   padding: var(--spacer-line-break);
+}
+main.default .visually-grouped-block:after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  content: " ";
+  pointer-events: none;
+  border-image: url("border-image-day.png");
+  border-width: 8px;
+  border-style: solid;
+  border-image-slice: 24;
+  border-image-outset: 4px;
+}
+main.default .visually-grouped-block figure {
+  margin: calc(-1 * var(--spacer-line-break)) calc(-1 * var(--spacer-line-break)) var(--spacer-line-break) calc(-1 * var(--spacer-line-break));
+}
+main.default .visually-grouped-block figure:first-child, main.default .visually-grouped-block figure:first-child img {
+  border-radius: 0;
 }
 main.default .visually-grouped-list {
   border-left: solid 2px var(--color-accent, #f0f);
@@ -700,6 +724,11 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.line-break-spacing {
+  margin-top: var(--spacer-line-break);
+  margin-bottom: var(--spacer-line-break);
 }
 
 .page-opener {
