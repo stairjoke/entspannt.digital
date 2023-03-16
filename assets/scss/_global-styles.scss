@@ -5,19 +5,20 @@
 	// the visual clue until the graphic with the resize-handles has loaded
 	outline: solid 1px var(--color-visual-grouping);
 	position: relative;
-	
+
 	&:after {
 		position: absolute;
 		inset: 0;
 		display: block;
 		content: " ";
-		
+    pointer-events: none;
+
 		border-image: url('border-image-day.png');
 		border-width: 8px;
 		border-style: solid;
 		border-image-slice: 24;
 		border-image-outset: 4px;
-		
+
 		// This needs to be inside an absolutely positioned pseudo-element
 		// to avoid the border-width from adding unwanted white space between
 		// the edge/corners and the content/background -> border-image-outset
