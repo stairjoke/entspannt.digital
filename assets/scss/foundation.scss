@@ -38,6 +38,8 @@
     --body-margin: 3rem;
   }
 
+  --transition-duration-M: 120ms;
+  --transition-duration-M-click: 35ms;
   --transition-duration-L: 240ms;
   --transition-duration-XL: 380ms;
   --transition-timing-function: cubic-bezier(.5, .5, .25, .75);
@@ -74,11 +76,12 @@ svg.icon {
   }
 
 
-  --transition-duration: 240ms;
+  --transition-duration: var(--transition-duration-M);
   --primary-transform: 1;
   --secondary-transform: 0;
+
   *:hover > & {
-    --transition-duration: 120ms;
+    --transition-duration: var(--transition-duration-M);
     --primary-transform: 0;
     --secondary-transform: 1;
   }
