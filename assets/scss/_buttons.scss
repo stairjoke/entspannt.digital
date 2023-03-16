@@ -3,8 +3,8 @@
 //Buttons
 
 button, .button, a[role=button] {
-  --transition-duration: var(--transition-duration-M);
-  --transition-duration-click: var(--transition-duration-M-click);
+  --transition-duration: var(--transition-duration-L);
+  --transition-duration-click: var(--transition-duration-L-click);
   --color-ambient-occlusion-level-1: rgba(0, 0, 0, 0.02);
   --color-ambient-occlusion-level-2: rgba(0, 0, 0, 0.04);
   --color-drop-shadow: rgba(0, 0, 0, 0.12);
