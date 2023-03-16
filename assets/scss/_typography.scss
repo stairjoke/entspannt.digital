@@ -129,7 +129,7 @@ h1 {
   font-size: 2rem;
   line-height: 3rem;
 
-  margin: 0 0 var(--spacer-line-break) 0;
+  margin: var(--spacer-element) 0 var(--spacer-line-break) 0;
 
   @media (max-width: #{scss-variables.$break-point-tablet}) {
     font-size: 1.25rem;

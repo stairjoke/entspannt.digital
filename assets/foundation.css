@@ -120,7 +120,7 @@ h2 {
   color: var(--color-accent);
   font-size: 2rem;
   line-height: 3rem;
-  margin: 0 0 var(--spacer-line-break) 0;
+  margin: var(--spacer-element) 0 var(--spacer-line-break) 0;
 }
 @supports (-webkit-background-clip: text) {
   h2 {
@@ -531,7 +531,7 @@ main.default .visually-grouped-block figure:first-child, main.default .visually-
 main.default .visually-grouped-list {
   border-left: solid 2px var(--color-accent, #f0f);
   padding-left: 1.5rem;
-  margin: var(--spacer-full) 0 var(--spacer-line-break, 500px) 0;
+  margin: var(--spacer-element) 0 var(--spacer-line-break, 500px) 0;
 }
 main.default .visually-grouped-list.aside {
   border-color: var(--text-color-dimmed);
