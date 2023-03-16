@@ -11,6 +11,17 @@ main {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .page-opener {
+    // Push content following the .page-opener down by
+    // viewport-height minus:
+    // - the amount it is meant to peek in form the bottom edge -> 4.7rem
+    // - body margin
+    // - header height -> 3.3rem
+    // - header-margin-bottom
+    // - grid-row-gap
+    min-height: calc(100vh - 8rem - var(--body-margin) - (var(--spacer-section) * 2));
+  }
+
   article {
     // Each article is a card
     margin-bottom: var(--grid-gap);
@@ -33,11 +44,11 @@ main {
       &>div {
         text-align: left;
 
-        // On tablet and above, use the central 6 of 12 columns = 50%
-        @media (min-width: #{scss-variables.$break-point-tablet}){
-          margin: 0 auto;
-          padding: var(--grid-gap) 0;
-          width: 50%;
+        @media (min-width: 55.5rem){ // = 49.5rem + 2x3rem body-margin on desktop see foundation.scss
+          max-width: 49.5rem;
+          margin-left: auto;
+          margin-right: auto;
+          box-sizing: border-box;
         }
       }
     }
@@ -72,6 +83,10 @@ main {
       }
 
       .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
         opacity: 0;
 
         transition-property: opacity;

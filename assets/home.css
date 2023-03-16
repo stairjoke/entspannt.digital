@@ -5,6 +5,9 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+main .page-opener {
+  min-height: calc(100vh - 8rem - var(--body-margin) - var(--spacer-section) * 2);
+}
 main article {
   margin-bottom: var(--grid-gap);
   position: relative;
@@ -22,11 +25,12 @@ main article.CTA {
 main article.CTA > div {
   text-align: left;
 }
-@media (min-width: 744px) {
+@media (min-width: 55.5rem) {
   main article.CTA > div {
-    margin: 0 auto;
-    padding: var(--grid-gap) 0;
-    width: 50%;
+    max-width: 49.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 }
 main article .card {
@@ -66,6 +70,9 @@ main article .card:focus-visible {
   outline-offset: calc(var(--grid-gap) / 2 - 4px);
 }
 main article .card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   opacity: 0;
   transition-property: opacity;
   transition-duration: var(--transition-duration-XL);
