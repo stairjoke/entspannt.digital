@@ -41,6 +41,7 @@
   --transition-duration-M: 120ms;
   --transition-duration-M-click: 35ms;
   --transition-duration-L: 240ms;
+  --transition-duration-L-click: 55ms;
   --transition-duration-XL: 380ms;
   --transition-timing-function: cubic-bezier(.5, .5, .25, .75);
 }
@@ -58,6 +59,29 @@ body {
   }
   padding: 0;
   background: var(--color-page, #f0f);
+}
+
+.page-opener {
+  // Push content following the .page-opener down by
+  // viewport-height minus:
+  // - the amount it is meant to peek in form the bottom edge -> 4.7rem
+  // - body margin
+  // - header height -> 3.3rem
+  // - header-margin-bottom
+  min-height: calc(100vh - 8rem - var(--body-margin) - var(--spacer-section));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    width: 100%;
+    margin-top: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 footer {
