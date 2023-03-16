@@ -82,7 +82,28 @@ button, .button, a[role=button] {
 
     &:hover, &:focus {
       background-color: var(--color-specular);
+      &.current {
+        background-color: var(--color-visual-grouping);
+      }
       border-color: var(--text-color-dimmed);
+
+      box-shadow:
+      0 0 .25rem 0 var(--color-ambient-occlusion-level-1),
+      0 0 1.5rem 0 var(--color-ambient-occlusion-level-2),
+      0 .25rem 1px 0 var(--color-drop-shadow),
+      inset 0 0 0 0 var(--color-inset-shadow-when-pressed);
+    }
+
+    &:active {
+      &.current {
+        background-color: var(--color-visual-grouping);
+      }
+
+      box-shadow:
+      0 0 0 0 var(--color-ambient-occlusion-level-1),
+      0 0 0 0 var(--color-ambient-occlusion-level-2),
+      0 0 0 0 var(--color-drop-shadow),
+      inset 0 .25rem 1px 0 var(--color-inset-shadow-when-pressed);
     }
 
   }

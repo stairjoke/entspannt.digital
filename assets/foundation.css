@@ -295,6 +295,16 @@ button.nav-button.current, .button.nav-button.current, a[role=button].nav-button
 button.nav-button:hover, button.nav-button:focus, .button.nav-button:hover, .button.nav-button:focus, a[role=button].nav-button:hover, a[role=button].nav-button:focus {
   background-color: var(--color-specular);
   border-color: var(--text-color-dimmed);
+  box-shadow: 0 0 0.25rem 0 var(--color-ambient-occlusion-level-1), 0 0 1.5rem 0 var(--color-ambient-occlusion-level-2), 0 0.25rem 1px 0 var(--color-drop-shadow), inset 0 0 0 0 var(--color-inset-shadow-when-pressed);
+}
+button.nav-button:hover.current, button.nav-button:focus.current, .button.nav-button:hover.current, .button.nav-button:focus.current, a[role=button].nav-button:hover.current, a[role=button].nav-button:focus.current {
+  background-color: var(--color-visual-grouping);
+}
+button.nav-button:active, .button.nav-button:active, a[role=button].nav-button:active {
+  box-shadow: 0 0 0 0 var(--color-ambient-occlusion-level-1), 0 0 0 0 var(--color-ambient-occlusion-level-2), 0 0 0 0 var(--color-drop-shadow), inset 0 0.25rem 1px 0 var(--color-inset-shadow-when-pressed);
+}
+button.nav-button:active.current, .button.nav-button:active.current, a[role=button].nav-button:active.current {
+  background-color: var(--color-visual-grouping);
 }
 button.CTA, .button.CTA, a[role=button].CTA {
   background: var(--gradient-accent);
