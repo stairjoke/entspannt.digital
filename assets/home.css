@@ -9,7 +9,7 @@ main .page-opener {
   min-height: calc(100vh - 8rem - var(--body-margin) - var(--spacer-section) * 2);
 }
 main article {
-  margin-bottom: var(--grid-gap);
+  margin-bottom: var(--spacer-element);
   position: relative;
   min-height: 247px;
 }
@@ -89,6 +89,9 @@ main article .card .card-body {
   text-align: center;
   padding: var(--grid-gap);
 }
+main article .card .card-body * {
+  flex-grow: 0;
+}
 main article .card .card-body h2 {
   background: unset;
   -webkit-background-clip: unset;
@@ -98,6 +101,22 @@ main article .card .card-body h2 {
 @media (max-width: 1024px) {
   main article .card .card-body h2 {
     font-size: 1.5rem;
+  }
+}
+@media (pointer: coarse), (pointer: none) {
+  main article {
+    aspect-ratio: 1;
+  }
+  main article h2 {
+    margin-bottom: 0;
+  }
+  main article .card {
+    padding: calc(var(--grid-gap) / 2);
+    padding-bottom: calc(50% + var(--grid-gap) / 2);
+  }
+  main article .card .card-body {
+    opacity: 1;
+    top: 50%;
   }
 }
 
