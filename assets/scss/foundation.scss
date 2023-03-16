@@ -62,6 +62,11 @@ body {
   background: var(--color-page, #f0f);
 }
 
+.line-break-spacing {
+  margin-top: var(--spacer-line-break);
+  margin-bottom: var(--spacer-line-break);
+}
+
 .page-opener {
   // Push content following the .page-opener down by
   // viewport-height minus:
