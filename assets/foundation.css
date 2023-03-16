@@ -82,7 +82,7 @@ h1 {
   font-weight: 700;
   font-size: 4rem;
   line-height: 6rem;
-  margin: 0 0 var(--spacer-element) 0;
+  margin: var(--spacer-section) 0 var(--spacer-element) 0;
   outline: solid 1px var(--color-visual-grouping);
   position: relative;
 }
@@ -535,6 +535,12 @@ main.default .visually-grouped-list {
 }
 main.default .visually-grouped-list.aside {
   border-color: var(--text-color-dimmed);
+}
+main.default .visually-grouped-list.aside h1, main.default .visually-grouped-list.aside h2, main.default .visually-grouped-list.aside h3, main.default .visually-grouped-list.aside h4, main.default .visually-grouped-list.aside h5, main.default .visually-grouped-list.aside h6 {
+  background: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  color: var(--text-color-dimmed);
 }
 main.default .visually-grouped-list:first-child {
   margin-top: 0;

@@ -233,6 +233,12 @@ main.default {
     border-left: solid 2px var(--color-accent, #f0f);
     &.aside {
       border-color: var(--text-color-dimmed);
+      h1, h2, h3, h4, h5, h6 {
+        background: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset;
+        color: var(--text-color-dimmed);
+      }
     }
     padding-left: 1.5rem;
     margin: var(--spacer-full) 0 var(--spacer-line-break, 500px) 0;
