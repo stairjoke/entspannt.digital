@@ -3,7 +3,7 @@
 	<article class="CTA page-opener">
 		<div>
 			<?= $page->card_text()->toBlocks() ?>
-			<p class="line-break-spacing">
+			<p>
 				<a class="button cta" href="<?= ($page->button_url()->exists()) ? $page->button_url() : $site->Contact_Link() ?>">
 					<svg class="icon inline">
 						<use href="/assets/iconSprite.svg#letter-heart"></use>
