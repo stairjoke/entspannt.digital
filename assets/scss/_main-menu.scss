@@ -34,7 +34,7 @@ header {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			gap: var(--grid-gap-mobile);
+			gap: var(--grid-gap);
 		}
 
 		input[type=checkbox]#nav-toggle {
@@ -81,7 +81,7 @@ header {
 
 		a {
       @media (max-width: #{scss-variables.$break-point-desktop-S- + (-1px)}) {
-        // @include typography.S-headline;
+        @include typography.headline-font;
         .CTA {
           color: var(--text-color-inverted);
         }
