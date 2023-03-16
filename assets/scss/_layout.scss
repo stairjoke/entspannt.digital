@@ -1,4 +1,5 @@
 @use 'scss-variables';
+@use 'global-styles';
 @use 'typography';
 
 // Layout definitions for <main class=default>
@@ -57,6 +58,7 @@ main.default {
     @media (min-width: #{scss-variables.$break-point-tablet}){
       &:has(aside) {
         flex-direction: row;
+        align-items: flex-start;
         column-gap: var(--grid-gap, 500px);
       }
 
@@ -95,12 +97,12 @@ main.default {
 
   // The aside, by default, stacks above the div.main (which uses order: 1)
   aside {
-    margin: 0 0 var(--spacer-full) 0;
+    margin: 0 0 var(--spacer-element) 0;
 
     // On viewports tablet sized and above, the aside is left/right of the text
     // block and should not add a margin.
     @media (min-width: #{scss-variables.$break-point-tablet-}) {
-      margin-block-end: 0;
+      margin: 0;
     }
     order: 0;
 
@@ -137,7 +139,7 @@ main.default {
     // from the rest of the content
     @media (min-width: #{scss-variables.$break-point-phablet}) and (max-width: #{scss-variables.$break-point-tablet-}){
       float: right;
-      margin: 0 0 var(--spacer-full) var(--grid-gap) !important;
+      margin: 0 0 var(--spacer-line-break) var(--grid-gap) !important;
       width: calc(50% - (var(--grid-gap) / 2));
     }
 
@@ -214,9 +216,17 @@ main.default {
   }
 
   .visually-grouped-block {
-    background-color: var(--color-visual-grouping, #f0f);
-    border-radius: var(--border-radius-default);
+    @include global-styles.resize-handles;
     padding: var(--spacer-line-break);
+
+    figure {
+      margin: calc(-1 * var(--spacer-line-break)) calc(-1 * var(--spacer-line-break)) var(--spacer-line-break) calc(-1 * var(--spacer-line-break));
+    }
+    figure:first-child {
+      &, & img {
+        border-radius: 0;
+      }
+    }
   }
 
   .visually-grouped-list {
