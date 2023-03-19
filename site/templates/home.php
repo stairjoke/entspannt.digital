@@ -4,7 +4,7 @@
 		<div>
 			<?= $page->card_text()->toBlocks() ?>
 			<p>
-				<a class="button cta" href="<?= ($page->button_url()->exists()) ? $page->button_url() : $site->Contact_Link() ?>">
+				<a class="button cta" href="<?= $site->contact_link() ?>">
 					<svg class="icon inline">
 						<use href="/assets/iconSprite.svg#letter-heart"></use>
 					</svg><?= $site->contact_cta() ?>
