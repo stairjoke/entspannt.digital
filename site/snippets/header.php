@@ -20,16 +20,18 @@
 					The input[type=checkbox]#nav-toggle triggers all .triggered-by-nav-toggle nodes to change the menu icon and show/hide the menu
 				-->
 			<input type="checkbox" value="false" id="nav-toggle">
-			<label for="nav-toggle" class="triggered-by-nav-toggle">
+			<label for="nav-toggle" class="triggered-by-nav-toggle" role="switch" aria-label="Navigation">
 				<svg class="icon" id="menu">
-					<use href="/assets/iconSprite.svg#menu"></use>
+					<title>Menü öffnen</title>
+					<use href="/assets/iconSprite.svg#menu" aria-hidden="hidden"></use>
 				</svg>
 				<svg class="icon" id="close">
-					<use href="/assets/iconSprite.svg#error"></use>
+					<title>Menü schließen</title>
+					<use href="/assets/iconSprite.svg#error" aria-hidden="hidden"></use>
 				</svg>
 			</label>
 	
-			<ul class="menu triggered-by-nav-toggle">
+			<ul class="menu triggered-by-nav-toggle" aria-label="Navigation">
 				<?php
 					// Same as inside the loop: Creates nav item, first for the home page,
 					// then for all children
