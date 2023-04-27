@@ -1,0 +1,24 @@
+title: Blog Home-Page
+
+sections:
+  listed-projects:
+    label: Listed
+    type: pages
+    status: listed
+    layout: cards
+    templates:
+      - note
+  unlisted-projects:
+    label: Not listed
+    type: pages
+    status: unlisted
+    layout: cards
+    templates:
+      - note
+  draft-projects:
+    label: Drafts
+    type: pages
+    status: draft
+    layout: cards
+    templates:
+      - note

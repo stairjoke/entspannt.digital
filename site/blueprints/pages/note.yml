@@ -1,0 +1,25 @@
+title: Blog Post
+
+columns:
+  main:
+    width: 2/3
+    fields:
+      main_content:
+        label: Inhalt des Blogposts
+        type: blocks
+  sidebar:
+    width: 1/3
+    fields:
+      teaser:
+        help: Der Teaser wird in der Übersicht über alle Einträge und in Suchergebnissen angezeigt. Er sollte ca. einen Absatz lang sein.
+        type: textarea
+        buttons: false
+        counter: true
+        size: small
+      pubDate:
+        label: Date Published
+        type: date
+        time: true
+        default: now
+      files:
+        type: files

@@ -33,28 +33,18 @@
 	
 			<ul class="menu triggered-by-nav-toggle" aria-label="Navigation">
 				<?php
-					// Same as inside the loop: Creates nav item, first for the home page,
-					// then for all children
-					
-					// Make $item string and start the LI-element for the nav item in it
-					$item = "<li><a href='{$site->homePage()->url()}' class='button nav-button";
-					// if the current page is the page linked to in this nav item
-					if($page->is($site->homePage())) {
-						// add CSS class "current"
-						$item .= " current";
-					}
-					// close the LI-HTML item
-					$item .= "'>{$site->homePage()->title()}</a></li>";
-					// return HTML item to page
-					echo($item);
-					
-					// Same as above, but for all pages that are children of "home"
+					// List all public pages that are immediate children of home in the navigation
 					foreach($site->children()->listed() as $navItem){
+						// Make $item string and start the LI-element for the nav item in it
 						$item = "<li><a href='{$navItem->url()}' class='button nav-button";
-						if($page->is($navItem)) {
+						// if the current page is the page linked to in this nav item
+						if($navItem->isActive()) {
+							// add CSS class "current"
 							$item .= " current";
 						}
-						$item .= "'>{$navItem->title()}</a></li>";
+						// close the LI-HTML item
+						$item .= "' >{$navItem->title()}</a></li>";
+						// return HTML item to page
 						echo($item);
 					}
 				?>

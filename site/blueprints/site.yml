@@ -1,5 +1,15 @@
 title: Site
 
 sections:
-  pages:
-    type: pages
+    listed:
+      label: Listed
+      type: pages
+      status: listed
+    unlisted:
+      label: Not listed
+      type: pages
+      status: unlisted
+    drafts:
+      label: Drafts
+      type: pages
+      status: draft
