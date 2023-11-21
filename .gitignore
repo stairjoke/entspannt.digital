@@ -3,6 +3,8 @@
 
 Icon
 .DS_Store
+/kirby
+/vendor
 
 # Temporary files
 # ---------------
