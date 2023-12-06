@@ -358,6 +358,21 @@ svg.icon use {
   --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
   --color-day-overlay: rgba(0, 0, 0, 0.7);
 }
+@media (prefers-color-scheme: dark) {
+  svg.icon use {
+    --text-color-body-text: #c6c6c6;
+    --text-color-dimmed: #7d8890;
+    --text-color-link: #e0e0e0;
+    --text-color-inverted: #000000;
+    --text-color-high-contrast: #000000;
+    --color-visual-grouping: #131414;
+    --color-page: #141414;
+    --color-specular: #000000;
+    --color-accent: #188de6;
+    --gradient-accent: linear-gradient(to right top, #167fce 0%, #198de5 100%);
+    --color-day-overlay: rgba(255, 255, 255, 0.7);
+  }
+}
 *:hover > svg.icon {
   --transition-duration: var(--transition-duration-M);
   --primary-transform: 0;

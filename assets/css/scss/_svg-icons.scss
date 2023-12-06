@@ -10,6 +10,9 @@ svg.icon {
   // Transmit CSS Color variables into the SVG icon
   use {
     @include colors.day();
+    @media (prefers-color-scheme: dark) {
+      @include colors.night();
+    }
   }
 
 
