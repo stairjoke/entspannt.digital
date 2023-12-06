@@ -1,0 +1,125 @@
+@use 'breakpoints';
+@use 'typography';
+
+// Main Menu
+
+header {
+	label {
+		// This label contains an SVG Icon
+		position: absolute;
+		top: calc(var(--body-margin) + 0.28125rem); //To align the icon with the headline displayed left of it while collapsed
+		right: var(--body-margin);
+		z-index: 101;
+	  }
+
+	nav {
+		/*
+		The input[type=checkbox]#nav-toggle triggers all .triggered nodes to change the menu icon and show/hide the menu
+		*/
+
+		.menu {
+			display: none;
+			position: fixed;
+			z-index: 100;
+			top: 0;
+			right: 0;
+			left: 0;
+
+			background-color: var(--color-page, #f0f);
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: var(--grid-gap);
+		}
+
+		input[type=checkbox]#nav-toggle {
+			visibility: hidden;
+			position: absolute;
+			left: -5000px;
+
+			& + label #close {
+				display: none;
+			}
+
+      @media (max-width: #{breakpoints.$desktop-S- + (-1px)}) {
+        //Safari applies the @media rule only after a few seconds, before that
+        // the menu looks wonky if it was opened on a mobile site before the user
+        // resized the window.
+
+			  &:checked {
+				  & ~ label {
+					  position: fixed;
+				  }
+				  & ~ .triggered-by-nav-toggle #close {
+					  display: unset;
+				  }
+
+				  & ~ .triggered-by-nav-toggle #menu {
+					  display: none;
+				  }
+				  & ~ .menu.triggered-by-nav-toggle {
+					  display: flex;
+
+					  margin: 0;
+					  padding: var(--body-margin);
+					  min-height: 100vh;
+					  min-height: 100lvh;
+				  }
+			  }
+      }
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		a {
+      @media (max-width: #{breakpoints.$desktop-S- + (-1px)}) {
+        @include typography.headline-font;
+        .CTA {
+          color: var(--text-color-inverted);
+        }
+      }
+
+			&:link, &:active, &:visited {
+				text-decoration: none;
+				color: var(--text-color-link, #f0f);
+			}
+
+			&:hover, &:focus {
+				text-decoration: underline;
+				color: var(--text-color-body-text, #f0f);
+			}
+			&.current {
+				text-decoration: underline;
+			}
+		}
+
+		@media (min-width: #{breakpoints.$desktop-S-}) {
+			input, label {
+				display: none;
+			}
+
+			.menu {
+				display: flex;
+				position: unset;
+
+        height: 100%;
+        flex-wrap: nowrap;
+
+				flex-direction: row;
+				justify-content: flex-end;
+				align-items: baseline;
+				gap: 0.5rem;
+				// padding: 1rem 0 0 0; //(H1 Line height / 2) - nav-item-height = Baseline alignment for nav text
+        padding: 0;
+				margin: 0;
+			}
+
+			a, a[role=button] {
+				padding: calc(0.25rem - 1px) calc(0.5rem - 1px);
+			}
+		}
+	}
+}

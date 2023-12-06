@@ -6,6 +6,10 @@
 @use 'buttons';
 @use 'svg-icons';
 
+@use 'layout';
+
+@use 'header';
+
 :root {
   // Spacing
   --spacer-section: 4rem;
