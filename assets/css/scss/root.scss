@@ -1,0 +1,65 @@
+// The ROOT Sass assembles all Sass files in correct order to be compiled to CSS
+
+@use 'colors';
+@use 'breakpoints';
+@use 'typography';
+@use 'buttons';
+@use 'svg-icons';
+
+:root {
+  // Spacing
+  --spacer-section: 4rem;
+  --spacer-element: 3rem;
+  --spacer-full: var(--spacer-element);
+  --spacer-line-break: 1rem;
+  --grid-gap: 1rem;
+
+  @media (min-width: #{breakpoints.$tablet}){
+    --spacer-section: 6rem;
+    --spacer-element: 3rem;
+    --spacer-full: var(--spacer-element);
+    --spacer-line-break: 1.5rem;
+    --grid-gap: 3rem;
+  }
+
+  --body-margin: 0.5rem;
+
+  @media (min-width: #{breakpoints.$phone-XS}) {
+    --body-margin: 1rem;
+  }
+
+  @media (min-width: #{breakpoints.$phone}) {
+    --body-margin: 1.5rem;
+  }
+
+  @media (min-width: #{breakpoints.$tablet}) {
+    --body-margin: 3rem;
+  }
+
+  // Accessories
+  --border-radius-default: 0.5rem;
+
+  // Animation
+  --transition-duration-M: 120ms;
+  --transition-duration-M-click: 35ms;
+  --transition-duration-L: 240ms;
+  --transition-duration-L-click: 55ms;
+  --transition-duration-XL: 380ms;
+  --transition-timing-function: cubic-bezier(.5, .5, .25, .75);
+}
+
+body {
+  margin: var(--body-margin);
+  @media (min-width: 108rem) { // No CALC in @media -> 102rem + 2xbody-margin
+    max-width: 102rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  padding: 0;
+  background: var(--color-page);
+}
+
+img {
+  border-radius: var(--border-radius-default);
+}

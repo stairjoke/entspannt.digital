@@ -1,5 +1,5 @@
-<?= snippet('header', ['class' => 'home']) ?>
-<main class="home">
+<?= snippet('header') ?>
+<main>
 	<article class="CTA page-opener">
 		<div>
 			<?= $page->card_text()->toBlocks() ?>

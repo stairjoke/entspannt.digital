@@ -1,0 +1,418 @@
+@charset "UTF-8";
+@import url("https://use.typekit.net/xyc8fjn.css");
+:root {
+  --text-color-body-text: #212121;
+  --text-color-dimmed: #8F9AA3;
+  --text-color-link: #545454;
+  --text-color-inverted: #FFFFFF;
+  --text-color-high-contrast: #000000;
+  --color-visual-grouping: #EAEBEB;
+  --color-page: #FFFFFF;
+  --color-specular: #ffffff;
+  --color-accent: #11446C;
+  --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
+  --color-day-overlay: rgba(0, 0, 0, 0.7);
+}
+
+:root {
+  --line-height-factor: 1.5;
+  --line-height-factor-responsive: 1.5;
+}
+@media (0 < width < 744px) {
+  :root {
+    --line-height-factor-responsive: 1.2;
+  }
+}
+
+body {
+  font-family: proxima-nova, "Proxima Nova", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
+}
+
+h2 + p.byline, h3 + p.byline {
+  margin-top: calc(-1 * var(--spacer-line-break));
+  margin-bottom: var(--spacer-line-break);
+}
+
+h1 + p, h1 ul, h1 ol, h2 + p, h2 ul, h2 ol, h3 + p, h3 ul, h3 ol, h4 + p, h4 ul, h4 ol, p + p, p ul, p ol, ul + p, ul ul, ul ol, ol + p, ol ul, ol ol, figure + p, figure ul, figure ol {
+  margin: 1.5rem 0 0 0;
+}
+
+a:link, a:active, a:visited {
+  text-decoration: underline;
+  color: var(--text-color-link);
+}
+a:hover, a:focus {
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+
+em, strong, p.byline {
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.underline {
+  font-family: proxima-nova, "Proxima Nova", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
+  text-decoration: underline;
+}
+
+.literal {
+  font-family: proxima-nova, "Proxima Nova", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
+  font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+h1 {
+  font-family: futura-pt, "Futura PT", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: var(--line-height-factor);
+  margin: var(--spacer-section) 0 var(--spacer-element) 0;
+  outline: solid 1px var(--color-visual-grouping);
+  position: relative;
+}
+@supports (-webkit-background-clip: text) {
+  h1 {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+@media (max-width: 744px) {
+  h1 {
+    font-size: 2.5rem;
+    line-height: var(--line-height-factor-responsive);
+  }
+}
+h1:after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  content: " ";
+  pointer-events: none;
+  border-color: transparent;
+  border-image: url("../images/border-image-day.png");
+  border-width: 8px;
+  border-style: solid;
+  border-image-slice: 24;
+  border-image-outset: 4px;
+}
+
+h2 {
+  font-family: futura-pt, "Futura PT", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-size: 2rem;
+  line-height: var(--line-height-factor);
+  margin: var(--spacer-element) 0 var(--spacer-line-break) 0;
+}
+@supports (-webkit-background-clip: text) {
+  h2 {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+@media (max-width: 744px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+h3 {
+  font-family: futura-pt, "Futura PT", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  line-height: var(--line-height-factor);
+  margin: 0;
+}
+@supports (-webkit-background-clip: text) {
+  h3 {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+@media (max-width: 744px) {
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+h4 {
+  font-family: proxima-nova, "Proxima Nova", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
+  font-weight: 300;
+  margin: 0;
+  margin: calc(var(--line-height-factor) * 1rem) 0 0 0;
+}
+
+ol, ul {
+  margin: 0 0 1rem 0;
+  padding: 0 0 0 0.6rem;
+  font-weight: 300;
+}
+h3 + ol, h5 + ol, h3 + ul, h5 + ul {
+  margin: 1rem 0 0 0;
+}
+ol li, ul li {
+  font-family: proxima-nova, "Proxima Nova", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
+  padding-left: 0.8rem;
+}
+
+ul {
+  list-style-type: "–";
+}
+ul ul {
+  list-style-type: "•";
+}
+
+p.teaser {
+  font-family: proxima-nova, "Proxima Nova", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-size: 1.25rem;
+  line-height: var(--line-height-factor);
+}
+
+@media (min-width: 744px) {
+  p.teaser {
+    font-family: proxima-nova, "Proxima Nova", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: var(--line-height-factor);
+    color: var(--text-color-body-text);
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+.dim {
+  color: var(--text-color-dimmed);
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+button, .button, a[role=button] {
+  --transition-duration: var(--transition-duration-L);
+  --transition-duration-click: var(--transition-duration-L-click);
+  --color-ambient-occlusion-level-1: rgba(0, 0, 0, 0.02);
+  --color-ambient-occlusion-level-2: rgba(0, 0, 0, 0.04);
+  --color-drop-shadow: rgba(0, 0, 0, 0.12);
+  --color-inset-shadow-when-pressed: var(--color-drop-shadow);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  font-family: proxima-nova, "Proxima Nova", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
+  padding: 0.875rem 0.6875rem;
+  margin: 0;
+  border-radius: var(--border-radius-default);
+  transition-property: box-shadow, transform;
+  transition-duration: var(--transition-duration, 5s);
+  transition-timing-function: var(--transition-timing-function);
+  background-color: var(--color-page);
+  border: solid 1px var(--text-color-dimmed);
+  box-shadow: 0 0 0 0 var(--color-ambient-occlusion-level-1), 0 0 0 0 var(--color-ambient-occlusion-level-2), 0 0 0 0 var(--color-drop-shadow), inset 0 0 0 0 var(--color-inset-shadow-when-pressed);
+  text-decoration: none;
+  text-align: center;
+  color: var(--text-color-body-text, #f0f);
+}
+button:link, button:active, button:visited, .button:link, .button:active, .button:visited, a[role=button]:link, a[role=button]:active, a[role=button]:visited {
+  text-decoration: none;
+  color: var(--text-color-body-text, #f0f);
+}
+button:hover, button:focus, .button:hover, .button:focus, a[role=button]:hover, a[role=button]:focus {
+  transition-duration: var(--transition-duration, 5s);
+  transition-timing-function: cubic-bezier(1, 1.5, 0.75, 0.87);
+  transform: scale(1.05);
+  box-shadow: 0 0 0.25rem 0 var(--color-ambient-occlusion-level-1), 0 0 1.5rem 0 var(--color-ambient-occlusion-level-2), 0 0.5rem 1px 0 var(--color-drop-shadow), inset 0 0 0 0 var(--color-inset-shadow-when-pressed);
+  text-decoration: none;
+  color: var(--text-color-body-text, #f0f);
+}
+button:active, .button:active, a[role=button]:active {
+  transition-duration: var(--transition-duration-click);
+  transform: scale(1);
+  box-shadow: 0 0 0 0 var(--color-ambient-occlusion-level-1), 0 0 0 0 var(--color-ambient-occlusion-level-2), 0 0 0 0 var(--color-drop-shadow), inset 0 0.5rem 1px 0 var(--color-inset-shadow-when-pressed);
+}
+button.nav-button, .button.nav-button, a[role=button].nav-button {
+  display: inline-block;
+  background-color: var(--color-page);
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+  border-color: transparent;
+}
+button.nav-button.current, .button.nav-button.current, a[role=button].nav-button.current {
+  background-color: var(--color-visual-grouping);
+}
+button.nav-button:hover, button.nav-button:focus, .button.nav-button:hover, .button.nav-button:focus, a[role=button].nav-button:hover, a[role=button].nav-button:focus {
+  background-color: var(--color-specular);
+  border-color: var(--text-color-dimmed);
+  box-shadow: 0 0 0.25rem 0 var(--color-ambient-occlusion-level-1), 0 0 1.5rem 0 var(--color-ambient-occlusion-level-2), 0 0.25rem 1px 0 var(--color-drop-shadow), inset 0 0 0 0 var(--color-inset-shadow-when-pressed);
+}
+button.nav-button:hover.current, button.nav-button:focus.current, .button.nav-button:hover.current, .button.nav-button:focus.current, a[role=button].nav-button:hover.current, a[role=button].nav-button:focus.current {
+  background-color: var(--color-visual-grouping);
+}
+button.nav-button:active, .button.nav-button:active, a[role=button].nav-button:active {
+  box-shadow: 0 0 0 0 var(--color-ambient-occlusion-level-1), 0 0 0 0 var(--color-ambient-occlusion-level-2), 0 0 0 0 var(--color-drop-shadow), inset 0 0.25rem 1px 0 var(--color-inset-shadow-when-pressed);
+}
+button.nav-button:active.current, .button.nav-button:active.current, a[role=button].nav-button:active.current {
+  background-color: var(--color-visual-grouping);
+}
+button.CTA, .button.CTA, a[role=button].CTA {
+  background: var(--gradient-accent);
+  color: var(--text-color-inverted);
+  border: none;
+  --color-inset-shadow-when-pressed: rgba(0, 0, 0, 0.33);
+}
+button.CTA:link, button.CTA:active, button.CTA:visited, .button.CTA:link, .button.CTA:active, .button.CTA:visited, a[role=button].CTA:link, a[role=button].CTA:active, a[role=button].CTA:visited {
+  text-decoration: none;
+  color: var(--text-color-inverted, #f0f);
+}
+button.CTA:hover, button.CTA:focus, .button.CTA:hover, .button.CTA:focus, a[role=button].CTA:hover, a[role=button].CTA:focus {
+  background-color: var(--color-accent-hover, #f0f);
+  color: var(--text-color-inverted, #f0f);
+  text-decoration: none;
+}
+aside button, aside .button, aside a[role=button] {
+  display: block;
+  text-align: center;
+}
+
+svg.icon {
+  width: calc(1rem * var(--line-height-factor));
+  height: calc(1rem * var(--line-height-factor));
+  display: block;
+  --transition-duration: var(--transition-duration-M);
+  --primary-transform: 1;
+  --secondary-transform: 0;
+}
+svg.icon use {
+  --text-color-body-text: #212121;
+  --text-color-dimmed: #8F9AA3;
+  --text-color-link: #545454;
+  --text-color-inverted: #FFFFFF;
+  --text-color-high-contrast: #000000;
+  --color-visual-grouping: #EAEBEB;
+  --color-page: #FFFFFF;
+  --color-specular: #ffffff;
+  --color-accent: #11446C;
+  --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
+  --color-day-overlay: rgba(0, 0, 0, 0.7);
+}
+*:hover > svg.icon {
+  --transition-duration: var(--transition-duration-M);
+  --primary-transform: 0;
+  --secondary-transform: 1;
+}
+svg.icon.inline {
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-right: 0.25em;
+}
+svg.icon.inline.right {
+  margin-left: 0.25em;
+  margin-right: 0;
+}
+
+:root {
+  --spacer-section: 4rem;
+  --spacer-element: 3rem;
+  --spacer-full: var(--spacer-element);
+  --spacer-line-break: 1rem;
+  --grid-gap: 1rem;
+  --body-margin: 0.5rem;
+  --border-radius-default: 0.5rem;
+  --transition-duration-M: 120ms;
+  --transition-duration-M-click: 35ms;
+  --transition-duration-L: 240ms;
+  --transition-duration-L-click: 55ms;
+  --transition-duration-XL: 380ms;
+  --transition-timing-function: cubic-bezier(.5, .5, .25, .75);
+}
+@media (min-width: 744px) {
+  :root {
+    --spacer-section: 6rem;
+    --spacer-element: 3rem;
+    --spacer-full: var(--spacer-element);
+    --spacer-line-break: 1.5rem;
+    --grid-gap: 3rem;
+  }
+}
+@media (min-width: 375px) {
+  :root {
+    --body-margin: 1rem;
+  }
+}
+@media (min-width: 390px) {
+  :root {
+    --body-margin: 1.5rem;
+  }
+}
+@media (min-width: 744px) {
+  :root {
+    --body-margin: 3rem;
+  }
+}
+
+body {
+  margin: var(--body-margin);
+  padding: 0;
+  background: var(--color-page);
+}
+@media (min-width: 108rem) {
+  body {
+    max-width: 102rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+img {
+  border-radius: var(--border-radius-default);
+}
+
+/*# sourceMappingURL=root.css.map */

@@ -1,0 +1,22 @@
+// Colors as CSS variables
+
+@mixin day() {
+  --text-color-body-text: #212121;
+  --text-color-dimmed: #8F9AA3;
+  --text-color-link: #545454;
+  --text-color-inverted: #FFFFFF;
+  --text-color-high-contrast: #000000;
+
+  --color-visual-grouping: #EAEBEB;
+  --color-page: #FFFFFF;
+  --color-specular: #ffffff;
+
+  --color-accent: #11446C;
+  --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
+
+  --color-day-overlay: rgba(0, 0, 0, 0.7);
+}
+
+:root {
+  @include day();
+}

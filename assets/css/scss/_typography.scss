@@ -1,7 +1,15 @@
-@use 'scss-variables';
-@use 'global-styles';
+@use 'breakpoints';
+@use 'layer-styles';
 
 // Typography foundation
+:root {
+  --line-height-factor: 1.5; // !!! a[role=button] uses same value for height, update if changed!
+  --line-height-factor-responsive: 1.5;
+  @media (0 < width < #{breakpoints.$tablet})
+  {
+    --line-height-factor-responsive: 1.2;
+  }
+}
 
 //Adobe Fonts
 @import url("https://use.typekit.net/xyc8fjn.css");
@@ -12,9 +20,8 @@
   font-weight: 500;
   font-style: normal;
 
-  font-size: 1rem;
-  line-height: 1.5rem; // !!! a[role=button] uses same value for height, update if changed!
-  color: var(--text-color-body-text, #f0f);
+  line-height: var(--line-height-factor);
+  color: var(--text-color-body-text);
 }
 
 body {
@@ -40,12 +47,12 @@ h1, h2, h3, h4, p, ul, ol, figure {
 a {
   &:link, &:active, &:visited {
     text-decoration: underline;
-    color: var(--text-color-link, #f0f);
+    color: var(--text-color-link);
   }
 
   &:hover, &:focus {
     text-decoration: underline;
-    color: var(--color-accent, #f0f);
+    color: var(--color-accent);
   }
 }
 
@@ -106,19 +113,19 @@ h1, h2, h3, h4, h5, h6 {
   @include headline-style();
 
   font-size: 4rem;
-  line-height: 6rem;
+  line-height: var(--line-height-factor);
 
   margin: var(--spacer-section) 0 var(--spacer-element) 0;
 
-  @media (max-width: #{scss-variables.$break-point-tablet}) {
+  @media (max-width: #{breakpoints.$tablet}) {
     font-size: 2.5rem;
-    line-height: 3rem;
+    line-height: var(--line-height-factor-responsive);
   }
 }
 
 h1 {
   @include section-title();
-  @include global-styles.resize-handles();
+  @include layer-styles.resize-handles();
 }
 
 //h2
@@ -127,13 +134,12 @@ h1 {
   @include headline-style();
 
   font-size: 2rem;
-  line-height: 3rem;
+  line-height: var(--line-height-factor);
 
   margin: var(--spacer-element) 0 var(--spacer-line-break) 0;
 
-  @media (max-width: #{scss-variables.$break-point-tablet}) {
+  @media (max-width: #{breakpoints.$tablet}) {
     font-size: 1.25rem;
-    line-height: 2rem;
   }
 }
 
@@ -147,13 +153,12 @@ h2 {
   @include headline-style();
 
   font-size: 1.5rem;
-  line-height: 2rem;
+  line-height: var(--line-height-factor);
 
   margin: 0;
 
-  @media (max-width: #{scss-variables.$break-point-tablet}) {
+  @media (max-width: #{breakpoints.$tablet}) {
     font-size: 1rem;
-    line-height: 1.5rem;
   }
 }
 
@@ -172,7 +177,7 @@ h3 {
 h4 {
   @include _H4();
 
-  margin: 1.5rem 0 0 0;
+  margin: calc(var(--line-height-factor) * 1rem) 0 0 0;
 }
 
 //Lists
@@ -215,14 +220,14 @@ ul {
   @include L-article-teaser();
 
   font-size: 1.25rem;
-  line-height: 2rem;
+  line-height: var(--line-height-factor);
 }
 
 p.teaser {
   @include S-article-teaser();
 }
 
-@media (min-width: #{scss-variables.$break-point-tablet}) {
+@media (min-width: #{breakpoints.$tablet}) {
   p.teaser {
     @include L-article-teaser();
   }
@@ -233,5 +238,5 @@ p.teaser {
 }
 
 .accent {
-  color: var(--color-accent)
+  color: var(--color-accent);
 }

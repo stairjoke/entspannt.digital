@@ -4,8 +4,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 		<!-- Using Kirby CSS feature -->
-		<?= css('assets/foundation.css') ?>
-		<?= (isset($class)) ? css("assets/$class.css") : ''; ?>
+		<?= css([
+			'assets/css/root.css',
+			'@auto'
+		]) ?>
 		
 		<!-- CONTAINS A COLOR THAT CANNOT BE REFERENCED FROM CSS COLOR VARIABLES, NEEDS TO BE MAINTAINED! -->
 		<!--<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fbfcfb">
