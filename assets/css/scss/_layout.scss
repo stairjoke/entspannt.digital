@@ -1,0 +1,30 @@
+// Global Layout Settings
+
+/*
+- html:
+  - body:
+    - header:
+      - nav:
+        - input#nav-toggle
+        - label[for=nav-toggle]:
+          - svg#menu
+          - svg#close
+        - ul.menu.triggered-by-nav-toggle:
+          - li:
+            - a.nav-button
+    - main:
+      - BLOCK
+      - section
+        - may have an ASIDE[.floor], always to the right, may flow to the bottom if .floor is set, otherwise top
+        - div:
+        - [flow content]
+      - section.vertical-center
+        - div:
+          - [flow content]
+        - aside[.left/.right, .clip]
+        - div:
+          - [flow content]
+      - section.two-columns
+    - footer:
+      - [flow content]
+*/
