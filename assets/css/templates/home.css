@@ -70,11 +70,16 @@ main article .card:after {
   content: " ";
   pointer-events: none;
   border-color: transparent;
-  border-image: url("../images/border-image-day.png");
+  border-image-source: url("../images/border-image-day.png");
   border-width: 8px;
   border-style: solid;
   border-image-slice: 24;
   border-image-outset: 4px;
+}
+@media (prefers-color-scheme: dark) {
+  main article .card:after {
+    border-image-source: url("../images/border-image-night.png");
+  }
 }
 main article .card:hover, main article .card:focus {
   padding: calc(var(--grid-gap) / 2);

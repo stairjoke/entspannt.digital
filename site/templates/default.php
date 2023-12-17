@@ -1,5 +1,5 @@
 <?= snippet('header') ?>
-<main class="default">
+<main>
 	<?= $page->main_content()->toBlocks() ?>
 </main>
 <?= snippet('footer') ?>

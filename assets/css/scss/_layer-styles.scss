@@ -14,7 +14,10 @@
     pointer-events: none;
 
     border-color: transparent;
-    border-image: url('../images/border-image-day.png');
+    border-image-source: url('../images/border-image-day.png');
+    @media (prefers-color-scheme: dark) {
+      border-image-source: url('../images/border-image-night.png');
+    }
     border-width: 8px;
     border-style: solid;
     border-image-slice: 24;

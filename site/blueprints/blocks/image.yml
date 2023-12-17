@@ -1,0 +1,95 @@
+name:
+  de: Bild
+  en: Image
+icon: image
+tabs:
+  content:
+    fields:
+      class:
+        label:
+          de: Layout-Eigenschaften
+          en: Layout-Options
+        type: select
+        options:
+          breakout:
+            de: Über-Breit
+            en: Hero Image
+          left:
+            de: Linksbündig
+            en: Left aligned
+          right:
+            de: Rechtsbündig
+            en: Right aligned
+          none:
+            de: Volle Breite
+            en: Full Width
+      alt:
+        label:
+          de: Ersatztext
+          en: Alt-Text
+        type: text
+      imageMobile:
+        label:
+          de: Mobil
+          en: Mobile
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+      imageMobileHiDPI:
+        label:
+          de: Mobil @3x
+          en: Mobile @3x
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+      imageTablet:
+        label:
+          de: Tablet
+          en: Tablet
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+      imageTabletHiDPI:
+        label:
+          de: Tablet @3x
+          en: Tablet @3x
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+      imageDesktop:
+        label:
+          de: Desktop
+          en: Desktop
+        type: files
+        uploads: image
+        min: 1
+        max: 1
+      imageDesktopHiDPI:
+        label:
+          de: Desktop @2x
+          en: Desktop @2x
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+      imageDesktopXL:
+        label:
+          de: Desktop XL
+          en: Desktop XL
+        type: files
+        uploads: image
+        min: 1
+        max: 1
+      imageDesktopXLHiDPI:
+        label:
+          de: Desktop XL @2x
+          en: Desktop XL @2x
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+

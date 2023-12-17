@@ -20,7 +20,7 @@
     --text-color-link: #e0e0e0;
     --text-color-inverted: #141414;
     --text-color-high-contrast: #000000;
-    --color-visual-grouping: #131414;
+    --color-visual-grouping: #272929;
     --color-page: #141414;
     --color-specular: #000000;
     --color-accent: #198de5;
@@ -126,11 +126,16 @@ h1:after {
   content: " ";
   pointer-events: none;
   border-color: transparent;
-  border-image: url("../images/border-image-day.png");
+  border-image-source: url("../images/border-image-day.png");
   border-width: 8px;
   border-style: solid;
   border-image-slice: 24;
   border-image-outset: 4px;
+}
+@media (prefers-color-scheme: dark) {
+  h1:after {
+    border-image-source: url("../images/border-image-night.png");
+  }
 }
 
 h2 {
@@ -365,7 +370,7 @@ svg.icon use {
     --text-color-link: #e0e0e0;
     --text-color-inverted: #141414;
     --text-color-high-contrast: #000000;
-    --color-visual-grouping: #131414;
+    --color-visual-grouping: #272929;
     --color-page: #141414;
     --color-specular: #000000;
     --color-accent: #198de5;
@@ -418,67 +423,76 @@ svg.icon.inline.right {
 */
 body {
   display: grid;
-  grid-template-columns: [page-start hero-start] 3fr [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr [right-two-thirds-start left-one-third-end] 1fr [left-column-end right-column-start] 1fr [left-two-thirds-end right-one-third-start] 2fr [main-end right-two-thirds-end right-one-third-end right-column-end] 3fr [page-end hero-end];
-  gap: var(--grid-gap);
+  grid-template-columns: [page-start breakout-start] 3fr [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr [right-two-thirds-start left-one-third-end] 1fr [left-column-end right-column-start] 1fr [left-two-thirds-end right-one-third-start] 2fr [main-end right-two-thirds-end right-one-third-end right-column-end] 3fr [page-end breakout-end];
+  gap: var(--grid-gap) var(--grid-gap);
 }
 
 main {
-  grid-column: main;
+  grid-column: page;
   display: grid;
   grid-template-columns: subgrid;
+  gap: var(--grid-gap) var(--grid-gap);
 }
-main img, main figure, main video, main audio {
+
+img, figure, video, audio {
   margin: 0;
   padding: 0;
 }
-main img, main video, main audio {
+
+img, video, audio {
   width: 100%;
   height: auto;
 }
 
-main > h1, main > h2, main > h3, main > h4, main > h5, main > h6 {
-  grid-column: main;
-}
-.two-columns > h1, .two-columns > h2, .two-columns > h3, .two-columns > h4, .two-columns > h5, .two-columns > h6 {
-  grid-column: 0/-1;
-}
-
-section {
+address, article, blockquote, canvas, div, dl, fieldset, figure, form, h1, h2, h3, h4, h5, h6, ol, p, picture, pre, section, table, ul, video {
   grid-column: main;
 }
 
-section:has(aside) {
+.page-opener {
+  grid-column: main;
+}
+
+.breakout {
+  grid-column: breakout;
+}
+
+.layout-block {
   grid-column: main;
   display: grid;
   grid-template-columns: subgrid;
-  grid-template-rows: [content-start] 1fr [content-end];
-  justify-items: start;
 }
-section:has(aside) div {
+.layout-block:has(aside) {
+  grid-template-rows: [content-start] 1fr [content-end];
+}
+.layout-block:has(aside) > div {
   grid-column: left-two-thirds;
   grid-row: content;
 }
-section:has(aside) aside {
+.layout-block:has(aside) aside {
   grid-column: right-one-third;
   grid-row: content;
+  height: fit-content;
 }
-section:has(aside) aside > div {
-  display: inline-block;
+.layout-block:has(aside) aside.floor {
+  align-self: end;
 }
 
-section.two-columns {
+.two-columns {
   grid-column: main;
   display: grid;
   grid-template-columns: subgrid;
   grid-template-rows: [content-start] 1fr [content-end];
 }
-section.two-columns div {
+.two-columns h1, .two-columns h2, .two-columns h3, .two-columns h4, .two-columns h5, .two-columns h6 {
+  grid-column: 0/-1;
+}
+.two-columns div {
   grid-row: content;
 }
-section.two-columns div:first-child {
+.two-columns div:first-child {
   grid-column: left-column;
 }
-section.two-columns div:last-child {
+.two-columns div:last-child {
   grid-column: right-column;
 }
 
@@ -494,11 +508,16 @@ section.two-columns div:last-child {
   content: " ";
   pointer-events: none;
   border-color: transparent;
-  border-image: url("../images/border-image-day.png");
+  border-image-source: url("../images/border-image-day.png");
   border-width: 8px;
   border-style: solid;
   border-image-slice: 24;
   border-image-outset: 4px;
+}
+@media (prefers-color-scheme: dark) {
+  .visually-grouped-block:after {
+    border-image-source: url("../images/border-image-night.png");
+  }
 }
 .visually-grouped-block figure {
   margin: calc(-1 * var(--spacer-line-break)) calc(-1 * var(--spacer-line-break)) var(--spacer-line-break) calc(-1 * var(--spacer-line-break));
