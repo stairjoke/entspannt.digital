@@ -5,11 +5,12 @@ icon: image
 tabs:
   content:
     fields:
+
       class:
         label:
           de: Layout-Eigenschaften
           en: Layout-Options
-        type: select
+        type: multiselect
         options:
           breakout:
             de: Über-Breit
@@ -23,71 +24,175 @@ tabs:
           none:
             de: Volle Breite
             en: Full Width
+          floating-illustration:
+            de: Illustration
+            en: Illustration
+
       alt:
         label:
           de: Ersatztext
           en: Alt-Text
         type: text
+
+
       imageMobile:
+        width: 1/2
         label:
-          de: Mobil
-          en: Mobile
+          de: 390w
+          en: 390w
         type: files
         uploads: image
         min: 0
         max: 1
+
+      imageMobileDark:
+        width: 1/2
+        label:
+          de: 390w – Night
+          en: 390w – Night
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
       imageMobileHiDPI:
+        width: 1/2
         label:
-          de: Mobil @3x
-          en: Mobile @3x
+          de: 390w @3x
+          en: 390w @3x
         type: files
         uploads: image
         min: 0
         max: 1
+
+      imageMobileHiDPIDark:
+        width: 1/2
+        label:
+          de: 390w @3x – Nacht
+          en: 390w @3x – Night
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
+
       imageTablet:
+        width: 1/2
         label:
-          de: Tablet
-          en: Tablet
+          de: 744w
+          en: 744w
         type: files
         uploads: image
         min: 0
         max: 1
+
+      imageTabletDark:
+        width: 1/2
+        label:
+          de: 744w – Nacht
+          en: 744w – Night
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
       imageTabletHiDPI:
+        width: 1/2
         label:
-          de: Tablet @3x
-          en: Tablet @3x
+          de: 744w @3x
+          en: 744w @3x
         type: files
         uploads: image
         min: 0
         max: 1
+
+      imageTabletHiDPIDark:
+        width: 1/2
+        label:
+          de: 744w @3x – Nacht
+          en: 744w @3x – Night
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
+
       imageDesktop:
+        width: 1/2
         label:
-          de: Desktop
-          en: Desktop
+          de: 1024w
+          en: 1024w
         type: files
         uploads: image
         min: 1
         max: 1
-      imageDesktopHiDPI:
+
+      imageDesktopDark:
+        width: 1/2
         label:
-          de: Desktop @2x
-          en: Desktop @2x
+          de: 1024w – Nacht
+          en: 1024w – Night
+        type: files
+        uploads: image
+        min: 1
+        max: 1
+
+      imageDesktopHiDPI:
+        width: 1/2
+        label:
+          de: 1024w @2x
+          en: 1024w @2x
         type: files
         uploads: image
         min: 0
         max: 1
-      imageDesktopXL:
+
+      imageDesktopHiDPIDark:
+        width: 1/2
         label:
-          de: Desktop XL
-          en: Desktop XL
+          de: 1024w @2x – Nacht
+          en: 1024w @2x – Night
         type: files
         uploads: image
-        min: 1
+        min: 0
         max: 1
-      imageDesktopXLHiDPI:
+
+
+      imageDesktopXL:
+        width: 1/2
         label:
-          de: Desktop XL @2x
-          en: Desktop XL @2x
+          de: 1280w
+          en: 1280w
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
+      imageDesktopXLDark:
+        width: 1/2
+        label:
+          de: 1280w – Nacht
+          en: 1280w – Night
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
+      imageDesktopXLHiDPI:
+        width: 1/2
+        label:
+          de: 1280w @2x
+          en: 1280w @2x
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
+      imageDesktopXLHiDPIDark:
+        width: 1/2
+        label:
+          de: 1280w @2x – Nacht
+          en: 1280w @2x – Night
         type: files
         uploads: image
         min: 0
