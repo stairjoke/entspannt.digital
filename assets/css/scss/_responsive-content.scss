@@ -1,0 +1,29 @@
+@use 'breakpoints';
+
+// Responsively visible content
+
+.mobile {
+  display: none;
+}
+.tablet {
+  display: none;
+}
+.desktop {
+  display: none;
+}
+
+@media (max-width: #{(breakpoints.$tablet-)}) {
+  .mobile {
+    display: unset;
+  }
+}
+@media (min-width: #{breakpoints.$tablet}) and (max-width: #{(breakpoints.$desktop-)}) {
+  .tablet {
+    display: unset;
+  }
+}
+@media (min-width: #{breakpoints.$desktop}) {
+  .desktop {
+    display: unset;
+  }
+}
