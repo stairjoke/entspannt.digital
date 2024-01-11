@@ -1,5 +1,7 @@
 // Decorative styles for Block-Level-Elements
 
+@use 'breakpoints';
+
 @mixin resize-handles() {
   // The CSS outline matches the 1px line in the border-image and provides
   // the visual clue until the graphic with the resize-handles has loaded
@@ -26,5 +28,21 @@
     // This needs to be inside an absolutely positioned pseudo-element
     // to avoid the border-width from adding unwanted white space between
     // the edge/corners and the content/background -> border-image-outset
+  }
+}
+
+@mixin spacing() {
+  --spacer-section: 4rem;
+  --spacer-element: 3rem;
+  --spacer-full: var(--spacer-element);
+  --spacer-line-break: 1rem;
+  --grid-gap: 1rem;
+
+  @media (min-width: #{breakpoints.$tablet}){
+    --spacer-section: 6rem;
+    --spacer-element: 3rem;
+    --spacer-full: var(--spacer-element);
+    --spacer-line-break: 1.5rem;
+    --grid-gap: 3rem;
   }
 }
