@@ -5,26 +5,15 @@
 @use 'typography';
 @use 'buttons';
 @use 'svg-icons';
+@use 'layer-styles';
+@use 'responsive-content';
 
 @use 'layout';
 
 @use 'header';
 
 :root {
-  // Spacing
-  --spacer-section: 4rem;
-  --spacer-element: 3rem;
-  --spacer-full: var(--spacer-element);
-  --spacer-line-break: 1rem;
-  --grid-gap: 1rem;
-
-  @media (min-width: #{breakpoints.$tablet}){
-    --spacer-section: 6rem;
-    --spacer-element: 3rem;
-    --spacer-full: var(--spacer-element);
-    --spacer-line-break: 1.5rem;
-    --grid-gap: 3rem;
-  }
+  @include layer-styles.spacing;
 
   --body-margin: 0.5rem;
 

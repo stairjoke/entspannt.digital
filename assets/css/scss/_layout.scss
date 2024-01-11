@@ -2,35 +2,6 @@
 
 @use 'layer-styles';
 
-/*
-- html:
-  - body:
-    - header:
-      - nav:
-        - input#nav-toggle
-        - label[for=nav-toggle]:
-          - svg#menu
-          - svg#close
-        - ul.menu.triggered-by-nav-toggle:
-          - li:
-            - a.nav-button
-    - main:
-      - BLOCK
-      - section
-        - may have an ASIDE[.floor], always to the right, may flow to the bottom if .floor is set, otherwise top
-        - div:
-        - [flow content]
-      - section.vertical-center
-        - div:
-          - [flow content]
-        - aside[.left/.right, .clip]
-        - div:
-          - [flow content]
-      - section.two-columns
-    - footer:
-      - [flow content]
-*/
-
 body {
   display: grid;
 
@@ -62,76 +33,59 @@ main {
   gap: var(--grid-gap) var(--grid-gap);
 }
 
-img, figure, video, audio {
-  margin: 0;
-  padding: 0;
+section {
+  grid-column: page;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: var(--grid-gap);
+  row-gap: 0;
 }
 
-img, video, audio {
-  width: 100%;
-  height: auto;
-}
-
-address, article, blockquote, canvas, div, dl, fieldset, figure, form, h1, h2, h3, h4, h5, h6, ol, p, picture, pre, section, table, ul, video {
+.main, .page-opener {
   grid-column: main;
 }
 
-.page-opener {
-  grid-column: main;
-}
-
-.breakout {
+.breakout, .hero {
   grid-column: breakout;
 }
 
-.layout-block {
-  grid-column: main;
+.layout {
   display: grid;
   grid-template-columns: subgrid;
+  grid-template-rows: [content-start] 1fr [content-end];
+}
 
-  &:has(aside) {
-    grid-template-rows: [content-start] 1fr [content-end];
+.two-columns {
+  .column {
+    grid-row: content;
 
-    & > div {
-      grid-column: left-two-thirds;
-      grid-row: content;
+    &:first-child {
+      grid-column: left-column;
     }
-
-    aside {
-      grid-column: right-one-third;
-      grid-row: content;
-      height: fit-content;
-
-      &.floor {
-        align-self: end;
-      }
+    &:last-child {
+      grid-column: right-column;
     }
   }
 }
 
-.two-columns {
-  grid-column: main;
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: [content-start] 1fr [content-end];
+.left-two-thirds {
+  grid-column: left-two-thirds;
+  grid-row: content;
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    grid-column: 0 / -1;
-  }
-
-  div {
-    grid-row: content;
-  }
-  div:first-child {
-    grid-column: left-column;
-  }
-  div:last-child {
-    grid-column: right-column;
-  }
+.right-one-third {
+  grid-column: right-one-third;
+  grid-row: content;
 }
 
 .visually-grouped-block {
   @include layer-styles.resize-handles;
+
+  height: fit-content;
+  &.floor {
+    align-self: end;
+  }
+
   padding: var(--spacer-line-break);
 
   figure {
@@ -148,6 +102,11 @@ address, article, blockquote, canvas, div, dl, fieldset, figure, form, h1, h2, h
   }
 }
 
+footer {
+  grid-column: page;
+}
+
+// --- Elements
 .visually-grouped-list {
   border-left: solid 2px var(--color-accent, #f0f);
   &.aside {
@@ -166,6 +125,44 @@ address, article, blockquote, canvas, div, dl, fieldset, figure, form, h1, h2, h
   }
 }
 
-footer {
-  grid-column: page;
+img, figure, video {
+  border-radius: var(--border-radius-default);
+  margin: var(--spacer-line-break) 0 var(--spacer-line-break) 0;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  box-sizing: border-box;
+
+  * {
+    max-width: 100%;
+  }
+}
+
+img, figure, video, audio {
+  margin: 0;
+  padding: 0;
+}
+
+img, video, audio {
+  width: 100%;
+  height: auto;
+}
+
+.floating-illustration {
+  background-color: var(--color-visual-grouping);
+  margin: var(--spacer-line-break) 0 var(--spacer-full) 0;
+  padding: var(--grid-gap);
+  box-sizing: border-box;
+  text-align: center;
+
+  img {
+    max-width: min(49.5rem, 100%);
+    height: auto;
+  }
+  video {
+    max-height: calc(50vw - var(--body-margin));
+  }
 }

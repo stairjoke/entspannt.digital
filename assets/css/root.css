@@ -102,7 +102,7 @@ h1 {
   font-weight: 700;
   font-size: 4rem;
   line-height: var(--line-height-factor);
-  margin: var(--spacer-section) 0 var(--spacer-element) 0;
+  margin: calc(var(--spacer-section) - var(--grid-gap)) 0 calc(var(--spacer-element) - var(--grid-gap)) 0;
   outline: solid 1px var(--color-visual-grouping);
   position: relative;
 }
@@ -112,6 +112,9 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+}
+h1 ~ *:not(h1) {
+  margin-top: var(--spacer-element);
 }
 @media (max-width: 744px) {
   h1 {
@@ -393,34 +396,33 @@ svg.icon.inline.right {
   margin-right: 0;
 }
 
-/*
-- html:
-  - body:
-    - header:
-      - nav:
-        - input#nav-toggle
-        - label[for=nav-toggle]:
-          - svg#menu
-          - svg#close
-        - ul.menu.triggered-by-nav-toggle:
-          - li:
-            - a.nav-button
-    - main:
-      - BLOCK
-      - section
-        - may have an ASIDE[.floor], always to the right, may flow to the bottom if .floor is set, otherwise top
-        - div:
-        - [flow content]
-      - section.vertical-center
-        - div:
-          - [flow content]
-        - aside[.left/.right, .clip]
-        - div:
-          - [flow content]
-      - section.two-columns
-    - footer:
-      - [flow content]
-*/
+.mobile {
+  display: none;
+}
+
+.tablet {
+  display: none;
+}
+
+.desktop {
+  display: none;
+}
+
+@media (max-width: 743px) {
+  .mobile {
+    display: unset;
+  }
+}
+@media (min-width: 744px) and (max-width: 1279px) {
+  .tablet {
+    display: unset;
+  }
+}
+@media (min-width: 1280px) {
+  .desktop {
+    display: unset;
+  }
+}
 body {
   display: grid;
   grid-template-columns: [page-start breakout-start] 3fr [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr [right-two-thirds-start left-one-third-end] 1fr [left-column-end right-column-start] 1fr [left-two-thirds-end right-one-third-start] 2fr [main-end right-two-thirds-end right-one-third-end right-column-end] 3fr [page-end breakout-end];
@@ -434,71 +436,52 @@ main {
   gap: var(--grid-gap) var(--grid-gap);
 }
 
-img, figure, video, audio {
-  margin: 0;
-  padding: 0;
+section {
+  grid-column: page;
+  display: grid;
+  grid-template-columns: subgrid;
+  column-gap: var(--grid-gap);
+  row-gap: 0;
 }
 
-img, video, audio {
-  width: 100%;
-  height: auto;
-}
-
-address, article, blockquote, canvas, div, dl, fieldset, figure, form, h1, h2, h3, h4, h5, h6, ol, p, picture, pre, section, table, ul, video {
+.main, .page-opener {
   grid-column: main;
 }
 
-.page-opener {
-  grid-column: main;
-}
-
-.breakout {
+.breakout, .hero {
   grid-column: breakout;
 }
 
-.layout-block {
-  grid-column: main;
+.layout {
   display: grid;
   grid-template-columns: subgrid;
-}
-.layout-block:has(aside) {
   grid-template-rows: [content-start] 1fr [content-end];
 }
-.layout-block:has(aside) > div {
+
+.two-columns .column {
+  grid-row: content;
+}
+.two-columns .column:first-child {
+  grid-column: left-column;
+}
+.two-columns .column:last-child {
+  grid-column: right-column;
+}
+
+.left-two-thirds {
   grid-column: left-two-thirds;
   grid-row: content;
 }
-.layout-block:has(aside) aside {
+
+.right-one-third {
   grid-column: right-one-third;
   grid-row: content;
-  height: fit-content;
-}
-.layout-block:has(aside) aside.floor {
-  align-self: end;
-}
-
-.two-columns {
-  grid-column: main;
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: [content-start] 1fr [content-end];
-}
-.two-columns h1, .two-columns h2, .two-columns h3, .two-columns h4, .two-columns h5, .two-columns h6 {
-  grid-column: 0/-1;
-}
-.two-columns div {
-  grid-row: content;
-}
-.two-columns div:first-child {
-  grid-column: left-column;
-}
-.two-columns div:last-child {
-  grid-column: right-column;
 }
 
 .visually-grouped-block {
   outline: solid 1px var(--color-visual-grouping);
   position: relative;
+  height: fit-content;
   padding: var(--spacer-line-break);
 }
 .visually-grouped-block:after {
@@ -519,11 +502,18 @@ address, article, blockquote, canvas, div, dl, fieldset, figure, form, h1, h2, h
     border-image-source: url("../images/border-image-night.png");
   }
 }
+.visually-grouped-block.floor {
+  align-self: end;
+}
 .visually-grouped-block figure {
   margin: calc(-1 * var(--spacer-line-break)) calc(-1 * var(--spacer-line-break)) var(--spacer-line-break) calc(-1 * var(--spacer-line-break));
 }
 .visually-grouped-block figure:first-child, .visually-grouped-block figure:first-child img {
   border-radius: 0;
+}
+
+footer {
+  grid-column: page;
 }
 
 .visually-grouped-list {
@@ -544,8 +534,44 @@ address, article, blockquote, canvas, div, dl, fieldset, figure, form, h1, h2, h
   margin-top: 0;
 }
 
-footer {
-  grid-column: page;
+img, figure, video {
+  border-radius: var(--border-radius-default);
+  margin: var(--spacer-line-break) 0 var(--spacer-line-break) 0;
+  box-sizing: border-box;
+}
+img:first-child, figure:first-child, video:first-child {
+  margin-top: 0;
+}
+img:last-child, figure:last-child, video:last-child {
+  margin-bottom: 0;
+}
+img *, figure *, video * {
+  max-width: 100%;
+}
+
+img, figure, video, audio {
+  margin: 0;
+  padding: 0;
+}
+
+img, video, audio {
+  width: 100%;
+  height: auto;
+}
+
+.floating-illustration {
+  background-color: var(--color-visual-grouping);
+  margin: var(--spacer-line-break) 0 var(--spacer-full) 0;
+  padding: var(--grid-gap);
+  box-sizing: border-box;
+  text-align: center;
+}
+.floating-illustration img {
+  max-width: min(49.5rem, 100%);
+  height: auto;
+}
+.floating-illustration video {
+  max-height: calc(50vw - var(--body-margin));
 }
 
 header label {
