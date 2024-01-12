@@ -15,7 +15,7 @@ return [
 				'label' => 'Medien',
 				'type' => 'group',
 				'fieldsets' => [
-					'image'
+					'responsive-image', 'video'
 				]
 			],
 			'code' => [
