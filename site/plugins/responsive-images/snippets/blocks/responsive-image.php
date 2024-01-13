@@ -6,10 +6,10 @@
 
 <picture <?= ($block->class()->isNotEmpty()) ? "class='" . preg_replace("/, /", " ", $block->class()) . "'" : "" ; ?>>
 	<?php
-		function generator($block, $image, $HiDPIImage, $HiDPIFactor, $mediaString){
+		function wenzelsDesignResponsiveImageSourceGenerator($block, $image, $HiDPIImage, $HiDPIFactor, $mediaString){
 			$srcset = "";
-			if($image = $block->$image()->toFile()) {
-				if($imageHiDPI = $block->$HiDPIImage()->toFile()){
+			if($image = $block->$image()?->toFile()) {
+				if($imageHiDPI = $block->$HiDPIImage()?->toFile()){
 					$srcset .= $imageHiDPI->url() . ' ' . $HiDPIFactor . 'x, ';
 				}
 				$srcset .= $image->url() . ' 1x';
@@ -18,7 +18,7 @@
 			}
 		}
 		
-		function srcset($block, $name, $HiDPIFactor, $minWidth) {
+		function wenzelsDesignResponsiveImageSrcsetGenerator($block, $name, $HiDPIFactor, $minWidth) {
 			$defaultImage = "image" . $name;
 			$HiDPIImage = "image" . $name . "hidpi";
 			$darkImage = "image" . $name . "dark";
@@ -27,14 +27,14 @@
 			$media = '(min-width: '.$minWidth.'px)';
 			$mediaDark = $media . ' and (prefers-color-scheme: dark)';
 			
-			generator($block, $darkImage, $darkHiDPIImage, $HiDPIFactor, $mediaDark);
-			generator($block, $defaultImage, $HiDPIImage, $HiDPIFactor, $media);
+			wenzelsDesignResponsiveImageSourceGenerator($block, $darkImage, $darkHiDPIImage, $HiDPIFactor, $mediaDark);
+			wenzelsDesignResponsiveImageSourceGenerator($block, $defaultImage, $HiDPIImage, $HiDPIFactor, $media);
 		}
 	
-		srcset($block, "desktopxl", "2", "1280");
-		srcset($block, "desktop", "2", "744");
-		srcset($block, "tablet", "3", "414");
-		srcset($block, "mobile", "3", "0");
+		wenzelsDesignResponsiveImageSrcsetGenerator($block, "desktopxl", "2", "1280");
+		wenzelsDesignResponsiveImageSrcsetGenerator($block, "desktop", "2", "744");
+		wenzelsDesignResponsiveImageSrcsetGenerator($block, "tablet", "3", "414");
+		wenzelsDesignResponsiveImageSrcsetGenerator($block, "mobile", "3", "0");
 	?>
 	<img
 		<?= ($block->class()->isNotEmpty()) ? "class='" . preg_replace("/, /", " ", $block->class()) . "'" : "" ; ?>

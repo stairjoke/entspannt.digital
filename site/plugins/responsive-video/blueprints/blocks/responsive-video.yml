@@ -1,0 +1,141 @@
+name:
+  de: Adaptives Video
+  en: Responsive Video
+icon: video
+tabs:
+  content:
+    fields:
+
+      controls:
+        width: 1/2
+        label:
+          de: Steuerelemente
+          en: Controls
+        type: toggle
+
+      class:
+        width: 1/2
+        label:
+          de: Layout-Eigenschaften
+          en: Layout-Options
+        type: multiselect
+        options:
+          breakout:
+            de: Über-Breit
+            en: Hero Video
+          left:
+            de: Linksbündig
+            en: Left aligned
+          right:
+            de: Rechtsbündig
+            en: Right aligned
+          none:
+            de: Volle Breite
+            en: Full Width
+          floating-illustration:
+            de: Illustration
+            en: Illustration
+
+      alt:
+        label:
+          de: Ersatztext
+          en: Alt-Text
+        type: text
+
+      lineMobile:
+        type: line
+
+      videoMobileMP4:
+        width: 1/2
+        label:
+          de: Handy - HEVC/MP4
+          en: Mobile - HEVC/MP4
+        type: files
+        uploads: video/mp4
+        min: 0
+        max: 1
+
+      videoMobileWebM:
+        width: 1/2
+        label:
+          de: Handy - WebM
+          en: Mobile - WebM
+        type: files
+        uploads: video/webm
+        min: 0
+        max: 1
+
+      lineTablet:
+        type: line
+
+      videoTabletMP4:
+        width: 1/2
+        label:
+          de: Tablet - HEVC/MP4
+          en: Tablet - HEVC/MP4
+        type: files
+        uploads: video/mp4
+        min: 0
+        max: 1
+
+      videoTabletWebM:
+        width: 1/2
+        label:
+          de: Tablet - WebM
+          en: Tablet - WebM
+        type: files
+        uploads: video/webm
+        min: 0
+        max: 1
+
+      lineDesktop:
+        type: line
+
+      videoDesktopMP4:
+        width: 1/2
+        label:
+          de: Desktop - HEVC/MP4*
+          en: Desktop - HEVC/MP4*
+        type: files
+        uploads: video/mp4
+        min: 1
+        max: 1
+
+      videoDesktopWebM:
+        width: 1/2
+        label:
+          de: Desktop - WebM*
+          en: Desktop - WebM*
+        type: files
+        uploads: video/webm
+        min: 1
+        max: 1
+
+      lineDesktopXL:
+        type: line
+
+      videoDesktopXLMP4:
+        width: 1/2
+        label:
+          de: DesktopXL - HEVC/MP4
+          en: DesktopXL - HEVC/MP4
+        type: files
+        uploads: video/mp4
+        min: 0
+        max: 1
+
+      videoDesktopXLWebM:
+        width: 1/2
+        label:
+          de: DesktopXL - WebM
+          en: DesktopXL - WebM
+        type: files
+        uploads: video/webm
+        min: 0
+        max: 1
+
+      info:
+        type: info
+        text:
+          de: Mit * markierte Felder sind obligatorisch.
+          en: Fields marked by an * must be filled.
