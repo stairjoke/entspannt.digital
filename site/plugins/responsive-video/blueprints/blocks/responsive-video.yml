@@ -22,6 +22,9 @@ tabs:
           autoplay:
             de: Automatisch starten
             en: Autoplay
+          loop:
+            de: Endlosschleife
+            en: Loop
           mute:
             de: Lautlos
             en: Mute

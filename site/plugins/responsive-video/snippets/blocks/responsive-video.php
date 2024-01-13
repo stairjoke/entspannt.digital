@@ -9,9 +9,13 @@
 		$class = "class='" . preg_replace("/, /", " ", $class) . "' ";
 		echo($class);
 	}
-	if($controls = $block->controls()) {
-		$controls = ($controls) ? "controls" : "";
-		echo($controls);
+	if($poster = $block->poster()?->toFile()){
+		$poster = 'poster="'. $poster->url() .'" ';
+		echo($poster);
+	}
+	if($options = $block->options()) {
+		$options = preg_replace("/, /", " ", $options);
+		echo($options);
 	}
 ?>>
 <!--
@@ -30,11 +34,11 @@
 	<?php
 	if($subtitles = $block->subtitles()?->toFiles()) {
 		foreach($subtitles as $track) { 
-			$track = "<track ";
-			$track .= "src='" . $track->url() ."' ";
-			$track .= "kind='subtitles'";
-			$track .= "srclang='". $track->name() ."'";
-			$track .=  "/>"
+			$track = '<track ';
+			$track .= 'src="' . $track->url() . '" ';
+			$track .= 'kind="subtitles"';
+			$track .= 'srclang="' . $track->name() . '"';
+			$track .=  '/>';
 			
 			echo($track);
 		}
