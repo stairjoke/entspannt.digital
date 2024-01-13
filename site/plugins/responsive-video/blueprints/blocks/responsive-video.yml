@@ -67,6 +67,16 @@ tabs:
           de: Video Thumbnails müssen das gleiche Seitenverhältnis haben wie das Video und sollten gleich groß sein.
           en: Video thumbnails must be the same aspect ratio as the video and should be the same size.
 
+      subtitles:
+        label:
+          de: Untertitel
+          en: Subtitles
+        help:
+          de: Untertitel müssen im WebVTT Format als `vtt`-Datei hochgeladen werden. Der Dateiname muss die Sprache indizieren, beispielsweise `de.vtt` oder `en.vtt`.
+          en: Subtitles must be uploaded using the WebVTT format as a `vtt`-file. The file name must indicate the language, for example `de.vtt` or `en.vtt`.
+        type: files
+        uploads: subtitle-file
+
       videoDesktopMP4:
         width: 1/2
         label: HEVC/MP4*

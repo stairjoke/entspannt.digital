@@ -5,6 +5,11 @@ Kirby::plugin('wenzels-design/responsive-video', [
 	],
 	'snippets' => [
 		'blocks/responsive-video' => __DIR__ . '/snippets/blocks/responsive-video.php'
+	],
+	'fileTypes' => [
+		'vtt' => [
+			'type' => 'document'
+		]
 	]
 ]);
 ?>

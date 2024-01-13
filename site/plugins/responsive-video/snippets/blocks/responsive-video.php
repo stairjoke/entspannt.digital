@@ -25,4 +25,19 @@
 -->
 	<source src="<?= $block->videoDesktopMP4()->toFile()->url() ?>" type="video/mp4" />	
 	<source src="<?= $block->videoDesktopWebM()->toFile()->url() ?>" type="video/webm" />
+	
+	<!-- Subtitles-->
+	<?php
+	if($subtitles = $block->subtitles()?->toFiles()) {
+		foreach($subtitles as $track) { 
+			$track = "<track ";
+			$track .= "src='" . $track->url() ."' ";
+			$track .= "kind='subtitles'";
+			$track .= "srclang='". $track->name() ."'";
+			$track .=  "/>"
+			
+			echo($track);
+		}
+	}
+	?>
 </video>
