@@ -23,32 +23,6 @@
 	
 	Always put the WebM source _after_ the MP4 source to ensure Safari picks the MP4 source. Chrome will prefer WebM over MP4 regardless of its position in the list.
 -->
-	
-	<?php
-		function wenzelsDesignResponsiveVideoSourceGenerator($block, $name, $width) {
-			//videoAMEMP4
-			//videoNAMEWebM
-			$mp4FieldName = "video" . $name . "MP4";
-			$webmFieldName = "video" . $name . "WebM";
-			
-			if($mp4 = $block->$mp4FieldName()?->toFile()){
-				if($webm = $block->$webmFieldName()?->toFile()){
-					$source = "<source srcset='";
-					$source .= $webm->url() . ' ' . $width . 'w, ';
-					$source .= $mp4->url() . ' ' . $width . 'w';
-					$source .= "' />";
-					
-					echo($source);
-				}
-			}
-		}
-		
-		wenzelsDesignResponsiveVideoSourceGenerator($block, "mobile", "390");
-		wenzelsDesignResponsiveVideoSourceGenerator($block, "tablet", "414");
-		wenzelsDesignResponsiveVideoSourceGenerator($block, "desktop", "744");
-		wenzelsDesignResponsiveVideoSourceGenerator($block, "desktopxl", "1280");
-	?>
-	
 	<source src="<?= $block->videoDesktopMP4()->toFile()->url() ?>" type="video/mp4" />	
 	<source src="<?= $block->videoDesktopWebM()->toFile()->url() ?>" type="video/webm" />
 </video>

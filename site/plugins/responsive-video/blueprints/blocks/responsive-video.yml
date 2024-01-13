@@ -6,19 +6,32 @@ tabs:
   content:
     fields:
 
-      controls:
+      options:
         width: 1/2
         label:
-          de: Steuerelemente
-          en: Controls
-        type: toggle
+          de: Eigenschaften
+          en: Options
+        type: checkboxes
+        options:
+          controls:
+            de: Steuerelemente
+            en: Controls
+          preload:
+            de: Video puffern
+            en: Buffer video
+          autoplay:
+            de: Automatisch starten
+            en: Autoplay
+          mute:
+            de: Lautlos
+            en: Mute
 
       class:
         width: 1/2
         label:
           de: Layout-Eigenschaften
           en: Layout-Options
-        type: multiselect
+        type: checkboxes
         options:
           breakout:
             de: Über-Breit
@@ -42,60 +55,21 @@ tabs:
           en: Alt-Text
         type: text
 
-      lineMobile:
-        type: line
-
-      videoMobileMP4:
-        width: 1/2
+      poster:
         label:
-          de: Handy - HEVC/MP4
-          en: Mobile - HEVC/MP4
+          de: Video Thumbnail
+          en: Video thumbnail
         type: files
-        uploads: video/mp4
+        uploads: image
         min: 0
         max: 1
-
-      videoMobileWebM:
-        width: 1/2
-        label:
-          de: Handy - WebM
-          en: Mobile - WebM
-        type: files
-        uploads: video/webm
-        min: 0
-        max: 1
-
-      lineTablet:
-        type: line
-
-      videoTabletMP4:
-        width: 1/2
-        label:
-          de: Tablet - HEVC/MP4
-          en: Tablet - HEVC/MP4
-        type: files
-        uploads: video/mp4
-        min: 0
-        max: 1
-
-      videoTabletWebM:
-        width: 1/2
-        label:
-          de: Tablet - WebM
-          en: Tablet - WebM
-        type: files
-        uploads: video/webm
-        min: 0
-        max: 1
-
-      lineDesktop:
-        type: line
+        help:
+          de: Video Thumbnails müssen das gleiche Seitenverhältnis haben wie das Video und sollten gleich groß sein.
+          en: Video thumbnails must be the same aspect ratio as the video and should be the same size.
 
       videoDesktopMP4:
         width: 1/2
-        label:
-          de: Desktop - HEVC/MP4*
-          en: Desktop - HEVC/MP4*
+        label: HEVC/MP4*
         type: files
         uploads: video/mp4
         min: 1
@@ -103,35 +77,10 @@ tabs:
 
       videoDesktopWebM:
         width: 1/2
-        label:
-          de: Desktop - WebM*
-          en: Desktop - WebM*
+        label: WebM*
         type: files
         uploads: video/webm
         min: 1
-        max: 1
-
-      lineDesktopXL:
-        type: line
-
-      videoDesktopXLMP4:
-        width: 1/2
-        label:
-          de: DesktopXL - HEVC/MP4
-          en: DesktopXL - HEVC/MP4
-        type: files
-        uploads: video/mp4
-        min: 0
-        max: 1
-
-      videoDesktopXLWebM:
-        width: 1/2
-        label:
-          de: DesktopXL - WebM
-          en: DesktopXL - WebM
-        type: files
-        uploads: video/webm
-        min: 0
         max: 1
 
       info:
