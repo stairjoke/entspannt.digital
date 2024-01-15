@@ -6,11 +6,34 @@ tabs:
   content:
     fields:
 
+      class:
+        width: 1/2
+        label:
+          de: Layout Optionen
+          en: Layout Options
+        type: checkboxes
+        options:
+          breakout:
+            de: Über-Breit
+            en: Hero Video
+          left:
+            de: Linksbündig
+            en: Left aligned
+          right:
+            de: Rechtsbündig
+            en: Right aligned
+          floating-illustration:
+            de: Illustration
+            en: Illustration
+          main:
+            de: Illustration zentrieren
+            en: Center illustration
+
       options:
         width: 1/2
         label:
-          de: Eigenschaften
-          en: Options
+          de: Video Eigenschaften
+          en: Video Options
         type: checkboxes
         options:
           controls:
@@ -28,29 +51,6 @@ tabs:
           mute:
             de: Lautlos
             en: Mute
-
-      class:
-        width: 1/2
-        label:
-          de: Layout-Eigenschaften
-          en: Layout-Options
-        type: checkboxes
-        options:
-          breakout:
-            de: Über-Breit
-            en: Hero Video
-          left:
-            de: Linksbündig
-            en: Left aligned
-          right:
-            de: Rechtsbündig
-            en: Right aligned
-          none:
-            de: Volle Breite
-            en: Full Width
-          floating-illustration:
-            de: Illustration
-            en: Illustration
 
       alt:
         label:
