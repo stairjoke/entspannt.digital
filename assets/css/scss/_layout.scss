@@ -1,6 +1,7 @@
 // Global Layout Settings
 
 @use 'layer-styles';
+@use 'breakpoints';
 
 body {
   display: grid;
@@ -23,7 +24,34 @@ body {
     1fr [oversized-end right-oversized-end]
     2fr [page-end breakout-end];
 
-  //grid-template-rows: [page-start header-start] auto [main-start] auto [main-end] auto [page-end header-end];
+  @media (max-width: #{breakpoints.$desktop}) {
+    grid-template-columns:
+    [page-start breakout-start] 2fr
+    [oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 3fr
+    [left-one-third-end left-oversized-end right-two-thirds-start]
+    1fr
+    [left-column-end right-column-start]
+    1fr [left-two-thirds-end right-one-third-start right-oversized-start]
+    3fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end]
+    2fr [page-end breakout-end];
+  }
+
+  @media (max-width: #{breakpoints.$desktop-S}) {
+    grid-template-columns:
+    [page-start breakout-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 5fr
+    [left-one-third-end left-oversized-end right-two-thirds-start]
+    1fr
+    [left-column-end right-column-start]
+    1fr [left-two-thirds-end right-one-third-start right-oversized-start]
+    5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end breakout-end];
+  }
+
+  @media (max-width: #{breakpoints.$tablet}) {
+    grid-template-columns:
+    [page-start breakout-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start right-two-thirds-start right-column-start right-one-third-start right-oversized-start]
+    1fr
+    [left-one-third-end left-oversized-end left-column-end left-two-thirds-end main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end breakout-end];
+  }
 
   gap: var(--grid-gap) var(--grid-gap);
 }
@@ -71,17 +99,32 @@ section {
 .layout {
   display: grid;
   grid-template-columns: subgrid;
-  grid-template-rows: [content-start] 1fr [content-end];
+  grid-template-rows: [left-content-start right-content-start] auto [left-content-end right-content-end];
+
+  @media (max-width: #{breakpoints.$tablet}) {
+    grid-template-rows: [left-content-start] auto [left-content-end right-content-start] auto [right-content-end];
+    row-gap: var(--spacer-line-break);
+  }
+}
+
+@media (max-width: #{breakpoints.$tablet}) {
+  .order-override-first {
+    grid-row: left-content;
+  }
+
+  .order-override-second {
+    grid-row: right-content;
+  }
 }
 
 .two-columns {
   .column {
-    grid-row: content;
-
     &:first-child {
+      grid-row: left-content;
       grid-column: left-column;
     }
     &:last-child {
+      grid-row: right-content;
       grid-column: right-column;
     }
   }
@@ -89,32 +132,32 @@ section {
 
 .left-two-thirds {
   grid-column: left-two-thirds;
-  grid-row: content;
+  grid-row: left-content;
 }
 
 .right-two-thirds {
   grid-column: right-two-thirds;
-  grid-row: content;
+  grid-row: right-content;
 }
 
 .right-one-third {
   grid-column: right-one-third;
-  grid-row: content;
+  grid-row: right-content;
 }
 
 .left-oversized {
   grid-column: left-oversized;
-  grid-row: content;
+  grid-row: left-content;
 }
 
 .right-oversized {
   grid-column: right-oversized;
-  grid-row: content;
+  grid-row: right-content;
 }
 
 .oversized {
   grid-column: oversized;
-  grid-row: content;
+  grid-row: left-content;
 }
 
 .ceil {
@@ -132,53 +175,7 @@ section {
   align-self: end;
 }
 
-.visually-grouped-block {
-  @include layer-styles.resize-handles;
-
-  height: fit-content;
-  &.floor {
-    align-self: end;
-  }
-
-  padding: var(--spacer-line-break);
-
-  figure {
-    margin:
-      calc(-1 * var(--spacer-line-break))
-      calc(-1 * var(--spacer-line-break))
-      var(--spacer-line-break)
-      calc(-1 * var(--spacer-line-break));
-  }
-  figure:first-child {
-    &, & img {
-      border-radius: 0;
-    }
-  }
-}
-
-footer {
-  grid-column: page;
-}
-
-// --- Elements
-.visually-grouped-list {
-  border-left: solid 2px var(--color-accent, #f0f);
-  &.aside {
-    border-color: var(--text-color-dimmed);
-    h1, h2, h3, h4, h5, h6 {
-      background: unset;
-      -webkit-background-clip: unset;
-      -webkit-text-fill-color: unset;
-      color: var(--text-color-dimmed);
-    }
-  }
-  padding-left: 1.5rem;
-  margin: var(--spacer-element) 0 var(--spacer-line-break, 500px) 0;
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
+// -- Media Elements
 img, figure, video {
   border-radius: var(--border-radius-default);
   margin: var(--spacer-line-break) 0 var(--spacer-line-break) 0;
@@ -206,4 +203,51 @@ img, video, audio {
   max-height: 80vh;
   max-height: 80svh;
   object-fit: contain;
+}
+
+// -- Specialized Elements
+.visually-grouped-block {
+  @include layer-styles.resize-handles;
+
+  height: fit-content;
+  &.floor {
+    align-self: end;
+  }
+
+  padding: var(--spacer-line-break);
+
+  figure {
+    margin:
+      calc(-1 * var(--spacer-line-break))
+      calc(-1 * var(--spacer-line-break))
+      var(--spacer-line-break)
+      calc(-1 * var(--spacer-line-break));
+  }
+  figure:first-child {
+    &, & img {
+      border-radius: 0;
+    }
+  }
+}
+
+.visually-grouped-list {
+  border-left: solid 2px var(--color-accent, #f0f);
+  &.aside {
+    border-color: var(--text-color-dimmed);
+    h1, h2, h3, h4, h5, h6 {
+      background: unset;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      color: var(--text-color-dimmed);
+    }
+  }
+  padding-left: 1.5rem;
+  margin: var(--spacer-element) 0 var(--spacer-line-break, 500px) 0;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+footer {
+  grid-column: page;
 }
