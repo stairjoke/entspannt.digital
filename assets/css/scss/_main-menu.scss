@@ -29,7 +29,7 @@ header {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			gap: var(--grid-gap);
+			gap: var(--spacer-line-break);
 		}
 
 		input[type=checkbox]#nav-toggle {
