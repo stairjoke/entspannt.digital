@@ -14,12 +14,14 @@ body {
   // .......|--|... right-one-third
 
   grid-template-columns:
-    [page-start breakout-start] 3fr
+    [page-start breakout-start] 2fr
+    [oversized-start left-oversized-start] 1fr
     [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr
-    [right-two-thirds-start left-one-third-end] 1fr [left-column-end right-column-start]
-    1fr [left-two-thirds-end right-one-third-start]
+    [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end right-column-start]
+    1fr [left-two-thirds-end right-one-third-start right-oversized-start]
     2fr [main-end right-two-thirds-end right-one-third-end right-column-end]
-    3fr [page-end breakout-end];
+    1fr [oversized-end right-oversized-end]
+    2fr [page-end breakout-end];
 
   //grid-template-rows: [page-start header-start] auto [main-start] auto [main-end] auto [page-end header-end];
 
@@ -90,9 +92,44 @@ section {
   grid-row: content;
 }
 
+.right-two-thirds {
+  grid-column: right-two-thirds;
+  grid-row: content;
+}
+
 .right-one-third {
   grid-column: right-one-third;
   grid-row: content;
+}
+
+.left-oversized {
+  grid-column: left-oversized;
+  grid-row: content;
+}
+
+.right-oversized {
+  grid-column: right-oversized;
+  grid-row: content;
+}
+
+.oversized {
+  grid-column: oversized;
+  grid-row: content;
+}
+
+.ceil {
+  height: fit-content;
+  align-self: start;
+}
+
+.vertical-middle {
+  height: fit-content;
+  align-self: center;
+}
+
+.floor {
+  height: fit-content;
+  align-self: end;
 }
 
 .visually-grouped-block {
