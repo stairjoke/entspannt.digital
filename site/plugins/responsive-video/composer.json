@@ -1,7 +1,7 @@
 {
     "name": "wenzels-design/responsive-video",
     "description": "A custom block that allows you to upload videos targeted at specific screen sizes.",
-    "version": "0.2",
+    "version": "0.2.1",
     "license": "GNU GPLv3",
     "authors": [
         {

@@ -51,6 +51,9 @@ tabs:
           mute:
             de: Lautlos
             en: Mute
+          playsinline:
+            de: Automatische Vollbildwiedergabe unter iOS vermeiden
+            en: Avoid automatic full-screen playback on iOS
 
       alt:
         label:
