@@ -7,10 +7,11 @@ tabs:
     fields:
 
       class:
+        width: 1/2
         label:
           de: Layout-Eigenschaften
           en: Layout-Options
-        type: multiselect
+        type: checkboxes
         options:
           breakout:
             de: Über-Breit
@@ -21,12 +22,16 @@ tabs:
           right:
             de: Rechtsbündig
             en: Right aligned
-          none:
-            de: Volle Breite
-            en: Full Width
           floating-illustration:
             de: Illustration
             en: Illustration
+          main:
+            de: Illustration zentrieren
+            en: Center illustration
+
+      gapOptions:
+        width: 1/2
+        type: gap
 
       alt:
         label:

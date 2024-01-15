@@ -36,8 +36,5 @@
 		wenzelsDesignResponsiveImageSrcsetGenerator($block, "tablet", "3", "414");
 		wenzelsDesignResponsiveImageSrcsetGenerator($block, "mobile", "3", "0");
 	?>
-	<img
-		<?= ($block->class()->isNotEmpty()) ? "class='" . preg_replace("/, /", " ", $block->class()) . "'" : "" ; ?>
-		alt="<?= $block->alt() ?>"
-		src="<?= $block->imageDesktop()?->toFile()->url() ?>" />
+	<img alt="<?= $block->alt() ?>" src="<?= $block->imageDesktop()?->toFile()->url() ?>" />
 </picture>
