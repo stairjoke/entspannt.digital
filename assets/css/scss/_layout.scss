@@ -49,6 +49,23 @@ section {
   grid-column: breakout;
 }
 
+.floating-illustration {
+  background-color: var(--color-visual-grouping);
+  padding: var(--grid-gap);
+  box-sizing: border-box;
+  text-align: center;
+
+  &.main {
+    display: grid;
+    grid-template-columns: subgrid;
+
+    img {
+      grid-column: main;
+    }
+  }
+}
+
+
 .layout {
   display: grid;
   grid-template-columns: subgrid;
@@ -152,20 +169,4 @@ img, video, audio {
   max-height: 80vh;
   max-height: 80svh;
   object-fit: contain;
-}
-
-.floating-illustration {
-  background-color: var(--color-visual-grouping);
-  margin: var(--spacer-line-break) 0 var(--spacer-full) 0;
-  padding: var(--grid-gap);
-  box-sizing: border-box;
-  text-align: center;
-
-  img {
-    max-width: min(49.5rem, 100%);
-    height: auto;
-  }
-  video {
-    max-height: calc(50vw - var(--body-margin));
-  }
 }
