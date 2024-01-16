@@ -1,15 +1,36 @@
 {
-  "name": "wenzels-design/homepage",
-  "description": "Website for Wenzels.design",
+  "name": "wenzels-design/portfolio",
+  "description": "Portfolio Website for Wenzels Design built using the Kirby CMS Starterkit",
   "type": "project",
+  "keywords": [
+    "kirby",
+    "cms",
+    "starterkit",
+    "personal website",
+    "portfolio",
+    "design"
+  ],
   "authors": [
     {
       "name": "Wenzel Massag",
       "email": "wenzel@wenzels.design",
       "homepage": "https://wenzels.design"
+    },
+    {
+      "name": "Bastian Allgeier",
+      "email": "bastian@getkirby.com",
+      "homepage": "https://getkirby.com"
     }
   ],
+  "homepage": "https://getkirby.com",
+  "contact": {
+    "email": "wenzel@wenzels.design",
+    "issues": "https://github.com/stairjoke/wenzels.design/issues",
+    "blog": "https://wenzels.design/blog",
+    "source": "https://github.com/stairjoke/wenzels.design"
+  },
   "require": {
+    "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
     "getkirby/cms": "^4.0"
   },
   "config": {
