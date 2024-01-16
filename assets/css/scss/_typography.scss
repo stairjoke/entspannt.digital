@@ -38,12 +38,6 @@ p {
   }
 }
 
-h1, h2, h3, h4, p, ul, ol, figure {
-  &+p, ul, ol {
-    margin: 1.5rem 0 0 0;
-  }
-}
-
 a {
   &:link, &:active, &:visited {
     text-decoration: underline;
