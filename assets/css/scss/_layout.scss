@@ -46,27 +46,39 @@ body {
     5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end breakout-end];
   }
 
-  @media (max-width: #{breakpoints.$tablet}) {
-    grid-template-columns:
-    [page-start breakout-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start right-two-thirds-start right-column-start right-one-third-start right-oversized-start]
-    1fr
-    [left-one-third-end left-oversized-end left-column-end left-two-thirds-end main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end breakout-end];
+  @media (max-width: #{breakpoints.$phablet}) {
+    display: block;
+
+    main > * {
+      margin-block: var(--spacer-line-break);
+    }
   }
 
   gap: var(--grid-gap) var(--grid-gap);
 }
 
-main {
-  grid-column: page;
+.layout, main, section {
   display: grid;
   grid-template-columns: subgrid;
+  @media (max-width: #{breakpoints.$phablet}) {
+    display: block;
+  }
+}
+
+.layout {
+  grid-template-rows:
+    [left-content-start right-content-start]
+    auto
+    [left-content-end right-content-end];
+}
+
+main {
+  grid-column: page;
   gap: var(--grid-gap) var(--grid-gap);
 }
 
 section {
   grid-column: page;
-  display: grid;
-  grid-template-columns: subgrid;
   column-gap: var(--grid-gap);
   row-gap: 0;
 }
@@ -89,31 +101,13 @@ section {
     display: grid;
     grid-template-columns: subgrid;
 
+    @media (max-width: #{breakpoints.$phablet}) {
+      display: block;
+    }
+
     img {
       grid-column: main;
     }
-  }
-}
-
-
-.layout {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: [left-content-start right-content-start] auto [left-content-end right-content-end];
-
-  @media (max-width: #{breakpoints.$tablet}) {
-    grid-template-rows: [left-content-start] auto [left-content-end right-content-start] auto [right-content-end];
-    row-gap: var(--spacer-line-break);
-  }
-}
-
-@media (max-width: #{breakpoints.$tablet}) {
-  .order-override-first {
-    grid-row: left-content;
-  }
-
-  .order-override-second {
-    grid-row: right-content;
   }
 }
 
@@ -130,14 +124,21 @@ section {
   }
 }
 
-.left-two-thirds {
-  grid-column: left-two-thirds;
+.left-one-thirds {
+  grid-column: left-one-thirds;
   grid-row: left-content;
 }
-
-.right-two-thirds {
-  grid-column: right-two-thirds;
-  grid-row: right-content;
+.left-oversized {
+  grid-column: left-oversized;
+  grid-row: left-content;
+}
+.left-one-third, .left-oversized {
+  @media (max-width: #{breakpoints.$phablet}) {
+    max-width: 40%;
+    float: left;
+    margin-right: var(--grid-gap);
+    margin-bottom: var(--grid-gap);
+  }
 }
 
 .right-one-third {
@@ -145,13 +146,26 @@ section {
   grid-row: right-content;
 }
 
-.left-oversized {
-  grid-column: left-oversized;
+.right-oversized {
+  grid-column: right-oversized;
+  grid-row: right-content;
+}
+.right-one-third, .right-oversized {
+  @media (max-width: #{breakpoints.$phablet}) {
+    max-width: 40%;
+    float: right;
+    margin-left: var(--grid-gap);
+    margin-bottom: var(--grid-gap);
+  }
+}
+
+.left-two-thirds {
+  grid-column: left-two-thirds;
   grid-row: left-content;
 }
 
-.right-oversized {
-  grid-column: right-oversized;
+.right-two-thirds {
+  grid-column: right-two-thirds;
   grid-row: right-content;
 }
 
