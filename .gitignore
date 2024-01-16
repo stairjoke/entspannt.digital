@@ -3,8 +3,6 @@
 
 Icon
 .DS_Store
-/kirby
-/vendor
 
 # Temporary files
 # ---------------
@@ -51,6 +49,8 @@ Icon
 
 /site/config/.license
 
-# Content: Do not upload drafts
+# Ext. Source Files
 # ---------------
-/content/**/_*/
+
+/kirby
+/vendor
