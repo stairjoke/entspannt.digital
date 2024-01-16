@@ -35,14 +35,13 @@
   --spacer-section: 4rem;
   --spacer-element: 3rem;
   --spacer-full: var(--spacer-element);
-  --spacer-line-break: 1rem;
+  --spacer-line-break: 1.5rem;
   --grid-gap: 1rem;
 
   @media (min-width: #{breakpoints.$tablet}){
     --spacer-section: 6rem;
     --spacer-element: 3rem;
     --spacer-full: var(--spacer-element);
-    --spacer-line-break: 1.5rem;
     --grid-gap: 3rem;
   }
 }
