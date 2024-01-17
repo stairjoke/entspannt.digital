@@ -3,23 +3,17 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<!-- Using Kirby CSS feature -->
 		<?= css([
 			'assets/css/root.css',
 			'@auto'
 		]) ?>
-		
-		<!-- CONTAINS A COLOR THAT CANNOT BE REFERENCED FROM CSS COLOR VARIABLES, NEEDS TO BE MAINTAINED! -->
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141414">
 	</head>
 <body>
 	<header>
 		<?= get_header_title_as_html($site) ?>
-		<nav>
-			<!--
-					The input[type=checkbox]#nav-toggle triggers all .triggered-by-nav-toggle nodes to change the menu icon and show/hide the menu
-				-->
+		<nav><!-- The input[type=checkbox]#nav-toggle triggers all .triggered-by-nav-toggle nodes to change the menu icon and show/hide the menu -->
 			<input type="checkbox" value="false" id="nav-toggle">
 			<label for="nav-toggle" class="triggered-by-nav-toggle" role="switch" aria-label="Navigation">
 				<svg class="icon" id="menu">
