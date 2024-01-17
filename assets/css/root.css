@@ -109,7 +109,7 @@ h1 {
     -webkit-text-fill-color: transparent;
   }
 }
-h1 ~ *:not(h1) {
+h1 + *:not(h1) {
   margin-top: var(--spacer-element);
 }
 @media (max-width: 744px) {

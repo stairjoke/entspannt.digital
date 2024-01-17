@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 
   margin: calc(var(--spacer-section) - var(--grid-gap)) 0 calc(var(--spacer-element) - var(--grid-gap)) 0;
 
-  & ~ *:not(h1) { // Anything that follows this that is not an H1 should restore the space, st that means there is no grid-gap directly after the section title.
+  & + *:not(h1) { // Anything that follows this that is not an H1 should restore the space, st that means there is no grid-gap directly after the section title.
     margin-top: var(--spacer-element);
   }
 
