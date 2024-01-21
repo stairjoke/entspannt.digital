@@ -1,21 +1,23 @@
 <?php
 return [
-	'debug' => true,
 	'languages' => true,
+	'panel' => [
+		'css' => 'assets/css/panel.css'
+	],
 	'blocks' => [
 		'fieldsets' => [
 			'text' => [
 				'label' => 'Text',
 				'type' => 'group',
 				'fieldsets' => [
-					'text', 'textarea', 'heading', 'list'
+					'heading', 'text', 'table', 'list'
 				]
 			],
 			'media' => [
 				'label' => 'Medien',
 				'type' => 'group',
 				'fieldsets' => [
-					'responsive-image', 'responsive-video'
+					'responsive-image', 'responsive-video', 'gallery'
 				]
 			],
 			'code' => [
