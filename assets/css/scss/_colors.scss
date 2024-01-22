@@ -14,7 +14,7 @@
   --color-accent: #11446C;
   --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
 
-  --color-day-overlay: rgba(0, 0, 0, 0.7);
+  --color-overlay: rgba(255, 255, 255, 0.8);
 }
 
 @mixin night() {
@@ -31,7 +31,7 @@
   --color-accent: #198de5;
   --gradient-accent: linear-gradient(to right top, #75baef 0%, #8cc5f1 100%);
 
-  --color-day-overlay: rgba(255, 255, 255, 0.7);
+  --color-overlay: rgba(20, 20, 20, 0.8);
 }
 
 :root {
