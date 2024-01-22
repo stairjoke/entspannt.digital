@@ -427,17 +427,17 @@ svg.icon.inline.right {
 }
 body {
   display: grid;
-  grid-template-columns: [page-start breakout-start] 2fr [oversized-start left-oversized-start] 1fr [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 2fr [main-end right-two-thirds-end right-one-third-end right-column-end] 1fr [oversized-end right-oversized-end] 2fr [page-end breakout-end];
+  grid-template-columns: [page-start breakout-start left-breakout-column-start] 2fr [oversized-start left-oversized-start] 1fr [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end left-breakout-column-end right-breakout-column-start right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 2fr [main-end right-two-thirds-end right-one-third-end right-column-end] 1fr [oversized-end right-oversized-end] 2fr [page-end right-breakout-column-end breakout-end];
   gap: var(--grid-gap) var(--grid-gap);
 }
 @media (max-width: 1280px) {
   body {
-    grid-template-columns: [page-start breakout-start] 2fr [oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 3fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 3fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end] 2fr [page-end breakout-end];
+    grid-template-columns: [page-start breakout-start left-breakout-column-start] 2fr [oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 3fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end left-breakout-column-end right-breakout-column-start right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 3fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end] 2fr [page-end right-breakout-column-end breakout-end];
   }
 }
 @media (max-width: 1024px) {
   body {
-    grid-template-columns: [page-start breakout-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 5fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end breakout-end];
+    grid-template-columns: [page-start breakout-start left-breakout-column-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 5fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end left-breakout-column-end right-breakout-column-start right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end right-breakout-column-end breakout-end];
   }
 }
 @media (max-width: 534px) {
@@ -482,6 +482,15 @@ section {
   grid-column: breakout;
 }
 
+.breakout-columns .column:first-child, .breakout-columns .card:first-child {
+  grid-row: left-content;
+  grid-column: left-breakout-column;
+}
+.breakout-columns .column:last-child, .breakout-columns .card:last-child {
+  grid-row: right-content;
+  grid-column: right-breakout-column;
+}
+
 .floating-illustration {
   background-color: var(--color-visual-grouping);
   padding: var(--grid-gap);
@@ -501,11 +510,11 @@ section {
   grid-column: main;
 }
 
-.two-columns .column:first-child {
+.two-columns .column:first-child, .two-columns .card:first-child {
   grid-row: left-content;
   grid-column: left-column;
 }
-.two-columns .column:last-child {
+.two-columns .column:last-child, .two-columns .card:last-child {
   grid-row: right-content;
   grid-column: right-column;
 }
