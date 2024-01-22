@@ -121,14 +121,14 @@ tabs:
             | Volle Breite, Übergroß, Hauptteil: | `2784px` | `1856px` | `928px` |
             | Zwei Drittel: | `1624px` | `1083px` | `541px` |
             | Herausragendes Drittel, Ein Drittel: | `1160px` | `773px` | `387px` |
-            | Spalte: | `1392px` | `928px` | `464px` |
+            | Spalte, Übergroße Spalte: | `1392px` | `928px` | `464px` |
           en: |
             | Layout Size | `@3x` | `@2x` | `@1x` |
             | :--- | :--- | :--- | :--- |
             | Full width, Oversized, Main content: | `2784px` | `1856px` | `928px` |
             | Two thirds: | `1624px` | `1083px` | `541px` |
             | Oversized third, One third: | `1160px` | `773px` | `387px` |
-            | Column: | `1392px` | `928px` | `464px` |
+            | Column, Oversized column: | `1392px` | `928px` | `464px` |
 
       tablet3x:
             width: 1/3
@@ -208,7 +208,7 @@ tabs:
             | :--- | :--- | :--- |
             | Volle Breite: | `3264px` | `1632px` |
             | Übergroß: | `2176px` | `1088px` |
-            | Hauptteil: | `1632px` | `816px` |
+            | Hauptteil, Übergroße Spalte: | `1632px` | `816px` |
             | Zwei Drittel: | `1088px` | `544px` |
             | Herausragendes Drittel: | `816px` | `408px` |
             | Spalte: | `816px` | `408px` |
@@ -218,7 +218,7 @@ tabs:
             | :--- | :--- | :--- |
             | Full width: | `3264px` | `1632px` |
             | Oversized: | `2176px` | `1088px` |
-            | Main content: | `1632px` | `816px` |
+            | Main content, Oversized column: | `1632px` | `816px` |
             | Two Thirds: | `1088px` | `544px` |
             | Oversized third: | `816px` | `408px` |
             | Column: | `816px` | `408px` |
