@@ -48,7 +48,7 @@ body {
     5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end breakout-end];
   }
 
-  @media (max-width: #{breakpoints.$phablet}) {
+  @media (max-width: #{breakpoints.$phablet-}) {
     display: block;
 
     main > * {
@@ -62,7 +62,7 @@ body {
 .layout, main, section {
   display: grid;
   grid-template-columns: subgrid;
-  @media (max-width: #{breakpoints.$phablet}) {
+  @media (max-width: #{breakpoints.$phablet-}) {
     display: block;
   }
 }
@@ -103,7 +103,7 @@ section {
     display: grid;
     grid-template-columns: subgrid;
 
-    @media (max-width: #{breakpoints.$phablet}) {
+    @media (max-width: #{breakpoints.$phablet-}) {
       display: block;
     }
 
@@ -135,7 +135,7 @@ section {
   grid-row: left-content;
 }
 .left-one-third, .left-oversized {
-  @media (max-width: #{breakpoints.$phablet}) {
+  @media (max-width: #{breakpoints.$phablet-}) {
     max-width: 40%;
     float: left;
     margin-right: var(--grid-gap);
@@ -153,7 +153,7 @@ section {
   grid-row: right-content;
 }
 .right-one-third, .right-oversized {
-  @media (max-width: #{breakpoints.$phablet}) {
+  @media (max-width: #{breakpoints.$phablet-}) {
     max-width: 40%;
     float: right;
     margin-left: var(--grid-gap);

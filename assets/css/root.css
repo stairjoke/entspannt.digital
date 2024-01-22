@@ -440,7 +440,7 @@ body {
     grid-template-columns: [page-start breakout-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 5fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end breakout-end];
   }
 }
-@media (max-width: 535px) {
+@media (max-width: 534px) {
   body {
     display: block;
   }
@@ -453,7 +453,7 @@ body {
   display: grid;
   grid-template-columns: subgrid;
 }
-@media (max-width: 535px) {
+@media (max-width: 534px) {
   .layout, main, section {
     display: block;
   }
@@ -492,7 +492,7 @@ section {
   display: grid;
   grid-template-columns: subgrid;
 }
-@media (max-width: 535px) {
+@media (max-width: 534px) {
   .floating-illustration.main {
     display: block;
   }
@@ -520,7 +520,7 @@ section {
   grid-row: left-content;
 }
 
-@media (max-width: 535px) {
+@media (max-width: 534px) {
   .left-one-third, .left-oversized {
     max-width: 40%;
     float: left;
@@ -539,7 +539,7 @@ section {
   grid-row: right-content;
 }
 
-@media (max-width: 535px) {
+@media (max-width: 534px) {
   .right-one-third, .right-oversized {
     max-width: 40%;
     float: right;
