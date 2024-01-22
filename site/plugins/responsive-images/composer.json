@@ -1,7 +1,7 @@
 {
     "name": "wenzels-design/responsive-images",
     "description": "A Kirby CMS plugin that replaces the default image element with a picture element that supports multiple sizes and dark mode.",
-    "version": "0.3",
+    "version": "0.4",
     "license": "GNU GPLv3",
     "authors": [
         {

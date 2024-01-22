@@ -6,35 +6,71 @@
 
 <picture <?= ($block->class()->isNotEmpty()) ? "class='" . preg_replace("/, /", " ", $block->class()) . "'" : "" ; ?>>
 	<?php
-		function wenzelsDesignResponsiveImageSourceGenerator($block, $image, $HiDPIImage, $HiDPIFactor, $mediaString){
-			$srcset = "";
-			if($image = $block->$image()?->toFile()) {
-				if($imageHiDPI = $block->$HiDPIImage()?->toFile()){
-					$srcset .= $imageHiDPI->url() . ' ' . $HiDPIFactor . 'x, ';
-				}
-				$srcset .= $image->url() . ' 1x';
+		function responsiveImage_render($block){
+			
+			// In $config['targets'] the order must be from largest to smallest min-width!
+			
+			$config = [
+				'darkModeSupport' => true,
+				'breakpoints' => [
+					'desktop' => [
+						'min-width' => 1024,
+						'factors' => [1, 2]
+					],
+					'tablet' => [
+						'min-width' => 535,
+						'factors' => [1, 2, 3]
+					],
+					'mobile' => [
+						'min-width' => 0,
+						'factors' => [1, 3]
+					]
+				]
+			];
+			
+			function responsiveImage_source($block, $device, $breakpoint, $dark = false){
+				//Open <source />-element
+				echo('<source media="(min-width: '. $breakpoint['min-width'] .'px)" srcset="');
 				
-				echo("<source media='$mediaString' srcset='$srcset' />");
+				// Count numebr of factors in $config array for this breakpoint
+				$numberOfFactors = 0;
+				$numberOfFactors = count($breakpoint['factors']);
+				
+				// Iterate through all factors
+				foreach($breakpoint['factors'] as $factor) {
+					// Count down how many are left
+					$numberOfFactors--;
+					
+					// Test if an image for this breakpoint and factor exists
+					$try = $device . $factor . 'x';
+					if($dark){
+						$try .= 'dark';
+					}
+					if($image = $block->$try()->toFile()){
+				
+						// If an image exists, echo the URL followed by the factor.
+						echo($image->url() . ' ' . $factor . 'x');
+						if($numberOfFactors > 0) {
+							echo(', ');
+						}
+					}
+					
+				}
+				
+				echo('" />'); //end of <source />-element
 			}
-		}
-		
-		function wenzelsDesignResponsiveImageSrcsetGenerator($block, $name, $HiDPIFactor, $minWidth) {
-			$defaultImage = "image" . $name;
-			$HiDPIImage = "image" . $name . "hidpi";
-			$darkImage = "image" . $name . "dark";
-			$darkHiDPIImage = "image" . $name . "hidpidark";
 			
-			$media = '(min-width: '.$minWidth.'px)';
-			$mediaDark = $media . ' and (prefers-color-scheme: dark)';
+			// Iterate through all breakpoints
+			foreach($config['breakpoints'] as $device => $breakpoint){
+				responsiveImage_source($block, $device, $breakpoint);
+				
+				if($config['darkModeSupport'] === true){
+					responsiveImage_source($block, $device, $breakpoint, true);
+				}
+			}
 			
-			wenzelsDesignResponsiveImageSourceGenerator($block, $darkImage, $darkHiDPIImage, $HiDPIFactor, $mediaDark);
-			wenzelsDesignResponsiveImageSourceGenerator($block, $defaultImage, $HiDPIImage, $HiDPIFactor, $media);
 		}
-	
-		wenzelsDesignResponsiveImageSrcsetGenerator($block, "desktopxl", "2", "1280");
-		wenzelsDesignResponsiveImageSrcsetGenerator($block, "desktop", "2", "744");
-		wenzelsDesignResponsiveImageSrcsetGenerator($block, "tablet", "3", "414");
-		wenzelsDesignResponsiveImageSrcsetGenerator($block, "mobile", "3", "0");
+		responsiveImage_render($block);
 	?>
-	<img alt="<?= $block->alt() ?>" src="<?= $block->imageDesktop()?->toFile()->url() ?>" />
+	<img alt="<?= $block->alt() ?>" src="<?= $block->desktop1x()?->toFile()->url() ?>" />
 </picture>

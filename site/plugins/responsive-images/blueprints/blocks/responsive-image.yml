@@ -6,208 +6,260 @@ tabs:
   content:
     fields:
 
+      headlineOptions:
+        type: headline
+        label:
+          de: Bildeigenschaften
+          en: Image options
+
+      alt:
+        label:
+          de: Bildbeschreibung
+          en: Image Description
+        type: text
+        required: true
+        counter: true
+
       class:
-        width: 1/2
         label:
           de: Layout-Eigenschaften
           en: Layout-Options
         type: checkboxes
         options:
           breakout:
-            de: Über-Breit
-            en: Hero Image
-          left:
-            de: Linksbündig
-            en: Left aligned
-          right:
-            de: Rechtsbündig
-            en: Right aligned
+            de: |
+              Hero-Bild • Bricht Layout-Fluss und zeigt das Bild maximal breit an.
+            en: |
+              Hero Image • Breaks layout flow and displays the image as wide as possible.
           floating-illustration:
-            de: Illustration
-            en: Illustration
+            de: |
+              Illustration • Bricht Layout-Fluss, setzt einen Rahmen in der Hero-Größe und setzt das Bild in diesem Rahmen zentriert.
+            en: |
+              Illustration • Breaks layout flow, displays a hero-sized frame, and centres the image in this frame.
           main:
-            de: Illustration zentrieren
-            en: Center illustration
+            de: Illustrationsgröße auf Haupt-Spalte skalieren.
+            en: Scale illustration size to main column.
 
-      gapOptions:
-        width: 1/2
-        type: gap
-
-      alt:
+      headlineMobile:
+        type: headline
         label:
-          de: Ersatztext
-          en: Alt-Text
-        type: text
+          de: Handy
+          en: Smartphone
 
-      lineMobile:
-        type: line
+      infoMobile:
+        type: info
+        label:
+          de: Größentabelle
+          en: Size guide
+        text:
+          de: |
+            | Anzeigegröße | `@3x` | `@1x` |
+            | :--- | :--- | :--- |
+            | Ein Drittel, Herausragendes Drittel: | `458px` | `153px` |
+            | Andere: | `1146px` | `382px` |
+          en: |
+            | Layout Size | `@3x` | `@1x` |
+            | :--- | :--- | :--- |
+            | One third, Oversized third: | `458px` | `153px` |
+            | Others: | `1146px` | `382px` |
 
-      imageMobile:
+      mobile3x:
         width: 1/2
         label:
-          de: 390w
-          en: 390w
+          de: Tag • 3x
+          en: Day • 3x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      imageMobileDark:
+      mobile1x:
         width: 1/2
         label:
-          de: 390w – Night
-          en: 390w – Night
+          de: Tag • 1x
+          en: Day • 1x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      imageMobileHiDPI:
+      mobile3xDark:
         width: 1/2
         label:
-          de: 390w @3x
-          en: 390w @3x
+          de: Nacht • 3x
+          en: Night • 3x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      imageMobileHiDPIDark:
+      mobile1xDark:
         width: 1/2
         label:
-          de: 390w @3x – Nacht
-          en: 390w @3x – Night
+          de: Nacht • 1x
+          en: Night • 1x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      lineTablet:
-        type: line
-
-      imageTablet:
-        width: 1/2
+      headlineTablet:
+        type: headline
         label:
-          de: 744w
-          en: 744w
+          de: Desktop klein / Tablet
+          en: Desktop small / tablet
+
+      infoTablet:
+        type: info
+        label:
+          de: Größentabelle
+          en: Size guide
+        text:
+          de: |
+            | Anzeigegröße | `@3x` | `@2x` | `@1x` |
+            | :--- | :--- | :--- | :--- |
+            | Volle Breite, Übergroß, Hauptteil: | `2784px` | `1856px` | `928px` |
+            | Zwei Drittel: | `1624px` | `1083px` | `541px` |
+            | Herausragendes Drittel, Ein Drittel: | `1160px` | `773px` | `387px` |
+            | Spalte: | `1392px` | `928px` | `464px` |
+          en: |
+            | Layout Size | `@3x` | `@2x` | `@1x` |
+            | :--- | :--- | :--- | :--- |
+            | Full width, Oversized, Main content: | `2784px` | `1856px` | `928px` |
+            | Two thirds: | `1624px` | `1083px` | `541px` |
+            | Oversized third, One third: | `1160px` | `773px` | `387px` |
+            | Column: | `1392px` | `928px` | `464px` |
+
+      tablet3x:
+            width: 1/3
+            label:
+              de: Tag • 3x
+              en: Day • 3x
+            type: files
+            uploads: image
+            min: 0
+            max: 1
+
+      tablet2x:
+        width: 1/3
+        label:
+          de: Tag • 2x
+          en: Day • 2x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      imageTabletDark:
-        width: 1/2
+      tablet1x:
+        width: 1/3
         label:
-          de: 744w – Nacht
-          en: 744w – Night
+          de: Tag • 1x
+          en: Day • 1x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      imageTabletHiDPI:
-        width: 1/2
+      tablet3xDark:
+        width: 1/3
         label:
-          de: 744w @3x
-          en: 744w @3x
+          de: Nacht • 3x
+          en: Night • 3x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      imageTabletHiDPIDark:
-        width: 1/2
+      tablet2xDark:
+        width: 1/3
         label:
-          de: 744w @3x – Nacht
-          en: 744w @3x – Night
+          de: Nacht • 2x
+          en: Night • 2x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      lineDesktop:
-        type: line
+      tablet1xDark:
+        width: 1/3
+        label:
+          de: Nacht • 1x
+          en: Night • 1x
+        type: files
+        uploads: image
+        min: 0
+        max: 1
 
-      imageDesktop:
+
+      headlineDesktop:
+        type: headline
+        label:
+          de: Desktop groß
+          en: Desktop large
+
+      infoDesktop:
+        type: info
+        label:
+          de: Größentabelle
+          en: Size guide
+        text:
+          de: |
+            | Anzeigegröße | `@2x` | `@1x` |
+            | :--- | :--- | :--- |
+            | Volle Breite: | `3264px` | `1632px` |
+            | Übergroß: | `2176px` | `1088px` |
+            | Hauptteil: | `1632px` | `816px` |
+            | Zwei Drittel: | `1088px` | `544px` |
+            | Herausragendes Drittel: | `816px` | `408px` |
+            | Spalte: | `816px` | `408px` |
+            | Ein Drittel: | `544px` | `272px` |
+          en: |
+            | Layout Size | `@2x` | `@1x` |
+            | :--- | :--- | :--- |
+            | Full width: | `3264px` | `1632px` |
+            | Oversized: | `2176px` | `1088px` |
+            | Main content: | `1632px` | `816px` |
+            | Two Thirds: | `1088px` | `544px` |
+            | Oversized third: | `816px` | `408px` |
+            | Column: | `816px` | `408px` |
+            | One third: | `544px` | `272px` |
+
+      desktop2x:
         width: 1/2
         label:
-          de: 1024w
-          en: 1024w
+          de: Tag • 2x
+          en: Day • 2x
+        type: files
+        uploads: image
+        min: 0
+        max: 1
+
+      desktop1x:
+        width: 1/2
+        label:
+          de: Tag • 1x (obligatorisch)
+          en: Day • 1x (required)
         type: files
         uploads: image
         min: 1
         max: 1
 
-      imageDesktopDark:
+      desktop2xDark:
         width: 1/2
         label:
-          de: 1024w – Nacht
-          en: 1024w – Night
-        type: files
-        uploads: image
-        min: 1
-        max: 1
-
-      imageDesktopHiDPI:
-        width: 1/2
-        label:
-          de: 1024w @2x
-          en: 1024w @2x
+          de: Nacht • 2x
+          en: Night • 2x
         type: files
         uploads: image
         min: 0
         max: 1
 
-      imageDesktopHiDPIDark:
+      desktop1xDark:
         width: 1/2
         label:
-          de: 1024w @2x – Nacht
-          en: 1024w @2x – Night
+          de: Nacht • 1x
+          en: Night • 1x
         type: files
         uploads: image
         min: 0
         max: 1
-
-      lineDesktopXL:
-        type: line
-
-      imageDesktopXL:
-        width: 1/2
-        label:
-          de: 1280w
-          en: 1280w
-        type: files
-        uploads: image
-        min: 0
-        max: 1
-
-      imageDesktopXLDark:
-        width: 1/2
-        label:
-          de: 1280w – Nacht
-          en: 1280w – Night
-        type: files
-        uploads: image
-        min: 0
-        max: 1
-
-      imageDesktopXLHiDPI:
-        width: 1/2
-        label:
-          de: 1280w @2x
-          en: 1280w @2x
-        type: files
-        uploads: image
-        min: 0
-        max: 1
-
-      imageDesktopXLHiDPIDark:
-        width: 1/2
-        label:
-          de: 1280w @2x – Nacht
-          en: 1280w @2x – Night
-        type: files
-        uploads: image
-        min: 0
-        max: 1
-
