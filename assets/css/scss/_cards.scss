@@ -1,6 +1,7 @@
 // Styles for cards
 
 .card {
+  display: block;
   position: relative;
   aspect-ratio: 16/10;
 
@@ -12,6 +13,7 @@
   }
 
   .label {
+    display: block;
     position: absolute;
     bottom: 0;
     left: 0;
