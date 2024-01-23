@@ -86,6 +86,10 @@ section {
   grid-column: page;
   column-gap: var(--grid-gap);
   row-gap: 0;
+
+  &.space-above {
+    margin-top: var(--spacer-section);
+  }
 }
 
 section > div {
