@@ -88,6 +88,10 @@ section {
   row-gap: 0;
 }
 
+section > div {
+  margin-bottom: var(--grid-replacing-margin);
+}
+
 .main, .page-opener {
   grid-column: main;
 }
@@ -106,6 +110,9 @@ section {
       grid-row: right-content;
       grid-column: right-breakout-column;
     }
+  }
+  .card {
+    margin-bottom: var(--grid-replacing-margin);
   }
 }
 
