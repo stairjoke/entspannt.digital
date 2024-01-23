@@ -37,6 +37,11 @@
   --spacer-full: var(--spacer-element);
   --spacer-line-break: 1.5rem;
   --grid-gap: 1rem;
+  --grid-replacing-margin: var(--spacer-section);
+
+  @media (min-width: #{breakpoints.$phablet}){
+    --grid-replacing-margin: 0;
+  }
 
   @media (min-width: #{breakpoints.$tablet}){
     --spacer-section: 6rem;
