@@ -30,7 +30,12 @@
 			
 			function responsiveImage_source($block, $device, $breakpoint, $dark = false){
 				//Open <source />-element
-				echo('<source media="(min-width: '. $breakpoint['min-width'] .'px)" srcset="');
+				echo('<source media="(min-width: '. $breakpoint['min-width'] .'px)" ');
+				$try = $device . '1x';
+				if($image = $block->$try()->toFile()){
+					echo('width="' . $image->width() . '" height="' . $image->height() . '" ');
+				}
+				echo('srcset="');
 				
 				// Count numebr of factors in $config array for this breakpoint
 				$numberOfFactors = 0;
@@ -71,6 +76,11 @@
 			
 		}
 		responsiveImage_render($block);
+		
+		if($image = $block->desktop1x()->toFile()){
+			echo('<img alt="' . $block->alt() . '" src="' . $image->url() . '" width="' . $image->width() . '" height="' . $image->height() . '" />');
+		}else{
+			throw new Exception("Default image missing for responsive image block.");
+		}
 	?>
-	<img alt="<?= $block->alt() ?>" src="<?= $block->desktop1x()?->toFile()->url() ?>" />
 </picture>
