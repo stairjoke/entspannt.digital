@@ -2,8 +2,14 @@
 
 .card {
   position: relative;
+  aspect-ratio: 16/10;
 
-  // Needs min height/aspect ratio and image should scale to fill
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    //object-position could use focal point as supported by Kirby CMS
+  }
 
   .label {
     position: absolute;
