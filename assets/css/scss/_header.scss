@@ -6,6 +6,7 @@
 
 header {
   grid-column: page;
+  grid-row: header;
 
   display: flex;
   gap: var(--grid-gap, 500px);

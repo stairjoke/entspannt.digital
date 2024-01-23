@@ -454,6 +454,8 @@ body {
   display: grid;
   grid-template-columns: [page-start breakout-start left-breakout-column-start] 2fr [oversized-start left-oversized-start] 1fr [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr [left-one-third-end left-oversized-end right-two-thirds-start] 1fr [left-column-end left-breakout-column-end right-breakout-column-start right-column-start] 1fr [left-two-thirds-end right-one-third-start right-oversized-start] 2fr [main-end right-two-thirds-end right-one-third-end right-column-end] 1fr [oversized-end right-oversized-end] 2fr [page-end right-breakout-column-end breakout-end];
   gap: var(--grid-gap) var(--grid-gap);
+  grid-template-rows: [header-start] minmax(2rem, 4rem) [header-end content-start] auto [content-end footer-start] var(--spacer-section) [footer-end];
+  align-items: start;
 }
 @media (max-width: 1280px) {
   body {
@@ -697,6 +699,7 @@ img, video, audio {
 
 footer {
   grid-column: page;
+  grid-row: footer;
 }
 
 header label {
@@ -799,6 +802,7 @@ header nav a.current {
 
 header {
   grid-column: page;
+  grid-row: header;
   display: flex;
   gap: var(--grid-gap, 500px);
   margin-bottom: var(--spacer-section);

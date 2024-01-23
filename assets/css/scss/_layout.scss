@@ -57,6 +57,9 @@ body {
   }
 
   gap: var(--grid-gap) var(--grid-gap);
+
+  grid-template-rows: [header-start] minmax(2rem, 4rem) [header-end content-start] auto [content-end footer-start] var(--spacer-section) [footer-end];
+  align-items: start;
 }
 
 .layout, main, section {
@@ -282,4 +285,5 @@ img, video, audio {
 
 footer {
   grid-column: page;
+  grid-row: footer;
 }
