@@ -234,6 +234,10 @@ img, video, audio {
   object-fit: contain;
 }
 
+.cover {
+  object-fit: cover;
+}
+
 // -- Specialized Elements
 .visually-grouped-block {
   @include layer-styles.resize-handles;

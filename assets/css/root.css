@@ -634,6 +634,10 @@ img, video, audio {
   object-fit: contain;
 }
 
+.cover {
+  object-fit: cover;
+}
+
 .visually-grouped-block {
   outline: solid 1px var(--color-visual-grouping);
   position: relative;
