@@ -1,0 +1,41 @@
+name:
+  de: Karte
+  en: Card
+icon: expand
+tabs:
+  main:
+    fields:
+
+      promotedPage:
+        type: pages
+        label:
+          de: Verlinkte Seite
+          en: Linked page
+        multiple: false
+
+      cardContent:
+        type: blocks
+        label:
+          de: Inhalt
+          en: Content
+        fieldsets:
+          - heading
+          - text
+          - responsive-image
+        default:
+          - type: responsive-image
+          - type: markdown
+            content:
+              text: |
+                <div class=label>
+          - type: heading
+            content:
+              level: h2
+              text: Title
+          - type: text
+            content:
+              text: Lorem Ipsum dolor sit amet
+          - type: markdown
+            content:
+              text: |
+                </div>

@@ -1,0 +1,12 @@
+{
+    "name": "wenzels-design/card",
+    "description": "A Kirby CMS plugin that adds a custom block displaying a card.",
+    "version": "0.1",
+    "license": "GNU GPLv3",
+    "authors": [
+        {
+            "name": "Wenzel Massag",
+            "email": "wenzel@wenzels.design"
+        }
+    ]
+}

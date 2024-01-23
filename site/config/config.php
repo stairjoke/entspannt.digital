@@ -17,13 +17,12 @@ return [
 				'label' => 'Medien',
 				'type' => 'group',
 				'fieldsets' => [
-					'responsive-image', 'responsive-video', 'gallery'
+					'responsive-image', 'responsive-video', 'card', 'gallery'
 				]
 			],
 			'code' => [
 				'label' => 'Code',
 				'type' => 'group',
-				'open' => false,
 				'fieldsets' => [
 					'markdown', 'code'
 				]
