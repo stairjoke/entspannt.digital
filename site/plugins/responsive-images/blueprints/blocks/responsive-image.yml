@@ -37,8 +37,11 @@ tabs:
             en: |
               Illustration • Breaks layout flow, displays a hero-sized frame, and centres the image in this frame.
           main:
-            de: Illustrationsgröße auf Haupt-Spalte skalieren.
-            en: Scale illustration size to main column.
+            de: Illustration • Illustrationsgröße auf Haupt-Spalte skalieren.
+            en: Illustration • Scale illustration size to main column.
+          cover:
+            de: Bild skalieren um den gesamten verfügbaren Raum zu bedecken. Bild wird ggf. beschnitten.
+            en: Scale the image to cover the entire available area. May crop the image.
 
       headlineMobile:
         type: headline
