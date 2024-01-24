@@ -1,5 +1,11 @@
 title: Projects Page
-
+options:
+  changeTemplate:
+    - default
+    - simple
+    - note
+    - notes
+    - projects
 sections:
   listed-projects:
     label: Listed

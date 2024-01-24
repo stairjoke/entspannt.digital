@@ -509,6 +509,10 @@ main {
   grid-column: page;
   gap: var(--grid-gap) var(--grid-gap);
 }
+main.no-layout {
+  display: block;
+  grid-column: main;
+}
 
 section {
   grid-column: page;

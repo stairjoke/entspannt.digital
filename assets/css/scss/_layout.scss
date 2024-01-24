@@ -80,6 +80,11 @@ body {
 main {
   grid-column: page;
   gap: var(--grid-gap) var(--grid-gap);
+
+  &.no-layout {
+    display: block;
+    grid-column: main;
+  }
 }
 
 section {

@@ -1,5 +1,11 @@
 title: Blog Post
-
+options:
+  changeTemplate:
+    - default
+    - simple
+    - note
+    - notes
+    - projects
 columns:
   main:
     width: 2/3
