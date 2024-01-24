@@ -9,12 +9,12 @@
 
   --color-visual-grouping: #EAEBEB;
   --color-page: #FFFFFF;
-  --color-specular: #ffffff;
+  --color-specular: rgba(255, 255, 255, 0.75);
 
   --color-accent: #11446C;
   --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
 
-  --color-overlay: rgba(255, 255, 255, 0.8);
+  --color-overlay: rgba(255, 255, 255, 0.63);
 }
 
 @mixin night() {
@@ -26,12 +26,12 @@
 
   --color-visual-grouping: #272929;
   --color-page: #141414;
-  --color-specular: #000000;
+  --color-specular: rgba(255, 255, 255, 0.28);
 
   --color-accent: #198de5;
   --gradient-accent: linear-gradient(to right top, #75baef 0%, #8cc5f1 100%);
 
-  --color-overlay: rgba(20, 20, 20, 0.8);
+  --color-overlay: rgba(20, 20, 20, 0.55);
 }
 
 :root {

@@ -37,6 +37,9 @@
     padding: var(--spacer-line-break) var(--grid-gap);
     box-sizing: border-box;
     background: var(--color-overlay);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border-top: solid 1px var(--color-specular);
   }
 
   h2, h3, h4, h5, h6, p {

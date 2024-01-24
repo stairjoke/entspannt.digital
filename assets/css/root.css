@@ -8,10 +8,10 @@
   --text-color-high-contrast: #000000;
   --color-visual-grouping: #EAEBEB;
   --color-page: #FFFFFF;
-  --color-specular: #ffffff;
+  --color-specular: rgba(255, 255, 255, 0.75);
   --color-accent: #11446C;
   --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
-  --color-overlay: rgba(255, 255, 255, 0.8);
+  --color-overlay: rgba(255, 255, 255, 0.63);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -22,10 +22,10 @@
     --text-color-high-contrast: #000000;
     --color-visual-grouping: #272929;
     --color-page: #141414;
-    --color-specular: #000000;
+    --color-specular: rgba(255, 255, 255, 0.28);
     --color-accent: #198de5;
     --gradient-accent: linear-gradient(to right top, #75baef 0%, #8cc5f1 100%);
-    --color-overlay: rgba(20, 20, 20, 0.8);
+    --color-overlay: rgba(20, 20, 20, 0.55);
   }
 }
 
@@ -379,6 +379,9 @@ aside button, aside .button, aside a[role=button] {
   padding: var(--spacer-line-break) var(--grid-gap);
   box-sizing: border-box;
   background: var(--color-overlay);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-top: solid 1px var(--color-specular);
 }
 .card h2, .card h3, .card h4, .card h5, .card h6, .card p {
   margin-block: 0;
@@ -403,10 +406,10 @@ svg.icon use {
   --text-color-high-contrast: #000000;
   --color-visual-grouping: #EAEBEB;
   --color-page: #FFFFFF;
-  --color-specular: #ffffff;
+  --color-specular: rgba(255, 255, 255, 0.75);
   --color-accent: #11446C;
   --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
-  --color-overlay: rgba(255, 255, 255, 0.8);
+  --color-overlay: rgba(255, 255, 255, 0.63);
 }
 @media (prefers-color-scheme: dark) {
   svg.icon use {
@@ -417,10 +420,10 @@ svg.icon use {
     --text-color-high-contrast: #000000;
     --color-visual-grouping: #272929;
     --color-page: #141414;
-    --color-specular: #000000;
+    --color-specular: rgba(255, 255, 255, 0.28);
     --color-accent: #198de5;
     --gradient-accent: linear-gradient(to right top, #75baef 0%, #8cc5f1 100%);
-    --color-overlay: rgba(20, 20, 20, 0.8);
+    --color-overlay: rgba(20, 20, 20, 0.55);
   }
 }
 *:hover > svg.icon {
