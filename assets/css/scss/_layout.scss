@@ -5,6 +5,7 @@
 
 body {
   display: grid;
+  min-height: calc(100vh - (2 * var(--body-margin)));
 
   // 12 column layout translated into named columns
   // |------------| page / breakout
@@ -126,10 +127,12 @@ section > div {
 }
 
 .floating-illustration {
+  grid-column: page;
   background-color: var(--color-visual-grouping);
   padding: var(--grid-gap);
   box-sizing: border-box;
   text-align: center;
+  border-radius: var(--border-radius-default);
 
   &.main {
     display: grid;
@@ -139,7 +142,7 @@ section > div {
       display: block;
     }
 
-    img {
+    picture, img {
       grid-column: main;
     }
   }
