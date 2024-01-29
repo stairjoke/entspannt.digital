@@ -1,0 +1,20 @@
+// Styles for Footnotes
+
+#footnotes {
+  margin-top: var(--spacer-section);
+  border-top: solid 2px var(--text-color-dimmed);
+  padding-top: var(--spacer-line-break);
+}
+
+a[href="#footnotes"] {
+  display: inline-block;
+  transform: translateY(-.3em);
+  font-size: 0.8em;
+
+  &:before {
+    content: '[';
+  }
+  &:after {
+    content: ']';
+  }
+}

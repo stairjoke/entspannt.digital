@@ -47,6 +47,9 @@ body {
   color: var(--text-color-body-text);
 }
 
+p {
+  margin: calc(var(--line-height-factor) * 1rem) 0;
+}
 h2 + p.byline, h3 + p.byline {
   margin-top: calc(-1 * var(--spacer-line-break));
   margin-bottom: var(--spacer-line-break);
@@ -62,7 +65,7 @@ a:hover, a:focus {
 }
 
 em, strong, p.byline {
-  font-weight: 700;
+  font-weight: 800;
   font-style: normal;
   text-decoration: none;
 }
@@ -194,9 +197,16 @@ h4 {
   margin: calc(var(--line-height-factor) * 1rem) 0 0 0;
 }
 
+ul {
+  padding: 0 0 0 0.6rem;
+}
+
+ol {
+  padding: 0 0 0 1.6rem;
+}
+
 ol, ul {
   margin: 0 0 1rem 0;
-  padding: 0 0 0 0.6rem;
   font-weight: 300;
 }
 h3 + ol, h5 + ol, h3 + ul, h5 + ul {
@@ -216,6 +226,13 @@ ul {
 }
 ul ul {
   list-style-type: "•";
+}
+
+blockquote {
+  background: var(--color-visual-grouping);
+  border-radius: var(--border-radius-default);
+  margin: var(--spacer-line-break) 0;
+  padding: 1px calc(var(--line-height-factor) * 1rem);
 }
 
 p.teaser {
@@ -388,6 +405,24 @@ aside button, aside .button, aside a[role=button] {
 }
 .card h2, .card h3, .card h4, .card h5, .card h6 {
   font-size: 1.5rem;
+}
+
+#footnotes {
+  margin-top: var(--spacer-section);
+  border-top: solid 2px var(--text-color-dimmed);
+  padding-top: var(--spacer-line-break);
+}
+
+a[href="#footnotes"] {
+  display: inline-block;
+  transform: translateY(-0.3em);
+  font-size: 0.8em;
+}
+a[href="#footnotes"]:before {
+  content: "[";
+}
+a[href="#footnotes"]:after {
+  content: "]";
 }
 
 svg.icon {
