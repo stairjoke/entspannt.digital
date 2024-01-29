@@ -4,6 +4,9 @@ return [
 	'panel' => [
 		'css' => 'assets/css/panel.css'
 	],
+	'markdown' => [
+		'extra' => false
+	],
 	'blocks' => [
 		'fieldsets' => [
 			'text' => [
