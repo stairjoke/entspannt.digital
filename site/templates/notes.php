@@ -8,7 +8,7 @@
 			?>
 	<article>
 		<h2><a href="<?= $article->url() ?>"><?= ($article->indexOf($articles) + 1) ?> &mdash; <?= $article->title() ?></a></h2>
-		<p><?= $article->teaser() ?></p>
+		<p><?= ucfirst(getPubdate($article, $kirby)) ?> • <?= $article->teaser() ?></p>
 	</article>
 			<?php
 			}

@@ -40,6 +40,8 @@ columns:
         label: Date Published
         type: date
         time: true
+        translate: false
+        format: Y-m-d H:i:s +1
         default: now
       files:
         type: files
