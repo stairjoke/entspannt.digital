@@ -10,6 +10,7 @@ a[href="#footnotes"] {
   display: inline-block;
   transform: translateY(-.3em);
   font-size: 0.8em;
+  letter-spacing: .5px;
 
   &:before {
     content: '[';

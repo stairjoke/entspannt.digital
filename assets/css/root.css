@@ -429,6 +429,7 @@ a[href="#footnotes"] {
   display: inline-block;
   transform: translateY(-0.3em);
   font-size: 0.8em;
+  letter-spacing: 0.5px;
 }
 a[href="#footnotes"]:before {
   content: "[";
