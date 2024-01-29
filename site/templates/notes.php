@@ -1,5 +1,5 @@
 <?= snippet('header') ?>
-<main class="default">
+<main class="no-layout">
 	<?php foreach($articles = $page->children()->listed()->flip()->paginate(7) as $article): ?>
 	<article>
 		<h2><a href="<?= $article->url() ?>"><?= $article->title() ?></a></h2>

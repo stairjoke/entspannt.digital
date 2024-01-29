@@ -1,4 +1,6 @@
-title: Blog Post
+title:
+  de: Blog Post
+  en: Blog post
 options:
   changeTemplate:
     - default
@@ -13,6 +15,18 @@ columns:
       main_content:
         label: Inhalt des Blogposts
         type: blocks
+        default:
+          - type: markdown
+            content:
+              text: |
+                <div class="main">
+          - type: text
+            content:
+              text: Lorem Ipsum...
+          - type: markdown
+            content:
+              text: |
+                </div>
   sidebar:
     width: 1/3
     fields:
