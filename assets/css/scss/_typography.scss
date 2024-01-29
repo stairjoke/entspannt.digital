@@ -29,6 +29,7 @@ body {
 }
 
 p {
+  margin: calc(var(--line-height-factor) * 1rem) 0;
 
   &.byline {
     h2 + &, h3 + & {
@@ -51,7 +52,7 @@ a {
 }
 
 @mixin _body-emphasis {
-  font-weight: 700;
+  font-weight: 800;
   font-style: normal;
   text-decoration: none;
 }
@@ -183,9 +184,14 @@ h4 {
   font-weight: 300;
 }
 
+ul {
+  padding: 0 0 0 0.6rem;
+}
+ol {
+  padding: 0 0 0 1.6rem;
+}
 ol, ul {
   margin: 0 0 1rem 0;
-  padding: 0 0 0 0.6rem;
 
   h3 + &, h5 + & {
     margin: 1rem 0 0 0;
@@ -206,6 +212,13 @@ ul {
 }
 
 //Misc
+blockquote {
+  background: var(--color-visual-grouping);
+  border-radius: var(--border-radius-default);
+  margin: var(--spacer-line-break) 0;
+  padding: 1px calc(var(--line-height-factor) * 1rem);
+}
+
 @mixin L-article-teaser {
   @include body-text();
 
