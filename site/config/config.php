@@ -7,6 +7,7 @@ return [
 	'markdown' => [
 		'extra' => false
 	],
+	'date.handler' => 'intl',
 	'blocks' => [
 		'fieldsets' => [
 			'text' => [
