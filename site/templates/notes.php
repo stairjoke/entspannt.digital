@@ -1,26 +1,57 @@
 <?= snippet('header') ?>
 <main class="no-layout">
-	<?php foreach($articles = $page->children()->listed()->flip()->paginate(7) as $article): ?>
+	<?php
+		if($articles = $page->children()->listed()) {
+			$paginated = $articles->flip()->paginate(3);
+			
+			foreach($paginated as $article) {
+			?>
 	<article>
-		<h2><a href="<?= $article->url() ?>"><?= $article->title() ?></a></h2>
+		<h2><a href="<?= $article->url() ?>"><?= ($article->indexOf($articles) + 1) ?> &mdash; <?= $article->title() ?></a></h2>
 		<p><?= $article->teaser() ?></p>
 	</article>
-	<?php endforeach ?>
+			<?php
+			}
+		}
+	?>
 	
-	<?php if ($articles->pagination()->hasPages()): ?>
+	<?php if ($paginated->pagination()->hasPages()): ?>
 	<nav class="pagination">
-		<?php if ($articles->pagination()->hasNextPage()): ?>
-		<a class="button" href="<?= $articles->pagination()->nextPageURL() ?>">
-			Ältere Notizen
+
+		<?php if ($paginated->pagination()->hasPrevPage()): ?>
+		<a class="button" href="<?= $paginated->pagination()->prevPageURL() ?>">
+			<?= t('blogPaginationPrevious') ?>
 		</a>
+		<?php else: ?>
+		<a class="button disabled">
+			<?= t('blogPaginationPrevious') ?>
+		</a>	
 		<?php endif ?>
-	
-		<?php if ($articles->pagination()->hasPrevPage()): ?>
-		<a class="button" href="<?= $articles->pagination()->prevPageURL() ?>">
-			Neuere Notizen
+		
+		<?php if($paginated->pagination()->hasPages()): ?>
+			<ol>
+				<?php for($i = 1; $i <= $paginated->pagination()->pages(); $i++): ?>
+					<li><?php
+						if($i === $paginated->pagination()->page()){
+							echo("<a>$i</a>");
+						}else{
+							echo("<a href='". $paginated->pagination()->pageUrl($i) ."'>$i</a>");
+						}
+						?></li>
+				<?php endfor ?>
+			</ol>
+		<?php endif ?>
+
+		<?php if ($paginated->pagination()->hasNextPage()): ?>
+		<a class="button" href="<?= $paginated->pagination()->nextPageURL() ?>">
+			<?= t('blogPaginationNext') ?>
 		</a>
+		<?php else: ?>
+		<a class="button disabled">
+			<?= t('blogPaginationNext') ?>
+		</a>	
 		<?php endif ?>
-	
+
 	</nav>
 	<?php endif ?>
 </main>

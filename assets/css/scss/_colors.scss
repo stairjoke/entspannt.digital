@@ -3,6 +3,7 @@
 @mixin day() {
   --text-color-body-text: #212121;
   --text-color-dimmed: #8F9AA3;
+  --text-color-disabled: #b9bfc5;
   --text-color-link: #545454;
   --text-color-inverted: #FFFFFF;
   --text-color-high-contrast: #000000;
@@ -20,6 +21,7 @@
 @mixin night() {
   --text-color-body-text: #c6c6c6;
   --text-color-dimmed: #7d8890;
+  --text-color-disabled: #586069;
   --text-color-link: #e0e0e0;
   --text-color-inverted: #141414;
   --text-color-high-contrast: #000000;

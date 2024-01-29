@@ -133,6 +133,18 @@ button, .button, a[role=button] {
     }
   }
 
+  &.disabled {
+    border: solid 1px var(--text-color-disabled);
+    color: var(--text-color-dimmed);
+
+    &:hover, &:focus {
+      transform: none;
+      box-shadow: none;
+      background-color: unset;
+      cursor: not-allowed;
+    }
+  }
+
 
 	aside & {
 		display: block;

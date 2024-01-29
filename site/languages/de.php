@@ -8,5 +8,9 @@ return [
 		'LC_ALL' => 'de_DE.UTF-8'
 	],
 	'name' => 'Deutsch',
-	'url' => '/'
+	'url' => '/',
+	'translations' => [
+		'blogPaginationPrevious' => 'Neuere Notizen',
+		'blogPaginationNext' => 'Ältere Notizen'
+	]
 ];
