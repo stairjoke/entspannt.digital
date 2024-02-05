@@ -220,6 +220,12 @@ section > div {
 }
 
 // -- Media Elements
+picture {
+  &.breakout, &.floating-illustration {
+    margin: var(--spacer-section) 0;
+  }
+}
+
 img, figure, video {
   border-radius: var(--border-radius-default);
   margin: var(--spacer-line-break) 0 var(--spacer-line-break) 0;
@@ -276,6 +282,8 @@ img, video, audio {
     align-self: end;
   }
 
+  //Spacing and shape of children
+  //padding: var(--spacer-line-break);
   padding: var(--spacer-line-break);
 
   figure {
@@ -289,6 +297,12 @@ img, video, audio {
     &, & img {
       border-radius: 0;
     }
+  }
+  p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
