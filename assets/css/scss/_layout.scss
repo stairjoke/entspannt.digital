@@ -111,16 +111,9 @@ section > div {
 }
 
 .breakout-columns {
-  .column, .card {
-    &:first-child {
-      grid-row: left-content;
-      grid-column: left-breakout-column;
-    }
-    &:last-child {
-      grid-row: right-content;
-      grid-column: right-breakout-column;
-    }
-  }
+  grid-template-columns: 1fr 1fr;
+  row-gap: var(--grid-gap);
+
   .card {
     margin-bottom: var(--grid-replacing-margin);
   }
@@ -161,8 +154,8 @@ section > div {
   }
 }
 
-.left-one-thirds {
-  grid-column: left-one-thirds;
+.left-one-third {
+  grid-column: left-one-third;
   grid-row: left-content;
 }
 .left-oversized {
@@ -260,6 +253,21 @@ img, video, audio {
 }
 
 // -- Specialized Elements
+.flex {
+  display: flex;
+  gap: var(--grid-gap);
+
+  & > * {
+    display: block;
+  }
+
+  .thirds > * {
+    flex-basis: 33.3%;
+  }
+  .half > * {
+    flex-basis: 50%
+  }
+}
 .visually-grouped-block {
   @include layer-styles.resize-handles;
 

@@ -607,13 +607,9 @@ section > div {
   grid-column: breakout;
 }
 
-.breakout-columns .column:first-child, .breakout-columns .card:first-child {
-  grid-row: left-content;
-  grid-column: left-breakout-column;
-}
-.breakout-columns .column:last-child, .breakout-columns .card:last-child {
-  grid-row: right-content;
-  grid-column: right-breakout-column;
+.breakout-columns {
+  grid-template-columns: 1fr 1fr;
+  row-gap: var(--grid-gap);
 }
 .breakout-columns .card {
   margin-bottom: var(--grid-replacing-margin);
@@ -649,8 +645,8 @@ section > div {
   grid-column: right-column;
 }
 
-.left-one-thirds {
-  grid-column: left-one-thirds;
+.left-one-third {
+  grid-column: left-one-third;
   grid-row: left-content;
 }
 
@@ -746,6 +742,20 @@ img, video, audio {
 
 .cover {
   object-fit: cover;
+}
+
+.flex {
+  display: flex;
+  gap: var(--grid-gap);
+}
+.flex > * {
+  display: block;
+}
+.flex .thirds > * {
+  flex-basis: 33.3%;
+}
+.flex .half > * {
+  flex-basis: 50%;
 }
 
 .visually-grouped-block {
