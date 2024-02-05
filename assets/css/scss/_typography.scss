@@ -216,6 +216,7 @@ ul {
 
 //Misc
 blockquote {
+  clear: both;
   background: var(--color-visual-grouping);
   border-radius: var(--border-radius-default);
   margin: var(--spacer-line-break) 0;
