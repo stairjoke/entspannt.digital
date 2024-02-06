@@ -1,15 +1,23 @@
 title: Site
 
-sections:
-    listed:
-      label: Listed
-      type: pages
-      status: listed
-    unlisted:
-      label: Not listed
-      type: pages
-      status: unlisted
-    drafts:
-      label: Drafts
-      type: pages
-      status: draft
+columns:
+  main:
+    width: 2/3
+    sections:
+      listed:
+        label: Listed
+        type: pages
+        status: listed
+      unlisted:
+        label: Not listed
+        type: pages
+        status: unlisted
+      drafts:
+        label: Drafts
+        type: pages
+        status: draft
+  sidebar:
+    width: 1/3
+    sections:
+      files:
+        type: files
