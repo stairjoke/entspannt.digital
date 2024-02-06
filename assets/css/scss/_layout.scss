@@ -222,7 +222,7 @@ section > div {
 // -- Media Elements
 picture {
   &.breakout, &.floating-illustration {
-    margin: var(--spacer-section) 0;
+    margin: var(--spacer-element) 0 var(--spacer-section) 0;
   }
 }
 
@@ -267,11 +267,11 @@ img, video, audio {
     display: block;
   }
 
-  .thirds > * {
+  &.thirds > * {
     flex-basis: 33.3%;
   }
-  .half > * {
-    flex-basis: 50%
+  &.half > * {
+    flex-basis: 50%;
   }
 }
 .visually-grouped-block {

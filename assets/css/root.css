@@ -719,7 +719,7 @@ section > div {
 }
 
 picture.breakout, picture.floating-illustration {
-  margin: var(--spacer-section) 0;
+  margin: var(--spacer-element) 0 var(--spacer-section) 0;
 }
 
 img, figure, video {
@@ -760,10 +760,10 @@ img, video, audio {
 .flex > * {
   display: block;
 }
-.flex .thirds > * {
+.flex.thirds > * {
   flex-basis: 33.3%;
 }
-.flex .half > * {
+.flex.half > * {
   flex-basis: 50%;
 }
 
