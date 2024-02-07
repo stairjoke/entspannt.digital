@@ -583,7 +583,7 @@ body {
     display: block;
   }
   body main > * {
-    margin-block: var(--spacer-line-break);
+    margin-block: var(--grid-replacing-margin);
   }
 }
 
@@ -682,6 +682,7 @@ section > div {
 @media (max-width: 534px) {
   .left-one-third, .left-oversized {
     max-width: 50%;
+    box-sizing: border-box;
     float: left;
     margin-right: var(--grid-gap);
     margin-bottom: var(--grid-gap);
@@ -701,6 +702,7 @@ section > div {
 @media (max-width: 534px) {
   .right-one-third, .right-oversized {
     max-width: 50%;
+    box-sizing: border-box;
     float: right;
     margin-left: var(--grid-gap);
     margin-bottom: var(--grid-gap);
@@ -790,7 +792,8 @@ img, video, audio {
   outline: solid 1px var(--color-visual-grouping);
   position: relative;
   height: fit-content;
-  padding: var(--spacer-line-break);
+  --visually-grouped-block-padding: var(--spacer-line-break);
+  padding: var(--visually-grouped-block-padding);
 }
 .visually-grouped-block:after {
   position: absolute;
@@ -815,11 +818,11 @@ img, video, audio {
 }
 @media (max-width: 534px) {
   .visually-grouped-block {
-    padding: calc(var(--spacer-line-break) / 2);
+    --visually-grouped-block-padding: calc(var(--spacer-line-break) / 2);
   }
 }
 .visually-grouped-block figure {
-  margin: calc(-1 * var(--spacer-line-break)) calc(-1 * var(--spacer-line-break)) var(--spacer-line-break) calc(-1 * var(--spacer-line-break));
+  margin: calc(-1 * var(--visually-grouped-block-padding)) calc(-1 * var(--visually-grouped-block-padding)) var(--visually-grouped-block-padding) calc(-1 * var(--visually-grouped-block-padding));
 }
 .visually-grouped-block figure:first-child, .visually-grouped-block figure:first-child img {
   border-radius: 0;
@@ -997,7 +1000,7 @@ header .title a .accent, header .title a:link .accent, header .title a:active .a
   --spacer-full: var(--spacer-element);
   --spacer-line-break: calc(1rem * var(--line-height-factor, 1.48));
   --grid-gap: 1rem;
-  --grid-replacing-margin: var(--spacer-line-break);
+  --grid-replacing-margin: var(--spacer-element);
   --body-margin: 0.5rem;
   --border-radius-default: 0.5rem;
   --transition-duration-M: 120ms;

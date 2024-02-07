@@ -53,7 +53,7 @@ body {
     display: block;
 
     main > * {
-      margin-block: var(--spacer-line-break);
+      margin-block: var(--grid-replacing-margin);
     }
   }
 
@@ -165,6 +165,7 @@ section > div {
 .left-one-third, .left-oversized {
   @media (max-width: #{breakpoints.$phablet-}) {
     max-width: 50%;
+    box-sizing: border-box;
     float: left;
     margin-right: var(--grid-gap);
     margin-bottom: var(--grid-gap);
@@ -183,6 +184,7 @@ section > div {
 .right-one-third, .right-oversized {
   @media (max-width: #{breakpoints.$phablet-}) {
     max-width: 50%;
+    box-sizing: border-box;
     float: right;
     margin-left: var(--grid-gap);
     margin-bottom: var(--grid-gap);
@@ -285,18 +287,18 @@ img, video, audio {
   }
 
   //Spacing and shape of children
-  //padding: var(--spacer-line-break);
-  padding: var(--spacer-line-break);
+  --visually-grouped-block-padding: var(--spacer-line-break);
   @media (max-width: #{breakpoints.$phablet-}) {
-    padding: calc(var(--spacer-line-break) / 2);
+    --visually-grouped-block-padding: calc(var(--spacer-line-break) / 2);
   }
+  padding: var(--visually-grouped-block-padding);
 
   figure {
     margin:
-      calc(-1 * var(--spacer-line-break))
-      calc(-1 * var(--spacer-line-break))
-      var(--spacer-line-break)
-      calc(-1 * var(--spacer-line-break));
+      calc(-1 * var(--visually-grouped-block-padding))
+      calc(-1 * var(--visually-grouped-block-padding))
+      var(--visually-grouped-block-padding)
+      calc(-1 * var(--visually-grouped-block-padding));
   }
   figure:first-child {
     &, & img {
