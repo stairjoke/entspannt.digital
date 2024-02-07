@@ -13,7 +13,10 @@
   --color-specular: rgba(255, 255, 255, 0.75);
 
   --color-accent: #11446C;
-  --gradient-accent: linear-gradient(to right top, #0F3552 0%, #125181 100%);
+  //--color-accent-alternative: var(--text-color-dimmed);
+  --color-accent-alternative: #00b24d;
+  //--color-accent-alternative: #da4610;
+  --gradient-accent: linear-gradient(to right top, #003966 0%, #0a5289 100%);
 
   --color-overlay: rgba(255, 255, 255, 0.63);
 }
@@ -31,6 +34,7 @@
   --color-specular: rgba(255, 255, 255, 0.28);
 
   --color-accent: #198de5;
+  --color-accent-alternative: #45d785;
   --gradient-accent: linear-gradient(to right top, #75baef 0%, #8cc5f1 100%);
 
   --color-overlay: rgba(20, 20, 20, 0.55);

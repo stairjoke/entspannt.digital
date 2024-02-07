@@ -12,7 +12,7 @@ button, .button, a[role=button] {
   --color-inset-shadow-when-pressed: var(--color-drop-shadow);
 
   white-space: nowrap;
-  @media (max-width: #{breakpoints.$phablet}){
+  @media (max-width: #{breakpoints.$phablet-}){
     white-space: normal;
   }
 

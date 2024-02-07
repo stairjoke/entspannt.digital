@@ -91,7 +91,7 @@ main {
 section {
   grid-column: page;
   column-gap: var(--grid-gap);
-  row-gap: 0;
+  row-gap: var(--spacer-element);
 
   &.space-above {
     margin-top: var(--spacer-section);
@@ -112,7 +112,7 @@ section > div {
 
 .breakout-columns {
   grid-template-columns: 1fr 1fr;
-  row-gap: var(--grid-gap);
+  row-gap: var(--spacer-element);
 
   .card {
     margin-bottom: var(--grid-replacing-margin);
@@ -164,7 +164,7 @@ section > div {
 }
 .left-one-third, .left-oversized {
   @media (max-width: #{breakpoints.$phablet-}) {
-    max-width: 40%;
+    max-width: 50%;
     float: left;
     margin-right: var(--grid-gap);
     margin-bottom: var(--grid-gap);
@@ -182,7 +182,7 @@ section > div {
 }
 .right-one-third, .right-oversized {
   @media (max-width: #{breakpoints.$phablet-}) {
-    max-width: 40%;
+    max-width: 50%;
     float: right;
     margin-left: var(--grid-gap);
     margin-bottom: var(--grid-gap);
@@ -222,7 +222,9 @@ section > div {
 // -- Media Elements
 picture {
   &.breakout, &.floating-illustration {
-    margin: var(--spacer-element) 0 var(--spacer-section) 0;
+    img {
+      margin-block-end: calc(var(--spacer-section) - var(--spacer-element) + var(--grid-replacing-margin));
+    }
   }
 }
 
@@ -250,7 +252,7 @@ img, figure, video, audio {
 img, video, audio {
   width: 100%;
   height: auto;
-  max-height: 80svh;
+  max-height: 70vh;
   object-fit: contain;
 }
 
@@ -285,6 +287,9 @@ img, video, audio {
   //Spacing and shape of children
   //padding: var(--spacer-line-break);
   padding: var(--spacer-line-break);
+  @media (max-width: #{breakpoints.$phablet-}) {
+    padding: calc(var(--spacer-line-break) / 2);
+  }
 
   figure {
     margin:
@@ -298,12 +303,7 @@ img, video, audio {
       border-radius: 0;
     }
   }
-  p {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
+
 }
 
 .visually-grouped-list {
@@ -325,6 +325,7 @@ img, video, audio {
 }
 
 footer {
+  clear: both;
   grid-column: page;
   grid-row: footer;
 }

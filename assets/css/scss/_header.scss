@@ -1,6 +1,6 @@
 @use 'typography';
-
 @use 'main-menu';
+@use 'breakpoints';
 
 // Styles for the global page header
 
@@ -10,7 +10,7 @@ header {
 
   display: flex;
   gap: var(--grid-gap, 500px);
-  margin-bottom: var(--spacer-section);
+  margin-bottom: var(--spacer-element);
 
   a, a:link, a:active, a:visited, a:hover, a:focus {
     text-decoration: none;
@@ -22,8 +22,14 @@ header {
 
   .title {
     @include typography.headline-font;
+    text-transform: unset;
     font-size: 1.5rem;
     line-height: 2rem;
+
+    @media (max-width: #{breakpoints.$phablet-}){
+      font-size: 1.3rem;
+    }
+
     color: var(--text-color-dimmed);
 
     flex-grow: 1;
@@ -31,6 +37,11 @@ header {
 
     a, a:link, a:active, a:visited, a:hover, a:focus {
       @include typography.headline-style;
+      .accent {
+        -webkit-text-fill-color: currentcolor;
+        -webkit-background-clip: unset;
+        color: var(--color-accent-alternative);
+      }
     }
   }
 }
