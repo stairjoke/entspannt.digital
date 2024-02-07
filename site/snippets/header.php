@@ -9,10 +9,11 @@
 		]) ?>
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#141414">
+		<title><?= mb_strtolower(strip_tags($site->title()), 'UTF-8') ?> &mdash; <?= $page->title() ?></title>
 	</head>
 <body>
 	<header>
-		<?= get_header_title_as_html($site) ?>
+		<div class="title"><a href="<?= $site->url() ?>" tabindex=1 itemprop=name><?= $site->title() ?></a> &mdash; <?= $site->header() ?></div>
 		<nav><!-- The input[type=checkbox]#nav-toggle triggers all .triggered-by-nav-toggle nodes to change the menu icon and show/hide the menu -->
 			<input type="checkbox" value="false" id="nav-toggle">
 			<label for="nav-toggle" class="triggered-by-nav-toggle" role="switch" aria-label="Navigation">
