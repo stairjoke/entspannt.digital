@@ -408,6 +408,7 @@ aside button, aside .button, aside a[role=button] {
   display: block;
   overflow: hidden;
   border-radius: var(--border-radius-default);
+  margin-bottom: var(--grid-replacing-margin);
   --link-color: var(--text-color-link);
   --link-color-hover: var(--text-color-link);
 }
@@ -549,33 +550,6 @@ svg.icon.inline.right {
   margin-right: 0;
 }
 
-.mobile {
-  display: none;
-}
-
-.tablet {
-  display: none;
-}
-
-.desktop {
-  display: none;
-}
-
-@media (max-width: 743px) {
-  .mobile {
-    display: unset;
-  }
-}
-@media (min-width: 744px) and (max-width: 1279px) {
-  .tablet {
-    display: unset;
-  }
-}
-@media (min-width: 1280px) {
-  .desktop {
-    display: unset;
-  }
-}
 .pagination {
   display: flex;
   flex-direction: row;
@@ -664,12 +638,14 @@ section > div {
   grid-column: breakout;
 }
 
-.breakout-columns {
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacer-element) var(--grid-gap);
+.two-columns {
+  grid-template-columns: 1fr;
 }
-.breakout-columns .card {
-  margin-bottom: var(--grid-replacing-margin);
+@media (min-width: 535px) {
+  .two-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacer-element) var(--grid-gap);
+  }
 }
 
 .floating-illustration {
@@ -691,15 +667,6 @@ section > div {
 }
 .floating-illustration.main picture, .floating-illustration.main img {
   grid-column: main;
-}
-
-.two-columns .column:first-child, .two-columns .card:first-child {
-  grid-row: left-content;
-  grid-column: left-column;
-}
-.two-columns .column:last-child, .two-columns .card:last-child {
-  grid-row: right-content;
-  grid-column: right-column;
 }
 
 .left-one-third {
@@ -770,8 +737,8 @@ section > div {
 .floor {
   height: fit-content;
   align-self: end;
+  margin-top: auto;
 }
-
 picture.breakout img, picture.floating-illustration img {
   margin-block-end: calc(var(--spacer-section) - var(--spacer-element) + var(--grid-replacing-margin));
 }
@@ -845,9 +812,6 @@ img, video, audio {
   .visually-grouped-block:after {
     border-image-source: url("../images/border-image-night.png");
   }
-}
-.visually-grouped-block.floor {
-  align-self: end;
 }
 @media (max-width: 534px) {
   .visually-grouped-block {
