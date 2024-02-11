@@ -37,10 +37,12 @@
   --spacer-full: var(--spacer-element);
   --spacer-line-break: calc(1rem * var(--line-height-factor, 1.48));
   --grid-gap: 1rem;
-  --grid-replacing-margin: var(--spacer-element);
+  --grid-replacing-margin: var(--grid-gap);
+  --grid-replacing-spacer-section: var(--spacer-section);
 
   @media (min-width: #{breakpoints.$phablet}){
     --grid-replacing-margin: 0;
+    --grid-replacing-spacer-section: 0;
   }
 
   @media (min-width: #{breakpoints.$tablet}){
