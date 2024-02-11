@@ -57,7 +57,7 @@ body {
     }
   }
 
-  gap: var(--grid-gap) var(--grid-gap);
+  gap: var(--spacer-element) var(--grid-gap);
 
   grid-template-rows: [header-start] minmax(2rem, 4rem) [header-end content-start] auto [content-end footer-start] var(--spacer-section) [footer-end];
   align-items: start;
@@ -90,8 +90,7 @@ main {
 
 section {
   grid-column: page;
-  column-gap: var(--grid-gap);
-  row-gap: var(--spacer-element);
+  gap: var(--spacer-element) var(--grid-gap);
 
   &.space-above {
     margin-top: var(--spacer-section);
@@ -112,7 +111,7 @@ section > div {
 
 .breakout-columns {
   grid-template-columns: 1fr 1fr;
-  row-gap: var(--spacer-element);
+  gap: var(--spacer-element) var(--grid-gap);
 
   .card {
     margin-bottom: var(--grid-replacing-margin);
@@ -287,9 +286,9 @@ img, video, audio {
   }
 
   //Spacing and shape of children
-  --visually-grouped-block-padding: var(--spacer-line-break);
+  --visually-grouped-block-padding: var(--grid-gap);
   @media (max-width: #{breakpoints.$phablet-}) {
-    --visually-grouped-block-padding: calc(var(--spacer-line-break) / 2);
+    --visually-grouped-block-padding: calc(var(--grid-gap) / 2);
   }
   padding: var(--visually-grouped-block-padding);
 
