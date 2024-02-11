@@ -1,45 +1,70 @@
 // Styles for cards
+@use 'breakpoints';
 
 .card {
   display: block;
-  position: relative;
-  aspect-ratio: 16/10;
+  @media (min-width: #{breakpoints.$phablet}) {
+    position: relative;
+    aspect-ratio: 1;
+    --link-decoration: none;
+    --link-decoration-hover: none;
+  }
+  @media (min-width: #{breakpoints.$desktop-S}) {
+    aspect-ratio: 16/10;
+  }
   overflow: hidden;
   border-radius: var(--border-radius-default);
 
+  --link-color: var(--text-color-link);
+  --link-color-hover: var(--text-color-link);
+
   img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    //object-position could use focal point as supported by Kirby CMS
-    transition-property: transform;
-    transition-timing-function: cubic-bezier(.5,0,.2,1);
-    transition-duration: 1s;
+
+    @media (min-width: #{breakpoints.$phablet}) {
+      height: 100%;
+      object-fit: cover;
+      transition-property: transform;
+      transition-timing-function: cubic-bezier(.5,0,.2,1);
+      transition-duration: 1s;
+    }
   }
 
   &:focus-visible {
     outline: solid var(--text-color-link) 4px;
   }
-  &:hover {
-    img {
-      transform: scale(1.1);
-      transition-duration: 500ms;
-      transition-timing-function: cubic-bezier(.5,0,0,1);
+  @media (min-width: #{breakpoints.$phablet}) {
+    &:hover {
+      img {
+        transform: scale(1.1);
+        transition-duration: 500ms;
+        transition-timing-function: cubic-bezier(.5,0,0,1);
+      }
     }
   }
 
   .label {
     display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: var(--spacer-line-break) var(--grid-gap);
-    box-sizing: border-box;
-    background: var(--color-overlay);
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border-top: solid 1px var(--color-specular);
+    padding: var(--spacer-line-break) 0 0 0;
+
+    @media (min-width: #{breakpoints.$phablet}) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      height: calc(var(--line-height-factor) * 3rem);
+      padding: var(--spacer-line-break) var(--grid-gap);
+
+      background: var(--color-overlay);
+      -webkit-backdrop-filter: blur(24px) saturate(2);
+      backdrop-filter: blur(24px) saturate(2);
+      border-top: solid 1px var(--color-specular);
+    }
   }
 
   h2, h3, h4, h5, h6, p {
