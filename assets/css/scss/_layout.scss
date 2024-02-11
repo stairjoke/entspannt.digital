@@ -27,19 +27,19 @@ body {
     1fr [oversized-end right-oversized-end]
     2fr [page-end right-breakout-column-end breakout-end];
 
-  @media (max-width: #{breakpoints.$desktop}) {
+  @media (max-width: #{breakpoints.$desktop-}) {
     grid-template-columns:
-    [page-start breakout-start left-breakout-column-start] 2fr
-    [oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 3fr
+    [page-start breakout-start left-breakout-column-start] 2.5fr
+    [oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 2.5fr
     [left-one-third-end left-oversized-end right-two-thirds-start]
     1fr
     [left-column-end left-breakout-column-end right-breakout-column-start right-column-start]
     1fr [left-two-thirds-end right-one-third-start right-oversized-start]
-    3fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end]
-    2fr [page-end right-breakout-column-end breakout-end];
+    2.5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end]
+    2.5fr [page-end right-breakout-column-end breakout-end];
   }
 
-  @media (max-width: #{breakpoints.$desktop-S}) {
+  @media (max-width: #{breakpoints.$desktop-S-}) {
     grid-template-columns:
     [page-start breakout-start left-breakout-column-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 5fr
     [left-one-third-end left-oversized-end right-two-thirds-start]
@@ -57,9 +57,9 @@ body {
     }
   }
 
-  gap: var(--spacer-element) var(--grid-gap);
+  gap: var(--spacer-section) var(--grid-gap);
 
-  grid-template-rows: [header-start] minmax(2rem, 4rem) [header-end content-start] auto [content-end footer-start] var(--spacer-section) [footer-end];
+  grid-template-rows: [header-start] min-content [header-end content-start] auto [content-end footer-start] min-content [footer-end];
   align-items: start;
 }
 
@@ -80,7 +80,7 @@ body {
 
 main {
   grid-column: page;
-  gap: var(--grid-gap) var(--grid-gap);
+  gap: var(--spacer-element) var(--grid-gap);
 
   &.no-layout {
     display: block;
@@ -205,10 +205,6 @@ section > div {
   height: fit-content;
   align-self: end;
   margin-top: auto;
-
-  &.--force {
-
-  }
 }
 
 // -- Media Elements
@@ -317,4 +313,5 @@ footer {
   clear: both;
   grid-column: page;
   grid-row: footer;
+  margin-top: var(--grid-replacing-spacer-section);
 }
