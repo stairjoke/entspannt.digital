@@ -22,11 +22,16 @@
   font-style: normal;
 
   line-height: var(--line-height-factor);
-  color: var(--text-color-body-text);
 }
 
 body {
   @include body-text();
+  color: var(--text-color-body-text);
+}
+
+aside {
+  font-size: 0.85rem;
+  color: var(--text-color-aside-text);
 }
 
 p {
@@ -50,15 +55,21 @@ p {
   }
 }
 
+:root {
+  --link-decoration: underline;
+  --link-decoration-hover: underline;
+  --link-color: var(--text-color-link);
+  --link-color-hover: var(--color-accent);
+}
 a {
   &:link, &:active, &:visited {
-    text-decoration: underline;
-    color: var(--text-color-link);
+    text-decoration: var(--link-decoration);
+    color: var(--link-color);
   }
 
   &:hover, &:focus {
-    text-decoration: underline;
-    color: var(--color-accent);
+    text-decoration: var(--link-decoration-hover);
+    color: var(--link-color-hover);
   }
 }
 
