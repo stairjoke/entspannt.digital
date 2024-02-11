@@ -41,6 +41,7 @@ button, .button, a[role=button] {
   text-decoration: none;
   text-align: center;
 
+  font-size: 1rem;
   color: var(--text-color-body-text, #f0f);
 
   &:link, &:active, &:visited {
