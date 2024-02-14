@@ -1,5 +1,5 @@
 <?= snippet('header') ?>
-<main class="no-layout">
+<main class="main">
 	<?php
 		if($articles = $page->children()->listed()) {
 			$paginated = $articles->flip()->paginate(3);
