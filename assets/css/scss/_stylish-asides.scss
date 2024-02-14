@@ -1,0 +1,10 @@
+// Style for pretty asides
+
+aside {
+  &.info {
+    border-radius: 3px;
+    padding: calc(.3 * var(--spacer-line-break)) calc(.4 * var(--spacer-line-break));
+    margin: calc(-.3 * var(--spacer-line-break)) 0;
+    background: var(--color-accent-backgroud);
+  }
+}

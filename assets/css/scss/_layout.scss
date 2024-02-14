@@ -3,6 +3,7 @@
 @use 'layer-styles';
 @use 'breakpoints';
 
+// Foundational setups
 body {
   display: grid;
   min-height: calc(100vh - (2 * var(--body-margin)));
@@ -16,37 +17,93 @@ body {
   // .......|--|... right-one-third
 
   grid-template-columns:
-    [page-start breakout-start left-breakout-column-start] 2fr
-    [oversized-start left-oversized-start] 1fr
-    [main-start left-column-start left-two-thirds-start left-one-third-start] 2fr
-    [left-one-third-end left-oversized-end right-two-thirds-start]
+    [page-start breakout-start left-breakout-column-start]
+    2fr
+    [oversized-start left-oversized-start]
+    3fr
+
+    [left-oversized-end main-start left-column-start left-two-thirds-start left-one-third-start]
+    2fr
+    [left-one-third-end right-two-thirds-start]
     1fr
+
     [left-column-end left-breakout-column-end right-breakout-column-start right-column-start]
-    1fr [left-two-thirds-end right-one-third-start right-oversized-start]
-    2fr [main-end right-two-thirds-end right-one-third-end right-column-end]
-    1fr [oversized-end right-oversized-end]
-    2fr [page-end right-breakout-column-end breakout-end];
+
+    1fr
+    [left-two-thirds-end right-one-third-start]
+    2fr
+    [main-end right-two-thirds-end right-one-third-end right-column-end right-oversized-start]
+
+    3fr
+    [oversized-end right-oversized-end]
+    2fr
+    [page-end right-breakout-column-end breakout-end];
 
   @media (max-width: #{breakpoints.$desktop-}) {
     grid-template-columns:
-    [page-start breakout-start left-breakout-column-start] 2.5fr
-    [oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 2.5fr
+    [page-start breakout-start left-breakout-column-start]
+    1fr
+    [oversized-start left-oversized-start]
+    1.5fr
+
+    [main-start left-column-start left-two-thirds-start left-one-third-start]
+    2fr
     [left-one-third-end left-oversized-end right-two-thirds-start]
     1fr
+
     [left-column-end left-breakout-column-end right-breakout-column-start right-column-start]
-    1fr [left-two-thirds-end right-one-third-start right-oversized-start]
-    2.5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end]
-    2.5fr [page-end right-breakout-column-end breakout-end];
+
+    1fr
+    [left-two-thirds-end right-one-third-start right-oversized-start]
+    2fr
+    [main-end right-two-thirds-end right-one-third-end right-column-end]
+
+    1.5fr
+    [oversized-end right-oversized-end]
+    1fr
+    [page-end right-breakout-column-end breakout-end];
   }
 
   @media (max-width: #{breakpoints.$desktop-S-}) {
     grid-template-columns:
-    [page-start breakout-start left-breakout-column-start oversized-start left-oversized-start main-start left-column-start left-two-thirds-start left-one-third-start] 5fr
+    [page-start breakout-start left-breakout-column-start oversized-start left-oversized-start]
+    1.5fr
+
+    [main-start left-column-start left-two-thirds-start left-one-third-start]
+    3fr
     [left-one-third-end left-oversized-end right-two-thirds-start]
     1fr
+
     [left-column-end left-breakout-column-end right-breakout-column-start right-column-start]
-    1fr [left-two-thirds-end right-one-third-start right-oversized-start]
-    5fr [main-end right-two-thirds-end right-one-third-end right-column-end oversized-end right-oversized-end page-end right-breakout-column-end breakout-end];
+
+    1fr
+    [left-two-thirds-end right-one-third-start right-oversized-start]
+    3fr
+    [main-end right-two-thirds-end right-one-third-end right-column-end]
+
+    1.5fr
+    [oversized-end right-oversized-end page-end right-breakout-column-end breakout-end];
+  }
+
+  @media (max-width: #{breakpoints.$tablet-}) {
+    grid-template-columns:
+    [page-start breakout-start left-breakout-column-start oversized-start left-oversized-start]
+    1fr
+
+    [main-start left-column-start left-two-thirds-start left-one-third-start]
+    4fr
+    [left-one-third-end left-oversized-end right-two-thirds-start]
+    1fr
+
+    [left-column-end left-breakout-column-end right-breakout-column-start right-column-start]
+
+    1fr
+    [left-two-thirds-end right-one-third-start right-oversized-start]
+    4fr
+    [main-end right-two-thirds-end right-one-third-end right-column-end]
+
+    1fr
+    [oversized-end right-oversized-end page-end right-breakout-column-end breakout-end];
   }
 
   @media (max-width: #{breakpoints.$phablet-}) {
@@ -63,134 +120,214 @@ body {
   align-items: start;
 }
 
-.layout, main, section {
-  display: grid;
+@mixin transparent-to-the-grid() {
+  display: inherit;
+  grid-column: page;
   grid-template-columns: subgrid;
-  @media (max-width: #{breakpoints.$phablet-}) {
-    display: block;
-  }
-}
-
-.layout {
-  grid-template-rows:
-    [left-content-start right-content-start]
-    auto
-    [left-content-end right-content-end];
 }
 
 main {
-  grid-column: page;
-  gap: var(--spacer-element) var(--grid-gap);
-
-  &.no-layout {
-    display: block;
-    grid-column: main;
-  }
+  @include transparent-to-the-grid();
+  gap: var(--spacer-section) var(--grid-gap);
+  grid-row: content;
 }
 
-section {
+footer {
+  clear: both;
   grid-column: page;
-  gap: var(--spacer-element) var(--grid-gap);
+  grid-row: footer;
+  margin-top: var(--grid-replacing-spacer-section);
+}
 
+// Main Content Area
+section {
+  @include transparent-to-the-grid();
+  gap: var(--spacer-line-break) var(--grid-gap);
+
+// !!! --- !!! --- !!! --- !!! --- !!! --- !!! --- !!! ---
+  & > div {
+    margin-bottom: var(--grid-replacing-margin);
+  }
+
+// !!! --- !!! --- !!! --- !!! --- !!! --- !!! --- !!! ---
   &.space-above {
     margin-top: var(--spacer-section);
   }
 }
 
-section > div {
-  margin-bottom: var(--grid-replacing-margin);
+// Simple Layouts
+.headline-container, .main, .page-opener, .breakout, .hero, .oversized {
+  @include transparent-to-the-grid();
 }
-
+.headline-container {
+  & > h1 {
+    grid-column: breakout;
+    @media (min-width: #{breakpoints.$desktop-S}) {
+      grid-column: oversized;
+    }
+  }
+}
 .main, .page-opener {
-  grid-column: main;
+  & > * {
+    grid-column: main;
+  }
 }
-
 .breakout, .hero {
-  grid-column: breakout;
+  & > * {
+    grid-column: breakout;
+  }
 }
-
-.two-columns {
-  grid-template-columns: 1fr;
-  @media (min-width: #{breakpoints.$phablet}) {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacer-element) var(--grid-gap);
+.oversized {
+  & > * {
+    grid-column: oversized;
   }
 }
 
+// Complex Layouts
+@mixin vertical-order() {
+  grid-template-rows:
+    [left-content-start right-content-start]
+    auto
+    [left-content-end right-content-end];
+}
+@mixin floats-on-small-screens($float) {
+  @media (max-width: #{breakpoints.$phablet-}) {
+    max-width: 45%;
+    box-sizing: border-box;
+    float: #{$float};
+    @if $float == left {
+      margin-right: var(--body-margin);
+    } @else {
+      margin-left: var(--body-margin);
+    }
+    margin-bottom: var(--spacer-line-break);
+  }
+}
+@mixin left-one-third() {
+  grid-column: left-one-third;
+  grid-row: left-content;
+  @include floats-on-small-screens(left);
+}
+@mixin left-oversized() {
+  grid-column: left-oversized;
+  grid-row: left-content;
+  @include floats-on-small-screens(left);
+}
+@mixin right-one-third() {
+  grid-column: right-one-third;
+  grid-row: right-content;
+  @include floats-on-small-screens(right);
+}
+@mixin right-oversized() {
+  grid-column: right-oversized;
+  grid-row: right-content;
+  @include floats-on-small-screens(right);
+}
+@mixin left-two-thirds() {
+  grid-column: left-two-thirds;
+  grid-row: left-content;
+}
+@mixin right-two-thirds() {
+  grid-column: right-two-thirds;
+  grid-row: right-content;
+}
+
+.thirds-aside-left, .oversized-aside-left, .thirds-aside-right, .oversized-aside-right {
+  @include transparent-to-the-grid();
+  @include vertical-order();
+
+  aside {
+    height: fit-content;
+  }
+}
+.thirds-aside-left {
+  aside {
+    @include left-one-third();
+  }
+  div {
+    @include right-two-thirds();
+  }
+}
+.oversized-aside-left {
+  aside {
+    @include left-oversized();
+  }
+  div {
+    @include right-two-thirds();
+
+    @media (min-width: #{breakpoints.$desktop}) {
+      grid-column: main;
+    }
+  }
+}
+.thirds-aside-right {
+  aside {
+    @include right-one-third();
+  }
+  div {
+    @include left-two-thirds();
+  }
+}
+.oversized-aside-right {
+  aside {
+    @include right-oversized();
+  }
+  div {
+    @include left-two-thirds();
+
+    @media (min-width: #{breakpoints.$desktop}) {
+      grid-column: main;
+    }
+  }
+}
+
+// Symmetric Columns
+@mixin columns($count: false) {
+  @if $count == false {
+    grid-template-columns: repeat(auto-fit, minmax(#{breakpoints.$phone}, #{breakpoints.$phablet}));
+  } @else {
+    grid-template-columns: repeat(#{$count}, 1fr);
+  }
+  gap: var(--spacer-element) var(--grid-gap);
+}
+.two-columns {
+  @include columns(2);
+}
+.auto-columns {
+  @include columns();
+}
+
+// Visually highlighted
 .floating-illustration {
   grid-column: page;
+
   background-color: var(--color-visual-grouping);
   padding: var(--grid-gap);
   box-sizing: border-box;
   text-align: center;
   border-radius: var(--border-radius-default);
 
-  &.main {
+  &.main, &.oversized {
     display: grid;
     grid-template-columns: subgrid;
 
     @media (max-width: #{breakpoints.$phablet-}) {
       display: block;
     }
-
+  }
+  &.main {
     picture, img {
       grid-column: main;
     }
   }
-}
-
-.left-one-third {
-  grid-column: left-one-third;
-  grid-row: left-content;
-}
-.left-oversized {
-  grid-column: left-oversized;
-  grid-row: left-content;
-}
-.left-one-third, .left-oversized {
-  @media (max-width: #{breakpoints.$phablet-}) {
-    max-width: 50%;
-    box-sizing: border-box;
-    float: left;
-    margin-right: var(--grid-gap);
-    margin-bottom: var(--grid-gap);
+  &.oversized {
+    picture, img {
+      grid-column: oversized;
+    }
   }
 }
 
-.right-one-third {
-  grid-column: right-one-third;
-  grid-row: right-content;
-}
-
-.right-oversized {
-  grid-column: right-oversized;
-  grid-row: right-content;
-}
-.right-one-third, .right-oversized {
-  @media (max-width: #{breakpoints.$phablet-}) {
-    max-width: 50%;
-    box-sizing: border-box;
-    float: right;
-    margin-left: var(--grid-gap);
-    margin-bottom: var(--grid-gap);
-  }
-}
-
-.left-two-thirds {
-  grid-column: left-two-thirds;
-  grid-row: left-content;
-}
-
-.right-two-thirds {
-  grid-column: right-two-thirds;
-  grid-row: right-content;
-}
-
-.oversized {
-  grid-column: oversized;
-  grid-row: left-content;
-}
-
+// General purpose overrides
 .ceil {
   height: fit-content;
   align-self: start;
@@ -206,8 +343,11 @@ section > div {
   align-self: end;
   margin-top: auto;
 }
+.cover {
+  object-fit: cover;
+}
 
-// -- Media Elements
+// Media Elements
 picture {
   &.breakout, &.floating-illustration {
     img {
@@ -244,11 +384,7 @@ img, video, audio {
   object-fit: contain;
 }
 
-.cover {
-  object-fit: cover;
-}
-
-// -- Specialized Elements
+// Specialized Elements
 .flex {
   display: flex;
   gap: var(--grid-gap);
@@ -264,10 +400,9 @@ img, video, audio {
     flex-basis: 50%;
   }
 }
+
 .visually-grouped-block {
   @include layer-styles.resize-handles;
-
-  height: fit-content;
 
   //Spacing and shape of children
   --visually-grouped-block-padding: var(--grid-gap);
@@ -289,29 +424,4 @@ img, video, audio {
     }
   }
 
-}
-
-.visually-grouped-list {
-  border-left: solid 2px var(--color-accent, #f0f);
-  &.aside {
-    border-color: var(--text-color-dimmed);
-    h1, h2, h3, h4, h5, h6 {
-      background: unset;
-      -webkit-background-clip: unset;
-      -webkit-text-fill-color: unset;
-      color: var(--text-color-dimmed);
-    }
-  }
-  padding-left: 1.5rem;
-  margin: var(--spacer-element) 0 var(--spacer-line-break, 500px) 0;
-  &:first-child {
-    margin-top: 0;
-  }
-}
-
-footer {
-  clear: both;
-  grid-column: page;
-  grid-row: footer;
-  margin-top: var(--grid-replacing-spacer-section);
 }

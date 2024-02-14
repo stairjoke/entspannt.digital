@@ -27,6 +27,11 @@
 body {
   @include body-text();
   color: var(--text-color-body-text);
+
+  @media (max-width: #{breakpoints.$phone-}) {
+    hyphens: auto;
+    word-break: auto-phrase;
+  }
 }
 
 aside {
@@ -35,7 +40,7 @@ aside {
 }
 
 p {
-  margin-block: calc((1rem * var(--line-height-factor))/1.618);
+  margin-block: var(--spacer-line-break);
   margin-inline: 0;
   &:first-child {
     margin-block-start: 0;
@@ -73,14 +78,14 @@ a {
   }
 }
 
-@mixin _body-emphasis {
+strong, {
   font-weight: 800;
   font-style: normal;
   text-decoration: none;
 }
 
-em, strong, p.byline {
-  @include _body-emphasis();
+em {
+  font-style: italic;
 }
 
 @mixin _body-underline {

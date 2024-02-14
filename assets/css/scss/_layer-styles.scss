@@ -7,6 +7,7 @@
   // the visual clue until the graphic with the resize-handles has loaded
   outline: solid 1px var(--color-visual-grouping);
   position: relative;
+  height: fit-content;
 
   &:after {
     position: absolute;
@@ -35,7 +36,7 @@
   --spacer-section: 4rem;
   --spacer-element: 3rem;
   --spacer-full: var(--spacer-element);
-  --spacer-line-break: calc(1rem * var(--line-height-factor, 1.48));
+  --spacer-line-break: calc(.618rem * var(--line-height-factor, 1.48));
   --grid-gap: 1rem;
   --grid-replacing-margin: var(--grid-gap);
   --grid-replacing-spacer-section: var(--spacer-section);
