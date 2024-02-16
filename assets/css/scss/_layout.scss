@@ -283,6 +283,8 @@ section {
 
 // Symmetric Columns
 @mixin columns($count: false) {
+  display: grid;
+
   @if $count == false {
     grid-template-columns: repeat(auto-fit, minmax(#{breakpoints.$phone}, #{breakpoints.$phablet}));
   } @else {
