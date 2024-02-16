@@ -30,6 +30,7 @@
     --color-page: #141414;
     --color-specular: rgba(255, 255, 255, 0.28);
     --color-accent: #198de5;
+    --color-accent-backgroud: #082d49;
     --color-accent-background: #082d49;
     --color-accent-alternative: #fb6e3c;
     --gradient-accent: linear-gradient(to right top, #75baef 0%, #8cc5f1 100%);
@@ -58,6 +59,7 @@ body {
 @media (max-width: 429px) {
   body {
     hyphens: auto;
+    text-wrap: pretty;
     word-break: auto-phrase;
   }
 }
@@ -547,6 +549,7 @@ svg.icon use {
     --color-page: #141414;
     --color-specular: rgba(255, 255, 255, 0.28);
     --color-accent: #198de5;
+    --color-accent-backgroud: #082d49;
     --color-accent-background: #082d49;
     --color-accent-alternative: #fb6e3c;
     --gradient-accent: linear-gradient(to right top, #75baef 0%, #8cc5f1 100%);
@@ -773,11 +776,13 @@ section.space-above {
 }
 
 .two-columns {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacer-element) var(--grid-gap);
 }
 
 .auto-columns {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(430px, 535px));
   gap: var(--spacer-element) var(--grid-gap);
 }
