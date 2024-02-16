@@ -30,6 +30,7 @@ body {
 
   @media (max-width: #{breakpoints.$phone-}) {
     hyphens: auto;
+    text-wrap: pretty;
     word-break: auto-phrase;
   }
 }
