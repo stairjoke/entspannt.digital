@@ -26,22 +26,22 @@ tabs:
           en: Layout-Options
         type: checkboxes
         options:
-          breakout:
+          hero-image:
             de: |
-              Hero-Bild • Bricht Layout-Fluss und zeigt das Bild maximal breit an.
+              Hero-Bild • Maximal breit.
             en: |
-              Hero Image • Breaks layout flow and displays the image as wide as possible.
-          floating-illustration:
+              Hero Image • As wide as possible.
+          illustration:
             de: |
-              Illustration • Bricht Layout-Fluss, setzt einen Rahmen in der Hero-Größe und setzt das Bild in diesem Rahmen zentriert.
+              Illustration • Setzt das Bild in einen farblich hervorgehobenen Rahmen und zentriert das Bild.
             en: |
-              Illustration • Breaks layout flow, displays a hero-sized frame, and centres the image in this frame.
-          main:
+              Illustration • Places the image in a colored frame and centers the image.
+          illustration-main-column:
             de: Illustration • Illustrationsgröße auf Haupt-Spalte skalieren.
             en: Illustration • Scale illustration size to main column.
-          cover:
-            de: Bild skalieren um den gesamten verfügbaren Raum zu bedecken. Bild wird ggf. beschnitten.
-            en: Scale the image to cover the entire available area. May crop the image.
+          breakout: remove
+          floating-illustration: remove
+          main: remove
 
       headlineMobile:
         type: headline
