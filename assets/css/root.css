@@ -775,16 +775,26 @@ section.space-above {
   }
 }
 
-.two-columns {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacer-element) var(--grid-gap);
+@media (min-width: 535px) {
+  .two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacer-element) var(--grid-gap);
+  }
+}
+.two-columns > * {
+  margin-bottom: var(--grid-replacing-row-gap);
 }
 
-.auto-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(430px, 535px));
-  gap: var(--spacer-element) var(--grid-gap);
+@media (min-width: 535px) {
+  .auto-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(430px, 535px));
+    gap: var(--spacer-element) var(--grid-gap);
+  }
+}
+.auto-columns > * {
+  margin-bottom: var(--grid-replacing-row-gap);
 }
 
 .floating-illustration {
@@ -1061,7 +1071,9 @@ header .title a .accent, header .title a:link .accent, header .title a:active .a
   --spacer-full: var(--spacer-element);
   --spacer-line-break: calc(.618rem * var(--line-height-factor, 1.48));
   --grid-gap: 1rem;
-  --grid-replacing-margin: var(--grid-gap);
+  --grid-replacing-column-gap: var(--grid-gap);
+  --grid-replacing-margin: var(--grid-replacing-column-gap);
+  --grid-replacing-row-gap: var(--spacer-element);
   --grid-replacing-spacer-section: var(--spacer-section);
   --body-margin: 0.5rem;
   --border-radius-default: 0.5rem;
@@ -1076,6 +1088,7 @@ header .title a .accent, header .title a:link .accent, header .title a:active .a
   :root {
     --grid-replacing-margin: 0;
     --grid-replacing-spacer-section: 0;
+    --grid-replacing-row-gap: 0;
   }
 }
 @media (min-width: 744px) {
