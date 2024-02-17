@@ -283,14 +283,19 @@ section {
 
 // Symmetric Columns
 @mixin columns($count: false) {
-  display: grid;
-
-  @if $count == false {
-    grid-template-columns: repeat(auto-fit, minmax(#{breakpoints.$phone}, #{breakpoints.$phablet}));
-  } @else {
-    grid-template-columns: repeat(#{$count}, 1fr);
+  @media (min-width: #{breakpoints.$phablet}){
+    display: grid;
+    @if $count == false {
+      grid-template-columns: repeat(auto-fit, minmax(#{breakpoints.$phone}, #{breakpoints.$phablet}));
+    } @else {
+      grid-template-columns: repeat(#{$count}, 1fr);
+    }
+    gap: var(--spacer-element) var(--grid-gap);
   }
-  gap: var(--spacer-element) var(--grid-gap);
+
+  & > * {
+    margin-bottom: var(--grid-replacing-row-gap);
+  }
 }
 .two-columns {
   @include columns(2);
