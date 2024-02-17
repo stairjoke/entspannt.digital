@@ -131,11 +131,9 @@ main {
   grid-row: content;
 
   gap: var(--line-break) var(--grid-gap);
-  &:has(section) {
-    gap: var(--margin-section) var(--grid-gap);
-  }
 
   // If NOTHING inside <main> uses the grid, assume its an old or simple page that needs normal block-behavior:
+  .no-grid,
   &:not(:has(.headline-container, .main, .page-opener, .breakout, .hero, .oversized, .thirds-aside-left, .oversized-aside-left, .thirds-aside-right, .oversized-aside-right)) {
     display: block;
     grid-template-columns: unset;
@@ -164,6 +162,10 @@ section {
   &.space-above {
     margin-top: var(--margin-section);
   }
+
+  &.element-spacing {
+    gap: var(--margin-element) var(--grid-gap);
+  }
 }
 
 // Simple Layouts
@@ -171,6 +173,8 @@ section {
   @include transparent-to-the-grid();
 }
 .headline-container {
+  text-wrap: pretty;
+
   & > h1 {
     margin: calc(var(--margin-section) - var(--line-break)) 0 calc(var(--margin-element) - var(--line-break)) 0;
     &:first-child {
@@ -331,6 +335,7 @@ section {
 
 // Visually highlighted
 .floating-illustration {
+  display: block;
   grid-column: page;
 
   background-color: var(--color-visual-grouping);
@@ -380,28 +385,9 @@ section {
 }
 
 // Media Elements
-picture {
-  &.breakout, &.floating-illustration {
-    img {
-      margin-block-end: calc(var(--margin-section) - var(--margin-element) + var(--grid-replacing-margin));
-    }
-  }
-}
-
 img, figure, video {
   border-radius: var(--border-radius-default);
-  margin: var(--line-break) 0 var(--line-break) 0;
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
   box-sizing: border-box;
-
-  * {
-    max-width: 100%;
-  }
 }
 
 img, figure, video, audio {
@@ -414,6 +400,33 @@ img, video, audio {
   height: auto;
   max-height: 70vh;
   object-fit: contain;
+}
+
+// Responsive Image Layouts
+picture {
+  display: block;
+  padding: 0;
+  margin: calc(var(--margin-element) - var(--collapsing-line-break)) 0;
+
+  &.illustration {
+    grid-column: oversized;
+    background: var(--color-visual-grouping);
+    border-radius: var(--border-radius-default);
+    padding: var(--grid-gap);
+  }
+
+  &.illustration-main-column {
+    display: inherit;
+    grid-template-columns: subgrid;
+
+    img {
+      grid-column: main;
+    }
+  }
+
+  &.hero-image {
+    grid-column: breakout;
+  }
 }
 
 // Specialized Elements

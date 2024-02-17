@@ -635,10 +635,7 @@ main {
   grid-row: content;
   gap: var(--line-break) var(--grid-gap);
 }
-main:has(section) {
-  gap: var(--margin-section) var(--grid-gap);
-}
-main:not(:has(.headline-container, .main, .page-opener, .breakout, .hero, .oversized, .thirds-aside-left, .oversized-aside-left, .thirds-aside-right, .oversized-aside-right)) {
+main .no-grid, main:not(:has(.headline-container, .main, .page-opener, .breakout, .hero, .oversized, .thirds-aside-left, .oversized-aside-left, .thirds-aside-right, .oversized-aside-right)) {
   display: block;
   grid-template-columns: unset;
   grid-column: main;
@@ -663,6 +660,9 @@ section > div {
 section.space-above {
   margin-top: var(--margin-section);
 }
+section.element-spacing {
+  gap: var(--margin-element) var(--grid-gap);
+}
 
 .headline-container, .main, .page-opener, .breakout, .hero, .oversized {
   display: inherit;
@@ -670,6 +670,9 @@ section.space-above {
   grid-template-columns: subgrid;
 }
 
+.headline-container {
+  text-wrap: pretty;
+}
 .headline-container > h1 {
   margin: calc(var(--margin-section) - var(--line-break)) 0 calc(var(--margin-element) - var(--line-break)) 0;
   grid-column: breakout;
@@ -817,6 +820,7 @@ section.space-above {
 }
 
 .floating-illustration {
+  display: block;
   grid-column: page;
   background-color: var(--color-visual-grouping);
   padding: var(--grid-gap);
@@ -860,23 +864,9 @@ section.space-above {
   object-fit: cover;
 }
 
-picture.breakout img, picture.floating-illustration img {
-  margin-block-end: calc(var(--margin-section) - var(--margin-element) + var(--grid-replacing-margin));
-}
-
 img, figure, video {
   border-radius: var(--border-radius-default);
-  margin: var(--line-break) 0 var(--line-break) 0;
   box-sizing: border-box;
-}
-img:first-child, figure:first-child, video:first-child {
-  margin-top: 0;
-}
-img:last-child, figure:last-child, video:last-child {
-  margin-bottom: 0;
-}
-img *, figure *, video * {
-  max-width: 100%;
 }
 
 img, figure, video, audio {
@@ -889,6 +879,28 @@ img, video, audio {
   height: auto;
   max-height: 70vh;
   object-fit: contain;
+}
+
+picture {
+  display: block;
+  padding: 0;
+  margin: calc(var(--margin-element) - var(--collapsing-line-break)) 0;
+}
+picture.illustration {
+  grid-column: oversized;
+  background: var(--color-visual-grouping);
+  border-radius: var(--border-radius-default);
+  padding: var(--grid-gap);
+}
+picture.illustration-main-column {
+  display: inherit;
+  grid-template-columns: subgrid;
+}
+picture.illustration-main-column img {
+  grid-column: main;
+}
+picture.hero-image {
+  grid-column: breakout;
 }
 
 .flex {
