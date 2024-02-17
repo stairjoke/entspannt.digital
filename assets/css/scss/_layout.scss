@@ -128,8 +128,19 @@ body {
 
 main {
   @include transparent-to-the-grid();
-  gap: var(--spacer-section) var(--grid-gap);
   grid-row: content;
+
+  gap: var(--line-break) var(--grid-gap);
+  &:has(section) {
+    gap: var(--spacer-section) var(--grid-gap);
+  }
+
+  // If NOTHING inside <main> uses the grid, assume its an old or simple page that needs normal block-behavior:
+  &:not(:has(.headline-container, .main, .page-opener, .breakout, .hero, .oversized, .thirds-aside-left, .oversized-aside-left, .thirds-aside-right, .oversized-aside-right)) {
+    display: block;
+    grid-template-columns: unset;
+    grid-column: main;
+  }
 }
 
 footer {

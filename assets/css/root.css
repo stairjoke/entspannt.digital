@@ -493,7 +493,7 @@ aside button, aside .button, aside a[role=button] {
 }
 
 #footnotes {
-  margin-top: var(--spacer-section);
+  margin-top: var(--spacer-element);
   border-top: solid 2px var(--text-color-dimmed);
   padding-top: var(--line-break);
 }
@@ -632,8 +632,16 @@ main {
   display: inherit;
   grid-column: page;
   grid-template-columns: subgrid;
-  gap: var(--spacer-section) var(--grid-gap);
   grid-row: content;
+  gap: var(--line-break) var(--grid-gap);
+}
+main:has(section) {
+  gap: var(--spacer-section) var(--grid-gap);
+}
+main:not(:has(.headline-container, .main, .page-opener, .breakout, .hero, .oversized, .thirds-aside-left, .oversized-aside-left, .thirds-aside-right, .oversized-aside-right)) {
+  display: block;
+  grid-template-columns: unset;
+  grid-column: main;
 }
 
 footer {
