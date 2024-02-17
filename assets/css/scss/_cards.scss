@@ -46,7 +46,7 @@
 
   .label {
     display: block;
-    padding: var(--spacer-line-break) 0 0 0;
+    padding: var(--line-break) 0 0 0;
 
     @media (min-width: #{breakpoints.$phablet}) {
       display: flex;
@@ -59,7 +59,7 @@
       right: 0;
 
       height: calc(var(--line-height-factor) * 3rem);
-      padding: var(--spacer-line-break) var(--grid-gap);
+      padding: var(--line-break) var(--grid-gap);
 
       background: var(--color-overlay);
       -webkit-backdrop-filter: blur(24px) saturate(2);

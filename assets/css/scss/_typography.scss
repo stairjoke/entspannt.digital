@@ -41,7 +41,7 @@ aside {
 }
 
 p {
-  margin-block: var(--spacer-line-break);
+  margin-block: var(--line-break);
   margin-inline: 0;
   &:first-child {
     margin-block-start: 0;
@@ -55,8 +55,8 @@ p {
 
   &.byline {
     h2 + &, h3 + & {
-      margin-top: calc(-1 * var(--spacer-line-break));
-      margin-bottom: var(--spacer-line-break);
+      margin-top: calc(-1 * var(--line-break));
+      margin-bottom: var(--line-break);
     }
   }
 }
@@ -154,7 +154,7 @@ h1 {
   font-size: 2rem;
   line-height: var(--line-height-factor-headline);
 
-  margin: var(--spacer-element) 0 var(--spacer-line-break) 0;
+  margin: var(--spacer-element) 0 var(--line-break) 0;
   &:only-child {
     margin-bottom: 0;
   }
@@ -253,7 +253,7 @@ blockquote {
   clear: both;
   background: var(--color-visual-grouping);
   border-radius: var(--border-radius-default);
-  margin: var(--spacer-line-break) 0;
+  margin: var(--line-break) 0;
   padding: 1px calc(var(--line-height-factor) * 1rem);
 }
 

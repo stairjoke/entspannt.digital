@@ -36,7 +36,8 @@
   --spacer-section: 4rem;
   --spacer-element: 3rem;
   --spacer-full: var(--spacer-element);
-  --spacer-line-break: calc(.618rem * var(--line-height-factor, 1.48));
+  --line-break: calc(.618rem * var(--line-height-factor, 1.48));
+  --collapsing-line-break: 0;
   --grid-gap: 1rem;
   --grid-replacing-column-gap: var(--grid-gap);
   --grid-replacing-margin: var(--grid-replacing-column-gap);
@@ -47,6 +48,7 @@
     --grid-replacing-margin: 0;
     --grid-replacing-spacer-section: 0;
     --grid-replacing-row-gap: 0;
+    --collapsing-line-break: var(--line-break);
   }
 
   @media (min-width: #{breakpoints.$tablet}){
