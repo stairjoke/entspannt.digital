@@ -142,7 +142,7 @@ footer {
 // Main Content Area
 section {
   @include transparent-to-the-grid();
-  gap: var(--spacer-line-break) var(--grid-gap);
+  gap: var(--line-break) var(--grid-gap);
 
 // !!! --- !!! --- !!! --- !!! --- !!! --- !!! --- !!! ---
   & > div {
@@ -161,10 +161,24 @@ section {
 }
 .headline-container {
   & > h1 {
+    margin: calc(var(--spacer-section) - var(--line-break)) 0 calc(var(--spacer-element) - var(--line-break)) 0;
+    &:first-child {
+      margin-top: 0;
+    }
+
     grid-column: breakout;
     @media (min-width: #{breakpoints.$desktop-S}) {
       grid-column: oversized;
     }
+  }
+
+  & > h2, & > h3 {
+    margin: calc(var(--spacer-element) - var(--line-break)) 0 0 0;
+    &:first-child {
+      margin-top: 0;
+    }
+
+    grid-column: main;
   }
 }
 .main, .page-opener {
@@ -200,7 +214,7 @@ section {
     } @else {
       margin-left: var(--body-margin);
     }
-    margin-bottom: var(--spacer-line-break);
+    margin-bottom: var(--line-break);
   }
 }
 @mixin left-one-third() {
@@ -365,7 +379,7 @@ picture {
 
 img, figure, video {
   border-radius: var(--border-radius-default);
-  margin: var(--spacer-line-break) 0 var(--spacer-line-break) 0;
+  margin: var(--line-break) 0 var(--line-break) 0;
   &:first-child {
     margin-top: 0;
   }
