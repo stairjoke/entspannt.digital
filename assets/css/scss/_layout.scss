@@ -114,7 +114,7 @@ body {
     }
   }
 
-  gap: var(--spacer-section) var(--grid-gap);
+  gap: var(--margin-section) var(--grid-gap);
 
   grid-template-rows: [header-start] min-content [header-end content-start] auto [content-end footer-start] min-content [footer-end];
   align-items: start;
@@ -132,7 +132,7 @@ main {
 
   gap: var(--line-break) var(--grid-gap);
   &:has(section) {
-    gap: var(--spacer-section) var(--grid-gap);
+    gap: var(--margin-section) var(--grid-gap);
   }
 
   // If NOTHING inside <main> uses the grid, assume its an old or simple page that needs normal block-behavior:
@@ -147,7 +147,7 @@ footer {
   clear: both;
   grid-column: page;
   grid-row: footer;
-  margin-top: var(--grid-replacing-spacer-section);
+  margin-top: var(--grid-replacing-margin-section);
 }
 
 // Main Content Area
@@ -162,7 +162,7 @@ section {
 
 // !!! --- !!! --- !!! --- !!! --- !!! --- !!! --- !!! ---
   &.space-above {
-    margin-top: var(--spacer-section);
+    margin-top: var(--margin-section);
   }
 }
 
@@ -172,7 +172,7 @@ section {
 }
 .headline-container {
   & > h1 {
-    margin: calc(var(--spacer-section) - var(--line-break)) 0 calc(var(--spacer-element) - var(--line-break)) 0;
+    margin: calc(var(--margin-section) - var(--line-break)) 0 calc(var(--margin-element) - var(--line-break)) 0;
     &:first-child {
       margin-top: 0;
     }
@@ -184,7 +184,7 @@ section {
   }
 
   & > h2, & > h3 {
-    margin: calc(var(--spacer-element) - var(--line-break)) 0 0 0;
+    margin: calc(var(--margin-element) - var(--line-break)) 0 0 0;
     &:first-child {
       margin-top: 0;
     }
@@ -315,7 +315,7 @@ section {
     } @else {
       grid-template-columns: repeat(#{$count}, 1fr);
     }
-    gap: var(--spacer-element) var(--grid-gap);
+    gap: var(--margin-element) var(--grid-gap);
   }
 
   & > * {
@@ -383,7 +383,7 @@ section {
 picture {
   &.breakout, &.floating-illustration {
     img {
-      margin-block-end: calc(var(--spacer-section) - var(--spacer-element) + var(--grid-replacing-margin));
+      margin-block-end: calc(var(--margin-section) - var(--margin-element) + var(--grid-replacing-margin));
     }
   }
 }

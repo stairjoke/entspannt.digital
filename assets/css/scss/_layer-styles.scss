@@ -33,27 +33,27 @@
 }
 
 @mixin spacing() {
-  --spacer-section: 4rem;
-  --spacer-element: 3rem;
-  --spacer-full: var(--spacer-element);
+  --margin-section: 4rem;
+  --margin-element: 3rem;
+  --spacer-full: var(--margin-element);
   --line-break: calc(.618rem * var(--line-height-factor, 1.48));
   --collapsing-line-break: 0;
   --grid-gap: 1rem;
   --grid-replacing-column-gap: var(--grid-gap);
   --grid-replacing-margin: var(--grid-replacing-column-gap);
-  --grid-replacing-row-gap: var(--spacer-element);
-  --grid-replacing-spacer-section: var(--spacer-section);
+  --grid-replacing-row-gap: var(--margin-element);
+  --grid-replacing-margin-section: var(--margin-section);
 
   @media (min-width: #{breakpoints.$phablet}){
     --grid-replacing-margin: 0;
-    --grid-replacing-spacer-section: 0;
+    --grid-replacing-margin-section: 0;
     --grid-replacing-row-gap: 0;
     --collapsing-line-break: var(--line-break);
   }
 
   @media (min-width: #{breakpoints.$tablet}){
-    --spacer-section: 6rem;
-    --spacer-element: 3rem;
-    --spacer-full: var(--spacer-element);
+    --margin-section: 6rem;
+    --margin-element: 3rem;
+    --spacer-full: var(--margin-element);
   }
 }

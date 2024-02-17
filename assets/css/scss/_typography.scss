@@ -154,7 +154,7 @@ h1 {
   font-size: 2rem;
   line-height: var(--line-height-factor-headline);
 
-  margin: var(--spacer-element) 0 var(--line-break) 0;
+  margin: var(--margin-element) 0 var(--line-break) 0;
   &:only-child {
     margin-bottom: 0;
   }
