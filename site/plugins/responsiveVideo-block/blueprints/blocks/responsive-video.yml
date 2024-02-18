@@ -13,21 +13,17 @@ tabs:
           en: Layout Options
         type: checkboxes
         options:
-          breakout:
-            de: Über-Breit
-            en: Hero Video
-          left:
-            de: Linksbündig
-            en: Left aligned
-          right:
-            de: Rechtsbündig
-            en: Right aligned
-          floating-illustration:
-            de: Illustration
-            en: Illustration
-          main:
-            de: Illustration zentrieren
-            en: Center illustration
+          illustration:
+            de: |
+              Illustration • Setzt das Video in einen farblich hervorgehobenen Rahmen und zentriert es.
+            en: |
+              Illustration • Places the video in a colored frame and centers it.
+          illustration-main-column:
+            de: Illustration • Illustrationsgröße auf Haupt-Spalte skalieren.
+            en: Illustration • Scale illustration size to main column.
+          breakout: remove
+          floating-illustration: remove
+          main: remove
 
       options:
         width: 1/2

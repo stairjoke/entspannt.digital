@@ -442,6 +442,9 @@ aside button, aside .button, aside a[role=button] {
     aspect-ratio: 16/10;
   }
 }
+.card picture, .card video {
+  margin: 0;
+}
 .card img {
   width: 100%;
 }
@@ -658,7 +661,7 @@ section > div {
   margin-bottom: var(--grid-replacing-margin);
 }
 section.space-above {
-  margin-top: var(--margin-section);
+  margin-top: var(--margin-element);
 }
 section.element-spacing {
   gap: var(--margin-element) var(--grid-gap);
@@ -881,25 +884,25 @@ img, video, audio {
   object-fit: contain;
 }
 
-picture {
+picture, video {
   display: block;
   padding: 0;
   margin: calc(var(--margin-element) - var(--collapsing-line-break)) 0;
 }
-picture.illustration {
+picture.illustration, video.illustration {
   grid-column: oversized;
   background: var(--color-visual-grouping);
   border-radius: var(--border-radius-default);
   padding: var(--grid-gap);
 }
-picture.illustration-main-column {
+picture.illustration-main-column, video.illustration-main-column {
   display: inherit;
   grid-template-columns: subgrid;
 }
-picture.illustration-main-column img {
+picture.illustration-main-column img, video.illustration-main-column img {
   grid-column: main;
 }
-picture.hero-image {
+picture.hero-image, video.hero-image {
   grid-column: breakout;
 }
 

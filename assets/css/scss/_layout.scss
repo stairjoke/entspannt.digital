@@ -160,7 +160,7 @@ section {
 
 // !!! --- !!! --- !!! --- !!! --- !!! --- !!! --- !!! ---
   &.space-above {
-    margin-top: var(--margin-section);
+    margin-top: var(--margin-element);
   }
 
   &.element-spacing {
@@ -403,7 +403,7 @@ img, video, audio {
 }
 
 // Responsive Image Layouts
-picture {
+picture, video {
   display: block;
   padding: 0;
   margin: calc(var(--margin-element) - var(--collapsing-line-break)) 0;
