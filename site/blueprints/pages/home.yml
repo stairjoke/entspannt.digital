@@ -30,6 +30,14 @@ columns:
   sidebar:
     width: 1/3
     sections:
+      meta:
+        type: fields
+        fields:
+          altTitle:
+            type: text
+            label:
+              de: Alternativer Seitentitel
+              en: Alternate Page-title
       files:
         type: files
         label: files

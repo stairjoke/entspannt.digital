@@ -33,6 +33,11 @@ columns:
       fields:
         type: fields
         fields:
+          altTitle:
+            type: text
+            label:
+              de: Alternativer Seitentitel
+              en: Alternate Page-title
           teaser:
             help: Der Teaser wird in der Übersicht über alle Einträge und in Suchergebnissen angezeigt. Er sollte ca. einen Absatz lang sein.
             type: textarea
