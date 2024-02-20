@@ -54,3 +54,8 @@ Icon
 
 /kirby
 /vendor
+
+
+# Content
+# ---------------
+/content/*
