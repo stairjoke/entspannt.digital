@@ -21,6 +21,7 @@ Icon
 *.sublime-workspace
 /.vscode
 /.idea
+/.nova
 
 # -------------SECURITY-------------
 # NEVER publish these files via Git!
@@ -51,10 +52,8 @@ Icon
 
 # Ext. Source Files
 # ---------------
-
 /kirby
 /vendor
-
 
 # Content
 # ---------------
