@@ -677,6 +677,16 @@ main .no-grid, main:not(:has(.headline-container, .main, .page-opener, .breakout
   grid-column: main;
 }
 
+article {
+  margin-block: var(--margin-element);
+}
+article:first-child {
+  margin-block-start: 0;
+}
+article:last-child {
+  margin-block-end: 0;
+}
+
 footer {
   clear: both;
   grid-column: page;
