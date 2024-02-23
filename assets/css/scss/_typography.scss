@@ -77,6 +77,24 @@ a {
     text-decoration: var(--link-decoration-hover);
     color: var(--link-color-hover);
   }
+
+  &.cta {
+    --link-decoration: none;
+    --link-decoration-hover: none;
+
+    background: linear-gradient(90deg, var(--color-accent-alternative-gradient-1) , var(--color-accent-alternative-gradient-2) 50%, var(--color-accent-gradient-1) 50%, var(--color-accent-gradient-2));
+    background-position: 100% bottom;
+    background-repeat: no-repeat;
+    background-size: 200% 2px;
+    transition-property: background-position;
+    transition-duration: var(--transition-duration-XL);
+    transition-timing-function: var(--transition-timing-function);
+
+    &:hover {
+      background-position: 0% bottom;
+      transition-duration: var(--transition-duration-XL-click);
+    }
+  }
 }
 
 strong, {
