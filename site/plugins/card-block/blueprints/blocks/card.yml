@@ -2,6 +2,7 @@ name:
   de: Karte
   en: Card
 icon: expand
+preview: fields
 tabs:
   main:
     fields:
