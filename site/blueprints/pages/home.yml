@@ -26,7 +26,6 @@ columns:
           en: |
             Content in this field will be saved but not displayed on the website and is also invisible to search engines.
         type: blocks
-        size: small
   sidebar:
     width: 1/3
     sections:
