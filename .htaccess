@@ -6,7 +6,7 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Redirects for special URLs
-Redirect /visitenkarte /notes
+Redirect /visitenkarte /Wenzels.Design.vcf
 
 # KIRBY
 # -----
