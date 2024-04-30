@@ -49,7 +49,7 @@ columns:
             type: date
             time: true
             translate: false
-            format: Y-m-d H:i:s +1
+            format: Y-m-d H:i:s +2
             default: now
       files:
         label:
