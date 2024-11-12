@@ -1,57 +1,103 @@
 // Colors as CSS variables
 
 @mixin day() {
-  --text-color-body-text: #212121;
-  --text-color-aside-text: #474747;
-  --text-color-dimmed: #8F9AA3;
-  --text-color-disabled: #b9bfc5;
-  --text-color-link: #545454;
-  --text-color-inverted: #FFFFFF;
-  --text-color-high-contrast: #000000;
+  // Legacy, requires code cleanup
+  --color-specular: #f0f;
+  --text-color-aside-text: #f0f;
+  --text-color-disabled: #f0f;
+  --text-color-high-contrast: #f0f;
+  --color-visual-grouping: #f0f;
+  --color-page: #f0f;
+  --color-accent: #f0f;
+  --color-accent-gradient-1: #f0f;
+  --color-accent-gradient-2: #f0f;
+  --gradient-accent: #f0f;
+  --color-accent-backgroud: #f0f;
+  --color-accent-alternative: #f0f;
+  --color-accent-alternative-gradient-1: #f0f;
+  --color-accent-alternative-gradient-2: #f0f;
+  --gradient-accent-alternative: #f0f;
+  --color-overlay: #f0f;
 
-  --color-visual-grouping: #EAEBEB;
-  --color-page: #FFFFFF;
-  --color-specular: rgba(255, 255, 255, 0.75);
+  // In use
+  --color-ci1: hsl(208 89 21);
+  --text-color-ci1: var(--color-ci1);
 
-  --color-accent: #11446C;
-  --color-accent-gradient-1: #003966;
-  --color-accent-gradient-2: #0a5289;
-  --gradient-accent: linear-gradient(to right top, var(--color-accent-gradient-1) 0%, var(--color-accent-gradient-2) 100%);
-  --color-accent-backgroud: #dbecf9;
+  --color-ci2: hsl(13 78 59);
+  --text-color-ci2: hsl(from var(--color-ci2) h 100 29);
 
-  --color-accent-alternative: #da4610;
-  --color-accent-alternative-gradient-1: #c23e0e;
-  --color-accent-alternative-gradient-2: #ed4c11;
-  --gradient-accent-alternative: linear-gradient(to right top, var(--color-accent-alternative-gradient-1) 0%, var(--color-accent-alternative-gradient-2) 100%);
+  --color-ci3: hsl(44 100 48);
+  --text-color-ci3: hsl(from var(--color-ci3) h 100 26);
 
-  --color-overlay: rgba(255, 255, 255, 0.63);
+  --text-color-body-text: hsl(from var(--color-ci1) h 0 13);
+  --text-color-dimmed: hsl(from var(--text-color-body-text) h s l/80%);
+  --text-color-inverted: hsl(from var(--color-ci1) h 0 100/91%);
+
+  --color-active: hsl(from var(--color-ci1) h 0 100/46%);
+  --color-line: hsl(from var(--color-ci1) h 71 19/50%);
+
+  --page-background-gradient: linear-gradient(65deg in lab, hsl(from var(--color-ci1) h 48 85), hsl(from var(--c3) h 24 96));
+  /*
+    Design is from bottom left to center right. Requires Javascript to work to viewport aspect ratio to calculation of angle. The following is not valid CSS:
+
+    --page-background-gradient: linear-gradient(calc(90deg - atan(50vh / 100vw)), #C5DAEB 0%, #F7F6F2 100%);
+
+    `atan()` in CSS requires an integer, `calc()` does not provide a unitless result.
+  */
+
+  --color-black: hsl(from var(--color-ci1) h 0 8/80%);
+  --color-white: hsl(from var(--color-ci1) h 0 100/80%);
+  --color-white-shaded: hsl(from var(--color-ci1) h 0 96/80%);
 }
 
 @mixin night() {
-  --text-color-body-text: #c6c6c6;
-  --text-color-aside-text: #adadad;
-  --text-color-dimmed: #7d8890;
-  --text-color-disabled: #586069;
-  --text-color-link: #e0e0e0;
-  --text-color-inverted: #141414;
-  --text-color-high-contrast: #000000;
+  // Legacy, requires code cleanup
+  --color-specular: #f0f;
+  --text-color-aside-text: #f0f;
+  --text-color-disabled: #f0f;
+  --text-color-high-contrast: #f0f;
+  --color-visual-grouping: #f0f;
+  --color-page: #f0f;
+  --color-accent: #f0f;
+  --color-accent-gradient-1: #f0f;
+  --color-accent-gradient-2: #f0f;
+  --gradient-accent: #f0f;
+  --color-accent-backgroud: #f0f;
+  --color-accent-alternative: #f0f;
+  --color-accent-alternative-gradient-1: #f0f;
+  --color-accent-alternative-gradient-2: #f0f;
+  --gradient-accent-alternative: #f0f;
+  --color-overlay: #f0f;
 
-  --color-visual-grouping: #272929;
-  --color-page: #141414;
-  --color-specular: rgba(255, 255, 255, 0.28);
+  // In use
+  --color-ci1: hsl(208 89 55);
+  --text-color-ci1: var(--color-ci1);
 
-  --color-accent: #198de5;
-  --color-accent-gradient-1: #167fce;
-  --color-accent-gradient-2: #2b96e7;
-  --gradient-accent: linear-gradient(to right top, var(--color-accent-gradient-1) 0%, var(--color-accent-gradient-2) 100%);
-  --color-accent-backgroud: #082d49;
+  --color-ci2: hsl(13 78 59);
+  --text-color-ci2: hsl(from var(--color-ci2) h 54 46);
 
-  --color-accent-alternative: #fb6e3c;
-  --color-accent-alternative-gradient-1: #fa5c23;
-  --color-accent-alternative-gradient-2: #fb7d50;
-  --gradient-accent-alternative: linear-gradient(to right top, var(--color-accent-alternative-gradient-1) 0%, var(--color-accent-alternative-gradient-2) 100%);
+  --color-ci3: hsl(44 100 48);
+  --text-color-ci3: hsl(from var(--color-ci3) h 100 26);
 
-  --color-overlay: rgba(20, 20, 20, 0.55);
+  --text-color-body-text: hsl(from var(--color-ci1) h 0 68);
+  --text-color-dimmed: hsl(from var(--text-color-body-text) h s l/80%);
+  --text-color-inverted: hsl(from var(--color-ci1) h 0 0/73%);
+
+  --color-active: hsl(from var(--color-ci1) h 0 9/90%);
+  --color-line: hsl(from var(--color-ci1) h 35 49/44%);
+
+  --page-background-gradient: linear-gradient(65deg in lab, hsl(from var(--color-ci1) h 100 7), hsl(from var(--c3) h 100 3));
+  /*
+    Design is from bottom left to center right. Requires Javascript to work to viewport aspect ratio to calculation of angle. The following is not valid CSS:
+
+    --page-background-gradient: linear-gradient(calc(90deg - atan(50vh / 100vw)), #C5DAEB 0%, #F7F6F2 100%);
+
+    `atan()` in CSS requires an integer, `calc()` does not provide a unitless result.
+  */
+
+  --color-black: hsl(from var(--color-ci1) h 0 8/80%);
+  --color-white: hsl(from var(--color-ci1) h 0 15/90%);
+  --color-white-shaded: hsl(from var(--color-ci1) h 0 96/80%);
 }
 
 :root {
@@ -59,4 +105,6 @@
   @media (prefers-color-scheme: dark) {
     @include night();
   }
+
+  --text-color-link: var(--text-color-ci1);
 }
