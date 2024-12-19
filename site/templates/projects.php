@@ -1,1 +1,0 @@
-<?php go($site->url() . '#projects', 302) ?>
