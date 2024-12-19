@@ -1,7 +1,7 @@
 # System files
 # ------------
 
-Icon?
+Icon
 .DS_Store
 
 # Temporary files
@@ -50,12 +50,6 @@ Icon?
 
 /site/config/.license
 
-# Ext. Source Files
-# ---------------
-/kirby
-/vendor
-
 # Content
 # ---------------
 /content/*
-/Wenzels.Design.vcf
