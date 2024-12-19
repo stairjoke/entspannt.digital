@@ -1,22 +1,8 @@
-<img src="http://getkirby.com/assets/images/github/plainkit.jpg" width="300">
+## Entspannt.Digital is a website
+www.entspannt.digital is my freelance portfolio and replaces www.wenzels.design.
 
-**Kirby: the CMS that adapts to any project, loved by developers and editors alike.**
-The Plainkit is a minimal Kirby setup with the basics you need to start a project from scratch. It is the ideal choice if you are already familiar with Kirby and want to start step-by-step.
-
-You can learn more about Kirby at [getkirby.com](https://getkirby.com).
-
-### Try Kirby for free
-
-You can try Kirby and the Plainkit on your local machine or on a test server as long as you need to make sure it is the right tool for your next project. … and when you’re convinced, [buy your license](https://getkirby.com/buy).
-
-### Get going
-
-Read our guide on [how to get started with Kirby](https://getkirby.com/docs/guide/quickstart).
-
-You can [download the latest version](https://github.com/getkirby/plainkit/archive/main.zip) of the Plainkit.
-If you are familiar with Git, you can clone Kirby's Plainkit repository from Github.
-
-    git clone https://github.com/getkirby/plainkit.git
+## About the name
+The name is what I do and my domain. I decided on “entspannt” (German for “relaxed”, “calm”, “de-stressed”) and digital to link how I hope my customers feel with the field I work in. I’m a UX-, UI-, Web-Designer who likes to write his own code. I edit videos, love photography, and like to tinker with sound.
 
 ## What's Kirby?
 
@@ -30,7 +16,11 @@ If you are familiar with Git, you can clone Kirby's Plainkit repository from Git
 -   **[Mastodon](https://mastodon.social/@getkirby)** – Spread the word.
 -   **[Instagram](https://www.instagram.com/getkirby/)** – Share your creations: #madewithkirby.
 
----
+## About Authorship
+This document uses [iA Writer’s authorship tracking.](https://ia.net/writer/support/editor/authorship?tab=mac)
 
-© 2009 Bastian Allgeier
-[getkirby.com](https://getkirby.com) · [License agreement](https://getkirby.com/license)
+---
+Annotations: 0,1463 SHA-256 6a03fc1333a78b32b894e1d924872bc4  
+@Unknown: 443,890  
+@Wenzel Massag: 0,443 1333,130  
+...
