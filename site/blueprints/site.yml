@@ -19,3 +19,11 @@ sections:
           de: Seiten im Seitenfuß
           en: Pages liste in the footer
         type: pages
+      footerNote:
+        label:
+          de: Text im Seitenfuß
+          en: Footer text
+        type: writer
+        counter: true
+        nodes:
+          - paragraph
