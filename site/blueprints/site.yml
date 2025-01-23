@@ -2,4 +2,20 @@ title: Site
 
 sections:
   pages:
+    label:
+      de: Seiten
+      en: Pages
     type: pages
+  fields:
+    type: fields
+    fields:
+      description:
+        label:
+          de: Beschreibung
+          en: Description
+        type: text
+      footerNav:
+        label:
+          de: Seiten im Seitenfuß
+          en: Pages liste in the footer
+        type: pages
